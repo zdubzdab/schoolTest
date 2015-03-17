@@ -1,0 +1,2 @@
+= form_for @event, html: { class: 'event-form', multipart: true } do |f|
+  = f.hidden_field :assigner_name, value: @current_user.full_name

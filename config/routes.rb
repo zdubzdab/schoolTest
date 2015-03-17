@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  xhr = Proc.new { |r| r.xhr? }
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  resources 'tests' do
+    collection do
+      get 'search_tests', constraints: xhr
+    end
+  end
+
+  get '/sub_records' => 'application#sub_records'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

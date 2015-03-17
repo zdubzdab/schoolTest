@@ -1,0 +1,9 @@
+- @tests.each do |test|
+  tr
+    td= test.description
+    td= test.max_tried_count
+    td= test.time_to_pass
+    td
+      = link_to 'Редагувати', [:edit, test]
+      '
+      = link_to 'Видалити', [test], data: {confirm: "Ви впевнені, що хочете видалити цей тест?"}, method: :delete

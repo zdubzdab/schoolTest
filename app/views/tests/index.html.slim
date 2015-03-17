@@ -1,0 +1,9 @@
+.select_form
+  = form_for :test, url: {action: "search_tests"}, method: 'get', class: 'select-form' do |f|
+    = select_tag :klass, options_for_select(klass_options), {prompt: 'Виберіть клас', class: "klass-selector"}
+    = select_tag :subject, "", {prompt: 'Виберіть предмет', class: "subject-selector"}
+    = f.select(:theme_id, '', {prompt: 'Виберіть тему'})
+    = f.submit 'Показати', class: 'show-tests'
+  .new-item
+    = link_to 'Додати тест', [:new, :test], class: 'hiddenClass', id: 'add-test'
+.table
