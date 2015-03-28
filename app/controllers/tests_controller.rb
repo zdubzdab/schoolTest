@@ -1,13 +1,18 @@
 class TestsController < ApplicationController
   # before_filter :prepare_params, only: :search_tests
   load_and_authorize_resource
+  include ApplicationHelper
 
-  def index
-    
+  def new
+    params_for_new_ticket
+    @test = Test.new(subject_id: session[:filter].try(:[], 'subject'))
+    # binding.pry
   end
 
   def search_tests
-    @tests = Test.with_theme(params[:test][:theme_id]) rescue nil
+    theme_id = params[:test].try(:[], :theme_id)
+    @tests = Test.with_theme( params[:test].try(:[], :theme_id) )
+    view_context.merge_filter_session_params({class_calles: 'theme', calles_value: theme_id }) unless theme_id.blank?
     if @tests.blank?
       render partial: 'record_not_found', layout: false
     else
@@ -28,7 +33,6 @@ class TestsController < ApplicationController
     end
 
     def prepare_params
-      # binding.pry
-      # {"utf8"=>"✓", "klass"=>"1", "subject"=>"2", "test"=>{"theme_id"=>"2"}
+      
     end
 end

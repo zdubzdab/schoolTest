@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def sub_records
     @options = params[:class_caller].humanize.strip.constantize.send( "for_#{params[:class_calles].strip}", params[:calles_value])
+    view_context.merge_filter_session_params params
     render text: view_context.options_from_collection_for_select(@options, :id, :name)
   end
 end

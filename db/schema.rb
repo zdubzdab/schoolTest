@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308172749) do
+ActiveRecord::Schema.define(version: 20150328223645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_settings", force: :cascade do |t|
+    t.integer "question_id"
+    t.boolean "rigth"
+    t.string  "name"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "answer_setting_id"
+  end
 
   create_table "klasses", force: :cascade do |t|
     t.string   "name"
@@ -29,15 +40,22 @@ ActiveRecord::Schema.define(version: 20150308172749) do
     t.integer  "klass_id"
   end
 
-  create_table "tests", force: :cascade do |t|
+  create_table "test_settings", force: :cascade do |t|
     t.string   "complete_pers"
     t.integer  "max_tried_count"
     t.text     "description"
     t.datetime "time_to_pass"
-    t.boolean  "multipple_ans"
     t.integer  "theme_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "name"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "test_setting_id"
+    t.integer  "user_id"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -67,5 +85,10 @@ ActiveRecord::Schema.define(version: 20150308172749) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "answer_id"
+  end
 
 end

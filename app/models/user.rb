@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :tests
+  has_many :answers
+  belongs_to :klass
+
   validates_presence_of :full_name
   validates_presence_of :klass_id, unless: :i_am_not_teacher
 

@@ -3,4 +3,5 @@ class Theme < ActiveRecord::Base
   has_many :tests
 
   scope :for_subject, -> (subject_id){ where('subject_id = ?', subject_id) }
+
 end

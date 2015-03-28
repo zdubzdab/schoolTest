@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # TODO add admin namespase for teacher
+
   get '/sub_records' => 'application#sub_records'
 
   # Example of regular route:
