@@ -1,8 +1,8 @@
 - @tests.each do |test|
   tr
+    td= test.id
     td= test.description
-    td= test.max_tried_count
-    td= test.time_to_pass
+    td= test.user.try(:full_name)
     td
       = link_to 'Редагувати', [:edit, test]
       '

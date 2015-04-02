@@ -12,7 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
-  # TODO add admin namespase for teacher
+  namespace 'teacher' do
+    resources 'tests' do
+      collection do
+        get 'search_tests', constraints: xhr
+      end
+    end
+  end
 
   get '/sub_records' => 'application#sub_records'
 
