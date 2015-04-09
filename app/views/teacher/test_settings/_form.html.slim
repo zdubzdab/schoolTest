@@ -1,13 +1,16 @@
-= form_for [:teacher, @test_setting], html: { multipart: true } do |f|
-  .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :description
-    = f.text_field :description, class: 'form-control'
-  .form-group
-    = f.label :time_to_pass
-    = f.number_field :time_to_pass, class: 'form-control'
-  .form-group
-    = f.label :max_tried_count
-    = f.number_field :max_tried_count, in: 1...10, class: 'form-control'
+.col-md-4
+.col-md-4
+  = form_for [:teacher, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      = f.label :time_to_pass
+      = f.number_field :time_to_pass, class: 'form-control'
+    .form-group
+      = f.label :max_tried_count
+      = f.number_field :max_tried_count, in: 1...10, class: 'form-control'
+.col-md-4
