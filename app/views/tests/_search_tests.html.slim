@@ -1,9 +1,0 @@
-- @tests.each do |test|
-  tr
-    td= test.id
-    td= test.description
-    td= test.user.try(:full_name)
-    td
-      = link_to 'Редагувати', [:edit, test]
-      '
-      = link_to 'Видалити', [test], data: {confirm: "Ви впевнені, що хочете видалити цей тест?"}, method: :delete

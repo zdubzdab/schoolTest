@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   end
 
   namespace 'teacher' do
-    resources 'tests' do
+    resources 'test_settings' do
       collection do
-        get 'search_tests', constraints: xhr
+        get 'search_test_settings', constraints: xhr
       end
     end
   end

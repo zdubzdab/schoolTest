@@ -1,11 +1,11 @@
 module ApplicationHelper
   def theme_options filter_session
-    themes = Theme.for_subject filter_session['subject']
+    themes = Theme.for_subject filter_session.try(:[], 'subject')
     themes.any? ? themes.map{|s| [s.name, s.id]} : []
   end
 
   def subject_options filter_session
-    subjects = Subject.for_klass filter_session['klass']
+    subjects = Subject.for_klass filter_session.try(:[], 'klass')
     subjects.any? ? subjects.map{|s| [s.name, s.id]} : []
   end
 

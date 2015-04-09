@@ -1,5 +1,5 @@
 .select_form
-  = form_for :test, url: {action: "search_tests"}, method: 'get', class: 'select-form' do |f|
+  = form_for :test, url: {action: "search_test_settings"}, method: 'get', class: 'select-form' do |f|
     = select_tag :klass, options_for_select(klass_options, session[:filter].try(:[], 'klass')), {prompt: 'Виберіть клас', class: "klass-selector"}
     = select_tag :subject, options_for_select(subject_options(session[:filter]), session[:filter].try(:[], 'subject') ), {prompt: 'Виберіть предмет', class: "subject-selector"}
     = f.select(:theme_id, options_for_select(theme_options(session[:filter]), session[:filter].try(:[], 'theme') ), {prompt: 'Виберіть тему'})

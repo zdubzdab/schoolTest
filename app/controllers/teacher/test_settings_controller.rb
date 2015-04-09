@@ -1,26 +1,32 @@
-class Teacher::TestsController < ApplicationController
+class Teacher::TestSettingsController < ApplicationController
   load_and_authorize_resource
   include ApplicationHelper
+  layout 'application'
+
+  def index
+
+  end
 
   def new
     params_for_new_ticket
-    @test = Test.new(subject_id: session[:filter].try(:[], 'subject'))
-    # binding.pry
+    # @test_setting = TestSetting.new(subject_id: session[:filter].try(:[], 'subject'))
   end
 
-  def search_tests
+  def search_test_settings
     theme_id = params[:test].try(:[], :theme_id)
-    @tests = Test.with_theme( params[:test].try(:[], :theme_id) )
+    @test_settings = TestSetting.with_theme( params[:test].try(:[], :theme_id) )
     view_context.merge_filter_session_params({class_calles: 'theme', calles_value: theme_id }) unless theme_id.blank?
-    if @tests.blank?
+    if @test_settings.blank?
       render partial: 'record_not_found', layout: false
     else
-      render partial: 'search_tests', layout: false
+      render partial: 'search_test_settings', layout: false
     end
   end
 
   def edit
-    render partial: 'form'
+    @test_settings= TestSetting.find(params[:id])
+    @test = @test_setting.test
+    render '_form'
   end
 
   private

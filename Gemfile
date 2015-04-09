@@ -35,11 +35,10 @@ gem 'thin'
 gem 'cancancan'
 gem 'progress_bar'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', :platforms => :ruby
-
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'friendly_id', '>= 5.0'
 
 # Use ActiveModel has_secure_password

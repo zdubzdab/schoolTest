@@ -1,0 +1,7 @@
+- @test_settings.each do |ts|
+  tr
+    td= ts.name
+    td
+      = link_to 'Редагувати', [:edit, :teacher, ts]
+      '
+      = link_to 'Видалити', [:teacher, ts], data: {confirm: "Ви впевнені, що хочете видалити цей тест?"}, method: :delete
