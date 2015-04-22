@@ -17,4 +17,4 @@
 /tmp
 /.idea
 /todo.txt
-/config/database.yml
+config/database*
