@@ -5,8 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# natalia.turok1105@gmail.com
 
-teacher = User.create_with(admin: true, full_name: 'Турок Наталія', password: '123123123').find_or_create_by(email: 'natalia.turok1105@gmail.com')
+teacher = User.create_with(admin: true, full_name: 'Адмін Адмін', password: '123123123').find_or_create_by(email: 'admin.admin@gmail.com')
 
 %w[перший другий третій четвертий п’ятий шостий сьомий восьмий дев’ятий десятий одинадцятий].each do |i|
   Klass.find_or_create_by(name: i)

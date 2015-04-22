@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   include ApplicationHelper
 
   def new
-    params_for_new_ticket
+    # params_for_new_ticket
     @test = Test.new(subject_id: session[:filter].try(:[], 'subject'))
     # binding.pry
   end
