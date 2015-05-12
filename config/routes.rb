@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  match '/teacher/test_settings',    to: 'teacher/questions#create',    via:  [:post]
+  match '/teacher/test_settings',    to: 'teacher/questions#destroy',    via:  [:delete]
+
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

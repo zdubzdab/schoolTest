@@ -4,7 +4,7 @@ class Teacher::TestSettingsController < ApplicationController
   layout 'application'
 
   def index
-
+    @questions = Question.all
   end
 
   def new
@@ -13,6 +13,7 @@ class Teacher::TestSettingsController < ApplicationController
   end
 
   def search_test_settings
+
     theme_id = params[:test].try(:[], :theme_id)
     @test_settings = TestSetting.with_theme( params[:test].try(:[], :theme_id) )
     view_context.merge_filter_session_params({class_calles: 'theme', calles_value: theme_id }) unless theme_id.blank?
@@ -24,7 +25,7 @@ class Teacher::TestSettingsController < ApplicationController
   end
 
   def edit
-    @test_settings= TestSetting.find(params[:id])
+    @test_settings = TestSetting.find(params[:id])
     @test = @test_setting.test
     render '_form'
   end

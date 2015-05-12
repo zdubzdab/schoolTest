@@ -1,0 +1,7 @@
+.col-md-4
+h1 Questions
+- @questions.each do |question|
+  ol.list
+    b = question.text
+    = link_to 'Destroy', { controller: "teacher/questions", action: "destroy", id: question.id }, method: :delete, data: { confirm: 'Are you sure?' }
+    p Create answer

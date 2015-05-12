@@ -35,3 +35,5 @@ $ ->
       $(@).empty().html("<option>#{el.html()}</option>")
     $('#add-test').hide()
     $('.table').html('')
+
+    
