@@ -1,7 +1,14 @@
-.col-md-4
-h1 Questions
-- @questions.each do |question|
-  ol.list
-    b = question.text
+.col-md-8
+  h1 Questions
+  - @questions.each do |question|
+    ol.list
+      b = question.text
+    /.  b = question.answer_settings
+    /. b = question.answer_settings.map(&:name).join(', ')
+    /.  = link_to 'Destroy', { controller: "teacher/questions", action: "destroy", id: question.id }, method: :delete, data: { confirm: 'Are you sure?' }
 
-    p Create answer
+
+
+
+
+

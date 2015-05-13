@@ -16,7 +16,7 @@ class Teacher::QuestionsController < ApplicationController
         format.html { redirect_to teacher_test_settings_path }
       else
         format.html { render partial: "form" }
-        # format.js
+        format.js
         end
     end
   end
@@ -33,6 +33,6 @@ class Teacher::QuestionsController < ApplicationController
     private
 
     def question_params
-      params.require(:question).permit(:text, :question_id, :id, :user_id)
+      params.require(:question).permit(:text, :question_id, :id, :answer_setting)
     end
 end

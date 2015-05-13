@@ -1,4 +1,3 @@
-
 .select_form
   = form_for :test, url: {action: "search_test_settings"}, method: 'get', class: 'select-form' do |f|
     = select_tag :klass, options_for_select(klass_options, session[:filter].try(:[], 'klass')), {prompt: 'Виберіть клас', class: "klass-selector"}
@@ -8,7 +7,9 @@
     = link_to 'Додати тест', [:new, :test]
 .table
 
-h3 Create question
-= render 'teacher/questions/form'
 
+= render 'teacher/questions/form'
+= render 'teacher/answer_settings/form'
 = render 'teacher/questions/question'
+
+= console

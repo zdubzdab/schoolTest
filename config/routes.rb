@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'answer_settings/new'
+
+  get 'answer_settings/create'
+
   match '/teacher/test_settings',    to: 'teacher/questions#create',    via:  [:post]
   match '/teacher/test_settings',    to: 'teacher/questions#destroy',    via:  [:delete]
+
+  match '/teacher/test_settings',    to: 'teacher/answer_settings#create',    via:  [:post]
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.

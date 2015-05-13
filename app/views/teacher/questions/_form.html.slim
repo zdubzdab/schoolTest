@@ -1,8 +1,11 @@
-.select_form
-  = form_for :question, url: {controller: "questions", action: "create"}, method: 'post' do |f|
+.col-md-6#question
+  h3 Create question 
+  .select_form
+    = form_for :question, url: {controller: "questions", action: "create"}, method: 'post' do |f|
 
-    .form-group
-       = f.label :text
-       = f.text_field :text
-    .form-group
-      = f.submit
+      .form-group
+         = f.label :text
+         br
+         = f.text_field :text
+      .actions
+        = f.submit

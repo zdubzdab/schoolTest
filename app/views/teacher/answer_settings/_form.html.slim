@@ -1,0 +1,14 @@
+.col-md-6#answer
+  h3 Create answer
+  .select_form
+    = form_for :answer_setting, url: {controller: "answer_settings", action: "create"}, method: 'post' do |f|
+
+      .form-group
+         = f.label :name
+         = f.text_field :name
+      .form-group
+        = f.label :question_id, "Users' emails"
+        br/
+        = f.select :question_id, Question.all.map{|u| [u.text, u.id]}
+      .actions
+        = f.submit
