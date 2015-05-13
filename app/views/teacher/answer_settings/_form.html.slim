@@ -7,7 +7,7 @@
          = f.label :name
          = f.text_field :name
       .form-group
-        = f.label :question_id, "Users' emails"
+        = f.label :question_id, "Choose question"
         br/
         = f.select :question_id, Question.all.map{|u| [u.text, u.id]}
       .actions
