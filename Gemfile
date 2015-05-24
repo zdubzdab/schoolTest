@@ -35,7 +35,6 @@ gem 'thin'
 gem 'cancancan'
 gem 'progress_bar'
 
-gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
