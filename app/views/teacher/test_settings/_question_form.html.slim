@@ -1,0 +1,6 @@
+.question-fields
+  = fields_for "question_attributes[]", @test_setting.questions do |qf|
+    = qf.label :text
+    = qf.text_field :text
+  .action-buttons
+    = qf.link_to 'X', '#'

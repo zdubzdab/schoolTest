@@ -4,12 +4,12 @@
     = select_tag :subject, options_for_select(subject_options(session[:filter]), session[:filter].try(:[], 'subject') ), {prompt: 'Виберіть предмет', class: "subject-selector"}
     = f.select(:theme_id, options_for_select(theme_options(session[:filter]), session[:filter].try(:[], 'theme') ), {prompt: 'Виберіть тему'})
   .new-item
-    = link_to 'Додати тест', [:new, :test]
+    = link_to 'Додати тест', [:new, :teacher, :test_setting]
 .table
 
 
-= render 'teacher/questions/form'
-= render 'teacher/answer_settings/form'
-= render 'teacher/questions/question'
+/ = render 'teacher/questions/form'
+/ = render 'teacher/answer_settings/form'
+/ = render 'teacher/questions/question'
 
 = console

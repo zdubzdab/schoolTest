@@ -1,31 +1,21 @@
 Rails.application.routes.draw do
-
-  get 'answer_settings/new'
-
-  get 'answer_settings/create'
-
-  match '/teacher/test_settings',    to: 'teacher/questions#create',    via:  [:post]
-  match '/teacher/test_settings',    to: 'teacher/questions#destroy',    via:  [:delete]
-
-  match '/teacher/test_settings',    to: 'teacher/answer_settings#create',    via:  [:post]
-
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  xhr = Proc.new { |r| r.xhr? }
-
   # You can have the root of your site routed with "root"
+
   root 'welcome#index'
   resources 'tests' do
     collection do
-      get 'search_tests', constraints: xhr
+      get 'search_tests'
     end
   end
 
   namespace 'teacher' do
     resources 'test_settings' do
       collection do
-        get 'search_test_settings', constraints: xhr
+        get 'add_question'
+        get 'search_test_settings'
       end
     end
   end

@@ -1,5 +1,5 @@
 class Teacher::TestSettingsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   include ApplicationHelper
   layout 'application'
 
@@ -8,8 +8,17 @@ class Teacher::TestSettingsController < ApplicationController
   end
 
   def new
-    params_for_new_ticket
-    # @test_setting = TestSetting.new(subject_id: session[:filter].try(:[], 'subject'))
+    @test_setting = TestSetting.new(subject_id: session[:filter].try(:[], 'subject'), klass_id: session[:filter].try(:[], 'klass'), theme_id: session[:filter].try(:[], 'theme'))
+  end
+
+  def create
+    @test_setting = TestSetting.new(test_settings_params)
+
+    if @test_setting.save
+      redirect_to [:teacher, :test_settings]
+    else
+      render 'form'
+    end
   end
 
   def search_test_settings
@@ -24,6 +33,12 @@ class Teacher::TestSettingsController < ApplicationController
     end
   end
 
+  def add_question
+    @test_setting = TestSetting.new
+    @test_setting.questions.build
+    render partial: 'question_form', layout: false, locals: {test_setting: @test_setting}
+  end
+
   def edit
     @test_settings = TestSetting.find(params[:id])
     @test = @test_setting.test
@@ -31,10 +46,7 @@ class Teacher::TestSettingsController < ApplicationController
   end
 
   private
-
-    def tests_params
-      params.require(:test).permit(:klass, :subject, :theme_id)
-      # params.require(:test).permit(:stuff_id, :subject, :description, customer_attributes: [:first_name, :last_name, :email, :guest], comments_attributes: [:message, :user_id, :parent_id])
-
+    def test_settings_params
+      params.require(:test_setting).permit( :klass_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, questions_attributes: [:text] )
     end
 end

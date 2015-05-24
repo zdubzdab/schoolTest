@@ -2,6 +2,15 @@
 .col-md-4
   = form_for [:teacher, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
     .form-group
+      = f.label :klass_id
+      = f.select :klass_id, all_klass_options, class: 'form-control'
+    .form-group
+      = f.label :subject_id
+      = f.select :subject_id, all_subject_options, class: 'form-control'
+    .form-group
+      = f.label :theme_id
+      = f.select :theme_id, all_theme_options, class: 'form-control'
+    .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control'
     .form-group
@@ -13,4 +22,11 @@
     .form-group
       = f.label :max_tried_count
       = f.number_field :max_tried_count, in: 1...10, class: 'form-control'
+    .form-group
+      - @test_setting.questions.any?
+        - @test_setting.questions.each do |question|
+          = render 'question_form', f: f, question: question
+      = link_to 'Add Question', add_question_teacher_test_settings_path(@test_setting), id: 'add-question'
+    .form-group
+      = f.submit 'Save Test'
 .col-md-4

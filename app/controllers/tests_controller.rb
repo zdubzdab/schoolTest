@@ -13,10 +13,12 @@ class TestsController < ApplicationController
     theme_id = params[:test].try(:[], :theme_id)
     @tests = Test.with_theme( params[:test].try(:[], :theme_id) )
     view_context.merge_filter_session_params({class_calles: 'theme', calles_value: theme_id }) unless theme_id.blank?
-    if @tests.blank?
-      render partial: 'record_not_found', layout: false
-    else
-      render partial: 'search_tests', layout: false
+    respond_to do |format|
+      if @tests.blank?
+        format.js {render partial: 'record_not_found', layout: false}
+      else
+        format.js {render partial: 'search_tests', layout: false}
+      end
     end
   end
 
