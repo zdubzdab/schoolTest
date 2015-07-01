@@ -7,6 +7,10 @@ gem 'sinatra'
 gem "activerecord"
 gem "rake"
 gem "sinatra-activerecord"
+gem "shotgun"
+gem "sinatra-flash"
+gem "bcrypt"
+gem "slim"
 
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,13 +38,12 @@ gem 'paper_trail'
 
 gem 'pg'
 
-gem 'devise'
 gem 'thin'
 gem 'cancancan'
 gem 'progress_bar'
 
 # gem 'twitter-bootstrap-rails'
-gem "therubyracer"
+# gem "therubyracer"
 gem 'friendly_id', '>= 5.0'
 
 # Use ActiveModel has_secure_password
