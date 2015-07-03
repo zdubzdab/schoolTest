@@ -11,8 +11,14 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' use.typekit.net",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
+    'simple-auth-devise': {
+      serverTokenEndpoint: '/api/v1/users/sign_in',
+      identificationAttributeName: 'email',
+      tokenAttributeName: 'token'
+    },
+
     'simple-auth': {
-      authorizer: 'simple-auth-authorizer:warden'
+      authorizer: 'simple-auth-authorizer:devise'
     },
     modulePrefix: 'frontend',
     environment: environment,

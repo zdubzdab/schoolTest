@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class User < ActiveRecord::Base
   include BCrypt
 
@@ -9,7 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :klass_id, unless: :i_am_not_teacher
 
   def password=(value)
-    BCrypt::Password.create(value)
+    write_attribute(:password, BCrypt::Password.create(value))
   end
 
   def authenticate(attempted_password)
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
 
   def i_am_not_teacher
     self.admin
+  end
+
+  def generate_auth_token
+    self.auth_token = SecureRandom.hex
   end
 end
