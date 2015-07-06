@@ -1,52 +1,4 @@
-require 'bundler/setup'
-require 'sinatra/base'
-require 'sinatra/activerecord'
-require './environments'
-require "slim"
-require 'pry'
-Dir["./models/*.rb"].each {|file| require file }
-
-class SinatraAPI < Sinatra::Base
-
-  configure do
-    set :environment, :development
-    set :session_secret, "public sinatra app"
-
-    # set :auth do |bool|
-    #   condition do
-    #     redirect '/login' unless logged_in?
-    #   end
-    # end
-  end
-
-  before '/*' do
-    # authenticated = authenticate_with_http_token do |user_token, options|
-    #   user_email = options[:user_email].presence
-    #   user       = user_email && User.find_by_email(user_email)
-
-    #   if user && Devise.secure_compare(user.authentication_token, user_token)
-    #     sign_in user, store: false
-    #   else
-    #     render json: 'Invalid authorization.'
-    #   end
-    # end
-
-    # if !authenticated
-    #   render json: 'No authorization provided.'
-    # end
-  end
-
-  get '/' do
-    slim :index
-  end
-
-  get '/api/v1/themes' do
-    protected!
-    content_type :json
-    {themes: Theme.all}.to_json
-  end
-
-
+module LoginManagement
   helpers do
     def protected!
       return if authorized?
@@ -63,10 +15,6 @@ class SinatraAPI < Sinatra::Base
   post '/api/v1/users/sign_in' do
     # TODO: need to autorize user
     env['warden'].authenticate!
-  end
-
-  post '/api/v1/users/unauthenticated' do
-    halt 401, "User is Unauthenticated"
   end
 
   # some snipet
@@ -125,5 +73,6 @@ class SinatraAPI < Sinatra::Base
   #   flash[:error] = env['warden'].message || "You must log in"
   #   redirect '/auth/login'
   # end
-
 end
+
+register LoginManagement

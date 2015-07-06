@@ -58,7 +58,5 @@ use Warden::Manager do |config|
     action: 'auth/unauthenticated'
   # When a user tries to log in and cannot, this specifies the
   # app to send the user to.
-  # TODO: something wrong with that
   config.failure_app = self
 end
-
