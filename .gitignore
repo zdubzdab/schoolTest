@@ -17,5 +17,6 @@
 /tmp
 /.idea
 /todo.txt
+/api/tmp
 
 config/database.yml
