@@ -1,27 +1,31 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  # devise_for :users, :controllers => { :registrations => "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
 
   root 'welcome#index'
 
-  resources 'tests' do
-    collection do
-      get 'search_tests'
-    end
-  end
+  devise_for :users, controllers: { sessions: 'sessions' }
 
-  namespace 'teacher' do
-    resources 'test_settings' do
-      collection do
-        get 'add_question'
-        get 'search_test_settings'
-      end
-    end
-  end
+  namespace :api do
+    # resources 'tests' do
+    #   collection do
+    #     get 'search_tests'
+    #   end
+    # end
 
-  get '/sub_records' => 'application#sub_records'
+    # resources 'klasses', only: :index
+
+    # namespace 'teacher' do
+    #   resources 'test_settings' do
+    #     collection do
+    #       get 'add_question'
+    #       get 'search_test_settings'
+    #     end
+    #   end
+    # end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('registration');
   // protected route that's inaccessible without authentication
   this.route('protected');
 });

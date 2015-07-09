@@ -11,19 +11,18 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' use.typekit.net",
       'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
-    'simple-auth-devise': {
-      serverTokenEndpoint: '/api/v1/users/sign_in',
-      identificationAttributeName: 'email',
-      tokenAttributeName: 'token'
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:devise',
+      store: 'simple-auth-session-store:local-storage'
     },
 
-    'simple-auth': {
-      authorizer: 'simple-auth-authorizer:devise'
+    'simple-auth-devise': {
+      // serverTokenEndpoint: '/login'
     },
+    locationType: 'hash',
     modulePrefix: 'frontend',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -9,9 +9,9 @@ var ApplicationAdapter = DS.ActiveModelAdapter.extend({
   },
   init: function() {
     this._super();
-    // this.headers = {
-    //   'X-CSRF-Token': Ember.$('meta[name="csrf-token"]').attr('content')
-    // }
+    this.headers = {
+      'X-CSRF-Token': Ember.$('meta[name="csrf-token"]').attr('content')
+    }
   }
 });
 
