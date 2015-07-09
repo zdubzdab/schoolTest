@@ -18,5 +18,6 @@
 /.idea
 /todo.txt
 /api/tmp
+/api/log
 
 config/database.yml
