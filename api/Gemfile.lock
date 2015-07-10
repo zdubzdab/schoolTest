@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.9.3)
+      activemodel (>= 3.2)
     activejob (4.2.3)
       activesupport (= 4.2.3)
       globalid (>= 0.3.0)
@@ -92,6 +94,12 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
+    grape-active_model_serializers (1.3.2)
+      active_model_serializers (>= 0.9.0)
+      grape
+    grape-entity (0.4.5)
+      activesupport
+      multi_json (>= 1.3.2)
     guard (2.12.8)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -251,6 +259,8 @@ DEPENDENCIES
   font-awesome-rails
   friendly_id (>= 5.0)
   grape
+  grape-active_model_serializers
+  grape-entity
   guard
   guard-livereload
   jquery-rails

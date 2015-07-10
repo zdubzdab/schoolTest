@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :users, controllers: { sessions: 'sessions' }
+  mount SchoolTest::API => '/'
 
   namespace :api do
     # resources 'tests' do

@@ -3,18 +3,27 @@ import Ember from "ember";
 export default Ember.Route.extend({
   model: function() {
     return Ember.RSVP.hash({
-      klasses: this.store.findAll('klass')
+      klasses: this.store.find('klass'),
+      newUser: this.store.createRecord('user')
     });
   },
 
-  actions: {
-    registration: function() {
-      
-      // var credentials = this.getProperties('identification', 'password');
-      // this.get('session').authenticate('simple-auth-authenticator:device', credentials);
-    }
-  },
   setupController: function(controller, model) {
     controller.set("klasses", model.klasses);
+    controller.set("user", model.newUser);
   }
+
+  // Cleanup the controller, when you leave the new route so the stale new record is also
+  // removed from the store.
+  // You can also use https://github.com/dockyard/ember-data-route instead
+  // resetController: function (controller, isExiting) {
+  //   var model = controller.get('model');
+
+  //   if (!model.get('isDeleted') && isExiting && model.get('isNew')) {
+  //     model.deleteRecord();
+  //   } else {
+  //     model.rollback();
+  //   }
+  // }
+
 });
