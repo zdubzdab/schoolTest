@@ -23,10 +23,10 @@ var RegistrationUserMixin = Ember.Mixin.create(EmberValidations.Mixin, {
     klass: {
       inline: EmberValidations.validator(function() {
         var selectedKlass = this.get('selectedKlass');
-
-        if ( selectedIsBlank ) {
+        debugger;
+        if ( selectedKlass == null ) {
           return "can`t be blank";
-        };
+        }
       })
     }
   },

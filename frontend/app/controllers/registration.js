@@ -3,7 +3,7 @@ import RegistrationUserMixin from "frontend/mixins/registration";
 import EmberValidations from 'ember-validations';
 
 export default Ember.ObjectController.extend(RegistrationUserMixin, {
-  selectedKlass: ''
+  selectedKlass: '',
 
   klasses: function() {
     return this.get('klasses');
