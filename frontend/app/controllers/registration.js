@@ -1,10 +1,8 @@
 import Ember from 'ember';
 import RegistrationUserMixin from "frontend/mixins/registration";
-import EmberValidations from 'ember-validations';
 
 export default Ember.ObjectController.extend(RegistrationUserMixin, {
   selectedKlass: '',
-
   klasses: function() {
     return this.get('klasses');
   },
@@ -13,5 +11,9 @@ export default Ember.ObjectController.extend(RegistrationUserMixin, {
     registration: function(){
       this.registerUser.apply(this);
     }
-  }
+  },
+
+  selectedKlassDidChange: function(){
+    this.get('model').get('klass').set('id', this.get('selectedKlassId'))
+  }.observes('selectedKlass')
 });

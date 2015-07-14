@@ -21,20 +21,13 @@ var RegistrationUserMixin = Ember.Mixin.create(EmberValidations.Mixin, {
       }
     },
     klass: {
-      inline: EmberValidations.validator(function() {
-        var selectedKlass = this.get('selectedKlass');
-        debugger;
-        if ( selectedKlass == null ) {
-          return "can`t be blank";
-        }
-      })
+      presence: true
     }
   },
 
   registerUser: function(){
     var _this = this;
     var user = this.get('model');
-    // debugger;
 
     _this.validate().then(function() {
       user.save().then(
@@ -44,6 +37,7 @@ var RegistrationUserMixin = Ember.Mixin.create(EmberValidations.Mixin, {
           console.log(error);
         });
     }).catch(function() {
+      user.get('errors').clear();
       $.each( Ember.keys(user.toJSON()), function( index, value ) {
         user.get('errors').add( value, _this.get('errors')[value] );
       });

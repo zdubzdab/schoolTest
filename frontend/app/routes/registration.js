@@ -2,15 +2,20 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   model: function() {
+    var user = this.store.createRecord('user');
+    var newKlass = this.store.createRecord('klass');
+
     return Ember.RSVP.hash({
-      klasses: this.store.find('klass'),
-      user: this.store.createRecord('user')
+      klasses: this.store.find('klass').then(function(klasses){
+        return klasses.filterBy('isNew', false)
+      }),
+      user: user
     });
   },
 
   setupController: function(controller, model) {
-    controller.set("klasses", model.klasses);
-    controller.set("model", model.user);
+    controller.set('klasses', model.klasses);
+    controller.set('model', model.user);
   }
 
   // Cleanup the controller, when you leave the new route so the stale new record is also
