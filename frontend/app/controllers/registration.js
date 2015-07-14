@@ -1,22 +1,17 @@
 import Ember from 'ember';
+import RegistrationUserMixin from "frontend/mixins/registration";
+import EmberValidations from 'ember-validations';
 
-export default Ember.ObjectController.extend({
+export default Ember.ObjectController.extend(RegistrationUserMixin, {
+  selectedKlass: ''
+
   klasses: function() {
     return this.get('klasses');
   },
 
   actions: {
     registration: function(){
-      var user = this.get('user');
-
-      debugger;
-
-      // var user = this.store.createRecord('user', {
-      //   email: email,
-      //   password: password
-      // });
-
-      // user.save();
+      this.registerUser.apply(this);
     }
   }
 });
