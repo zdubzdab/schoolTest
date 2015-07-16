@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('registration');
   // protected route that's inaccessible without authentication
   this.route('protected');
+
+  this.route('tests');
 });
 
 export default Router;

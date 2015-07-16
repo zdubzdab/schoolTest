@@ -1,6 +1,7 @@
 require 'grape'
 
-module SchoolTest
+module API
+
   module Entities
 
     class Klass < Grape::Entity
@@ -8,4 +9,5 @@ module SchoolTest
       expose :name, :documentation => {:type => "string", :desc => "Klass name"}
     end
   end
+
 end
