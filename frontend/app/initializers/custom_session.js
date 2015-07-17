@@ -7,12 +7,11 @@ export default {
   initialize: function(container) {
     Session.reopen({
       setCurrentUser: function() {
-        debugger;
-        var id = this.get("user_id");
-        var self = this;
-
-        if (!Ember.isEmpty(id)) {
-          return container.lookup("store:main").find("user", id).then(function(user) {
+        // var email = JSON.parse(localStorage.getItem('ember_simple_auth:session')).secure.email;
+        console.log('custom-session');
+        var id = JSON.parse(localStorage.getItem('ember_simple_auth:session')).secure.user_id
+        if( !Ember.isEmpty(id) ){
+          return container.lookup("store:main").find("user", id ).then(function(user) {
             self.set("currentUser", user);
           });
         }
