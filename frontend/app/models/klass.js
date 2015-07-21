@@ -5,17 +5,17 @@ var Klass = DS.Model.extend({
 });
 
 // NOTICE: fixtures block.Remove in a future.
-// Klass.reopenClass({
-//   FIXTURES: [
-//     {
-//       id: 1,
-//       name: "First Class",
-//     },
-//     {
-//       id: 2,
-//       name: "Second Class",
-//     }
-//   ]
-// });
+Klass.reopenClass({
+  FIXTURES: [
+    {
+      id: 7,
+      name: "seven   Class",
+    },
+    {
+      id: 2,
+      name: "Second Class",
+    }
+  ]
+});
 
 export default Klass;

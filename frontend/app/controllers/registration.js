@@ -61,7 +61,6 @@ export default Ember.ObjectController.extend(EmberValidations.Mixin, {
     },
 
     successAuth: function(){
-      debugger;
       var credentials = this.getProperties('identification', 'password');
       this.get('session').authenticate('simple-auth-authenticator:devise', credentials);
       this.transitionToRoute('index');
@@ -73,6 +72,6 @@ export default Ember.ObjectController.extend(EmberValidations.Mixin, {
   },
 
   selectedKlassDidChange: function(){
-    this.get('model').get('klass').set('id', this.get('selectedKlassId'))
+    this.get('model').get('klass').set('id', this.get('selectedKlassId'));
   }.observes('selectedKlass')
 });

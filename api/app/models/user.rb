@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :tests
   has_many :answers
-  belongs_to :klass
+  belongs_to :category, class_name: 'Klass', foreign_key: 'klass_id'
 
   validates_presence_of :full_name
   validates_presence_of :klass_id, unless: :i_am_teacher?
@@ -29,5 +29,13 @@ class User < ActiveRecord::Base
         break token unless User.where(authentication_token: token).first
       end
     end
+
+  class Entity < Grape::Entity
+    expose :id
+    expose :full_name
+    expose :email
+    expose :category, using: Klass::Entity
+    expose :admin
+  end
 
 end

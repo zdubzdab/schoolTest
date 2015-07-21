@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       klasses: this.store.find('klass').then(function(klasses){
-        return klasses.filterBy('isNew', false)
+        return klasses.filterBy('isNew', false);
       }),
       user: user
     });

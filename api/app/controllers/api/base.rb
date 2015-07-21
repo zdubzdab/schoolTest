@@ -13,7 +13,7 @@ module API
       end
 
       # def authenticate!
-        
+        # NOTICE: possible cancan authorization
       # end
     end
 
@@ -26,6 +26,16 @@ module API
         get '', each_serializer:  KlassSerializer do
           @klass = Klass.all
           present @klass
+        end
+      end
+
+      resource :users do
+        get ':id' do
+          @user = User.find(params[:id])
+          present @user
+
+          # data = User::Entity.represent( @user, only: [ :id, :full_name, :email, { category: [:id] } ] )
+          # data.as_json
         end
       end
     end
