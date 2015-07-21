@@ -32,10 +32,10 @@ module API
       resource :users do
         get ':id' do
           @user = User.find(params[:id])
-          present @user
+          # present @user
 
-          # data = User::Entity.represent( @user, only: [ :id, :full_name, :email, { category: [:id] } ] )
-          # data.as_json
+          data = User::Entity.represent( @user, only: [ :id, :full_name, :email, { category: [:id] } ] )
+          data.as_json
         end
       end
     end

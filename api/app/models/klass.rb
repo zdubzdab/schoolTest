@@ -6,7 +6,7 @@ class Klass < ActiveRecord::Base
 
   class Entity < Grape::Entity
     expose :id
-    # expose :name
+    expose :name
   end
 
 end
