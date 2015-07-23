@@ -77,7 +77,7 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    ember-cli-rails (0.3.1)
+    ember-cli-rails (0.3.4)
       railties (>= 3.1, < 5)
       sprockets (>= 2.0)
     equalizer (0.0.11)
@@ -260,7 +260,7 @@ DEPENDENCIES
   better_errors
   cancancan
   devise
-  ember-cli-rails
+  ember-cli-rails (>= 0.3.4)
   font-awesome-rails
   friendly_id (>= 5.0)
   grape (~> 0.12)

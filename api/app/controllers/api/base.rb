@@ -32,10 +32,10 @@ module API
       resource :users do
         get ':id' do
           @user = User.find(params[:id])
+          data = User::Entity.represent( @user, except: [ { category: [ :created_at, :updated_at ] } ] )
+          # transform_relation_for('category', )
+          [data.as_json]
           # present @user
-
-          data = User::Entity.represent( @user, only: [ :id, :full_name, :email, { category: [:id] } ] )
-          data.as_json
         end
       end
     end

@@ -14,12 +14,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     var user;
     const user_id = session.user_id;
     console.log("_populateCurrentUser");
-    
+
     self.store.find('user', user_id)
       .then( function(data){
         user = data;
       }.bind(self), function(error){
-        console.log(error);
+        console.log(error.stack);
+
       });
     console.log(user);
 

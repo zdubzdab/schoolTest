@@ -11,7 +11,7 @@ var User = DS.Model.extend({
 User.reopenClass({
   FIXTURES: [
   // id:7 name: 'lalalalal'
-      { id: 14, full_name: 'sdgfds@dsfgfsd.com', email: 'sdgfds@dsfgfsd.com', admin: false, category: {id: 7} },
+      { "id": "14", full_name: 'sdgfds@dsfgfsd.com', email: 'sdgfds@dsfgfsd.com', admin: null, "category": {"id": "7", "name": "sddsss"} },
       { id: 2, firstName: 'Tom' , lastName: 'Dale'     }
   ]
 });

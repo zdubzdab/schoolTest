@@ -9,7 +9,7 @@ Klass.reopenClass({
   FIXTURES: [
     {
       id: 7,
-      name: "seven   Class",
+      name: "seven Class",
     },
     {
       id: 2,
