@@ -7,10 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :tests
   has_many :answers
-  belongs_to :category, class_name: 'Klass', foreign_key: 'klass_id'
-
-  validates_presence_of :full_name
-  validates_presence_of :klass_id, unless: :i_am_teacher?
+  belongs_to :categgory, class_name: 'Klass', foreign_key: 'klass_id'
 
   def ensure_authentication_token
     if authentication_token.blank?

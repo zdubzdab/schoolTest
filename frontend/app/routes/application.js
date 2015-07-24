@@ -13,18 +13,17 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     var session = self.get('session.secure');
     var user;
     const user_id = session.user_id;
-    console.log("_populateCurrentUser");
 
     self.store.find('user', user_id)
       .then( function(data){
-        user = data;
+        return self.get('currentUser').set('content', data);
       }.bind(self), function(error){
         console.log(error.stack);
-
       });
-    console.log(user);
+  },
 
-    // return self.get('currentUser').set('content', user);
+  currentUserIsAdmin: function(){
+    return this.get('currentUser').admin === true;
   },
 
   actions: {

@@ -1,4 +1,6 @@
 class Klass < ActiveRecord::Base
+  include ActiveModel::Serialization
+
   has_many :subjects
   has_many :users
 

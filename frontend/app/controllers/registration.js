@@ -27,7 +27,7 @@ export default Ember.ObjectController.extend(EmberValidations.Mixin, {
         message: ' Please confirm your password'
       }
     },
-    klass: {
+    categgory: {
       presence: true
     }
   },

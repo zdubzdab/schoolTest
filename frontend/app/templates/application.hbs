@@ -1,19 +1,24 @@
 <h2 id="title">Welcome to Ember.js</h2>
-<div class="navbar-header">
-  {{#link-to 'index' classNames='navbar-brand'}}
-    Home
-  {{/link-to}}
-  {{currentUser.category.name}}
-  {{#link-to session.currentUser.full_name classNames='navbar-brand'}}
-    Tests
-  {{/link-to}}
-</div>
-
 {{#if session.isAuthenticated}}
   <a {{ action 'invalidateSession' }}>Logout</a>
 {{else}}
   {{#link-to 'login'}}Login{{/link-to}} or
   {{#link-to 'registration'}}Registration{{/link-to}}
 {{/if}}
+
+<div class="navbar-header">
+  {{#link-to 'index' classNames='navbar-brand'}}
+    Home
+  {{/link-to}}
+  {{#if currentUserIsAdmin}}
+    {{#link-to 'admin/tests' classNames='navbar-brand'}}
+      Tests
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'tests' classNames='navbar-brand'}}
+      Tests
+    {{/link-to}}
+  {{/if}}
+</div>
 
 {{outlet}}

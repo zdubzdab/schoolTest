@@ -15,16 +15,16 @@
     </div>
   {{/each}}
 
-  <label for="klass">Klass</label>
+  <label for="categgory">Klass</label>
   {{view "select"
     content=klasses
     prompt="Please select a class"
     optionValuePath="content.id"
     optionLabelPath="content.name"
-    selectionBinding="klass"
+    selectionBinding="categgory"
   }}
 
-  {{#each model.errors.klass as |error|}}
+  {{#each model.errors.categgory as |error|}}
     <div class="error">
       {{error.message}}
     </div>

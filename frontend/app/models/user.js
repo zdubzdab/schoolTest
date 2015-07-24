@@ -5,15 +5,15 @@ var User = DS.Model.extend({
   email: DS.attr('string'),
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
-  category: DS.belongsTo('klass', { async: true })
+  categgory: DS.belongsTo('klass')
 });
 
-User.reopenClass({
-  FIXTURES: [
-  // id:7 name: 'lalalalal'
-      { "id": "14", full_name: 'sdgfds@dsfgfsd.com', email: 'sdgfds@dsfgfsd.com', admin: null, "category": {"id": "7", "name": "sddsss"} },
-      { id: 2, firstName: 'Tom' , lastName: 'Dale'     }
-  ]
-});
+// User.reopenClass({
+//   FIXTURES: [
+//   // id:7 name: 'lalalalal'
+//       { "id": "14", full_name: 'sdgfds@dsfgfsd.com', email: 'sdgfds@dsfgfsd.com', admin: null, "category": {"id": "7", "name": "sddsss"} },
+//       { id: 2, firstName: 'Tom' , lastName: 'Dale'     }
+//   ]
+// });
 
 export default User;

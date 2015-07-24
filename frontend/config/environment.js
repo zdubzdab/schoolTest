@@ -17,7 +17,7 @@ module.exports = function(environment) {
     },
 
     'simple-auth-devise': {
-      // serverTokenEndpoint: '/login'
+      // serverTokenEndpoint: '/users/sign_in'
     },
     locationType: 'hash',
     modulePrefix: 'frontend',

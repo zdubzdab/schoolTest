@@ -7,14 +7,18 @@ module API
     format :json
     formatter :json, Grape::Formatter::ActiveModelSerializers
 
+    before do
+      #header "Allow", "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+    end
+
     helpers do
       def current_user
         @current_user ||= User.authorize!(env)
       end
 
-      # def authenticate!
-        # NOTICE: possible cancan authorization
-      # end
+      #def authenticate!
+        #binding.pry
+      #end
     end
 
     resource "/" do
@@ -23,9 +27,9 @@ module API
       end
 
       resource :klasses do
-        get '', each_serializer:  KlassSerializer do
-          @klass = Klass.all
-          present @klass
+        get '' do
+          @klasses = Klass.all
+          present @klasses
         end
       end
 
@@ -33,9 +37,7 @@ module API
         get ':id' do
           @user = User.find(params[:id])
           data = User::Entity.represent( @user, except: [ { category: [ :created_at, :updated_at ] } ] )
-          # transform_relation_for('category', )
           [data.as_json]
-          # present @user
         end
       end
     end
