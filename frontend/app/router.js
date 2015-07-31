@@ -12,6 +12,9 @@ Router.map(function() {
   this.route('protected');
 
   this.route('tests');
+  this.resource("admin", function() {
+    this.route('tests');
+  });
 });
 
 export default Router;

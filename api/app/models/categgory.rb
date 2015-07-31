@@ -1,7 +1,6 @@
-class Klass < ActiveRecord::Base
-  include ActiveModel::Serialization
-
-  has_many :subjects
+class Categgory < ActiveRecord::Base
+  # TODO: remove relation table
+  # has_many :subjects
   has_many :users
 
   validates_presence_of :name
@@ -10,5 +9,4 @@ class Klass < ActiveRecord::Base
     expose :id
     expose :name
   end
-
 end

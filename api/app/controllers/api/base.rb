@@ -8,7 +8,7 @@ module API
     formatter :json, Grape::Formatter::ActiveModelSerializers
 
     before do
-      #header "Allow", "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+
     end
 
     helpers do
@@ -26,19 +26,29 @@ module API
         # authenticate!
       end
 
-      resource :klasses do
-        get '' do
-          @klasses = Klass.all
-          present @klasses
+      # TODO: return categgories for user registration page
+      # resource :klasses do
+      #   get '' do
+      #     @klasses = Klass.all
+      #     present @klasses
+      #   end
+      # end
+
+      namespace :users do
+        get ':id' do
+          @user = User.find(params[:id])
+          data = User::Entity.represent( @user, except: [ { categgory: [ :created_at, :updated_at ] } ] )
+          [data.as_json]
+        end
+
+        post 'sign_in' do
+          super
         end
       end
 
-      resource :users do
-        get ':id' do
-          @user = User.find(params[:id])
-          data = User::Entity.represent( @user, except: [ { category: [ :created_at, :updated_at ] } ] )
-          [data.as_json]
-        end
+      get 'get_test_settings' do
+        @tests_settings = TestSetting.where( subject_id: params[:subject_id], categgory_id: params[:categgory_id] )
+        present @tests_settings
       end
     end
   end

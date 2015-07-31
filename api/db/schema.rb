@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706130511) do
+ActiveRecord::Schema.define(version: 20150729130040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,21 @@ ActiveRecord::Schema.define(version: 20150706130511) do
     t.integer "answer_setting_id"
   end
 
-  create_table "klasses", force: :cascade do |t|
+  create_table "categgories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "categgories_with_subjects", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "subject_id"
+    t.integer "categgory_id"
+  end
+
+  add_index "categgories_with_subjects", ["categgory_id"], name: "index_categgories_with_subjects_on_categgory_id", using: :btree
+  add_index "categgories_with_subjects", ["subject_id"], name: "index_categgories_with_subjects_on_subject_id", using: :btree
+  add_index "categgories_with_subjects", ["user_id"], name: "index_categgories_with_subjects_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text    "text"
@@ -45,6 +55,16 @@ ActiveRecord::Schema.define(version: 20150706130511) do
     t.integer  "klass_id"
   end
 
+  create_table "subjects_users", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subjects_users", ["subject_id"], name: "index_subjects_users_on_subject_id", using: :btree
+  add_index "subjects_users", ["user_id"], name: "index_subjects_users_on_user_id", using: :btree
+
   create_table "test_settings", force: :cascade do |t|
     t.string   "complete_pers"
     t.integer  "max_tried_count"
@@ -54,11 +74,11 @@ ActiveRecord::Schema.define(version: 20150706130511) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "name"
-    t.integer  "klass_id"
+    t.integer  "categgory_id"
     t.integer  "subject_id"
   end
 
-  add_index "test_settings", ["klass_id"], name: "index_test_settings_on_klass_id", using: :btree
+  add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree
   add_index "test_settings", ["subject_id"], name: "index_test_settings_on_subject_id", using: :btree
 
   create_table "tests", force: :cascade do |t|

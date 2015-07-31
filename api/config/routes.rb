@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+
   mount API::Base => '/'
 
-  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
   namespace :api do
     # resources 'tests' do
     #   collection do

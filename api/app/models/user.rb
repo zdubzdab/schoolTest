@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
 
   has_many :tests
   has_many :answers
-  belongs_to :categgory, class_name: 'Klass', foreign_key: 'klass_id'
+  # TODO: rename foreign_key
+  belongs_to :categgory, foreign_key: 'klass_id'
+  has_many :categgories_with_subjects
+
+  # scope :with_subjects, ->(subject_ids) { joins(:subjects).where(subjects_users: {subject_id: subject_ids} ).uniq }
 
   def ensure_authentication_token
     if authentication_token.blank?
@@ -31,8 +35,9 @@ class User < ActiveRecord::Base
     expose :id
     expose :full_name
     expose :email
-    expose :category, using: Klass::Entity
+    expose :categgory, using: Categgory::Entity
     expose :admin
+    expose :categgories_with_subjects, using: CateggoriesWithSubject::Entity
   end
 
 end

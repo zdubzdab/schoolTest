@@ -5,7 +5,8 @@ var User = DS.Model.extend({
   email: DS.attr('string'),
   password: DS.attr('string'),
   passwordConfirmation: DS.attr('string'),
-  categgory: DS.belongsTo('klass')
+  categgory: DS.belongsTo('categgory'),
+  categgories_with_subjects: DS.hasMany('categgories_with_subject')
 });
 
 // User.reopenClass({

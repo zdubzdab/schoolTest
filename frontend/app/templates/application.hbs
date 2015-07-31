@@ -10,14 +10,16 @@
   {{#link-to 'index' classNames='navbar-brand'}}
     Home
   {{/link-to}}
-  {{#if currentUserIsAdmin}}
-    {{#link-to 'admin/tests' classNames='navbar-brand'}}
-      Tests
-    {{/link-to}}
-  {{else}}
-    {{#link-to 'tests' classNames='navbar-brand'}}
-      Tests
-    {{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#if currentUserIsAdmin}}
+      {{#link-to 'admin.tests' classNames='navbar-brand'}}
+        Tests
+      {{/link-to}}
+    {{else}}
+      {{#link-to 'tests' classNames='navbar-brand'}}
+        Tests
+      {{/link-to}}
+    {{/if}}
   {{/if}}
 </div>
 
