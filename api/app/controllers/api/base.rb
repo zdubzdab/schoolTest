@@ -50,6 +50,26 @@ module API
         @tests_settings = TestSetting.where( subject_id: params[:subject_id], categgory_id: params[:categgory_id] )
         present @tests_settings
       end
+
+      namespace :test_settings do
+        get ':id' do
+          @tests_setting = TestSetting.find(params[:id])
+          data = TestSetting::Entity.represent(@tests_setting)
+          [data.as_json]
+        end
+
+        put ':id' do
+          @test_setting = TestSetting.find(params[:id])
+          if @test_setting.update_attributes(params[:test_setting])
+            @test_setting.as_json
+          else
+            status 422
+            @test_setting.errors
+          end
+        end
+
+      end
+
     end
   end
 

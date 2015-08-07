@@ -12,9 +12,16 @@ Router.map(function() {
   this.route('protected');
 
   this.route('tests');
-  this.resource("admin", function() {
-    this.route('tests');
+  this.resource('admin', function() {
+    this.route('test_settings',
+      function(){
+        this.route('new');
+        this.route('show', {path: '/:test_setting_id/show'});
+        this.route('edit', {path: '/:test_setting_id/edit'});
+    });
   });
+
+  this.route('bad_url', { path: '/*badurl' });
 });
 
 export default Router;

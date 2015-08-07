@@ -1,16 +1,17 @@
 import DS from "ember-data";
 
 var TestSetting = DS.Model.extend({
-  complete_pers: DS.attr('integer'),
-  max_tried_count: DS.attr('integer'),
-  description: DS.attr('string'),
-  time_to_pass: DS.attr('datetime'),
-  theme: DS.belongsTo('theme'),
   name: DS.attr('string'),
+  description: DS.attr('string'),
+  max_tried_count: DS.attr('number'),
+  time_to_pass: DS.attr('number'),
+
+  theme: DS.belongsTo('theme'),
+  subject: DS.belongsTo('subject'),
+  categgory: DS.belongsTo('categgory'),
+
   tests: DS.hasMany('test'),
   questions: DS.hasMany('question'),
-  subject: DS.belongsTo('subject'),
-  categgory: DS.belongsTo('categgory')
 });
 
 export default TestSetting;

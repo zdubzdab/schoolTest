@@ -1,10 +1,7 @@
 import DS from "ember-data";
 
 var Subject = DS.Model.extend({
-  name: DS.attr('string'),
-  categgory: DS.belongsTo('categgory'),
-  created_at: DS.attr('date'),
-  updated_at: DS.attr('date')
+  name: DS.attr('string')
 });
 
 // NOTICE: fixtures block.Remove in a future.

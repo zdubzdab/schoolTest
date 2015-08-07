@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729130040) do
+ActiveRecord::Schema.define(version: 20150807085943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150729130040) do
     t.integer "question_id"
     t.boolean "rigth"
     t.string  "name"
+    t.boolean "few_answers"
   end
 
   create_table "answers", force: :cascade do |t|
@@ -52,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150729130040) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "klass_id"
   end
 
   create_table "subjects_users", force: :cascade do |t|
@@ -66,16 +66,15 @@ ActiveRecord::Schema.define(version: 20150729130040) do
   add_index "subjects_users", ["user_id"], name: "index_subjects_users_on_user_id", using: :btree
 
   create_table "test_settings", force: :cascade do |t|
-    t.string   "complete_pers"
-    t.integer  "max_tried_count"
+    t.integer  "max_tried_count", default: 0
     t.text     "description"
-    t.datetime "time_to_pass"
     t.integer  "theme_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "name"
     t.integer  "categgory_id"
     t.integer  "subject_id"
+    t.integer  "time_to_pass",    default: 0
   end
 
   add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150729130040) do
     t.datetime "updated_at",      null: false
     t.integer  "test_setting_id"
     t.integer  "user_id"
+    t.integer  "complete_pers"
   end
 
   create_table "themes", force: :cascade do |t|

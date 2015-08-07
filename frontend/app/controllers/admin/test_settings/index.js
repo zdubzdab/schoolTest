@@ -44,6 +44,12 @@ export default Ember.Controller.extend( {
     }else{
       return this.returnTestSettings();
     }
-  }.observes('subject')
+  }.observes('subject'),
+
+  actions: {
+    editTestSetting: function(test_setting){
+      this.transitionTo('test_settings.edit', test_setting);
+    }
+  }
 
 });

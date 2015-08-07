@@ -2,9 +2,9 @@ import DS from "ember-data";
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  test_settings: DS.hasMany('test_setting'),
-  subject: DS.belongsTo('subject'),
-  tests: DS.hasMany('test')
+  // test_settings: DS.hasMany('test_setting'),
+  // subject: DS.belongsTo('subject'),
+  // tests: DS.hasMany('test')
 });
 
 

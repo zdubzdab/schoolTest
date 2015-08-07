@@ -1,8 +1,7 @@
 import DS from "ember-data";
 
 var Categgory = DS.Model.extend({
-  name: DS.attr('string'),
-  subjects: DS.hasMany('subject')
+  name: DS.attr('string')
 });
 
 // NOTICE: fixtures block.Remove in a future.

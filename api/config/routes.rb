@@ -10,25 +10,6 @@ Rails.application.routes.draw do
 
   mount API::Base => '/'
 
-  namespace :api do
-    # resources 'tests' do
-    #   collection do
-    #     get 'search_tests'
-    #   end
-    # end
-
-    # resources 'klasses', only: :index
-
-    # namespace 'teacher' do
-    #   resources 'test_settings' do
-    #     collection do
-    #       get 'add_question'
-    #       get 'search_test_settings'
-    #     end
-    #   end
-    # end
-  end
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

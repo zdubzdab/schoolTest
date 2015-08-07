@@ -11,14 +11,13 @@ class TestSetting < ActiveRecord::Base
 
   class Entity < Grape::Entity
     expose :id
-    expose :complete_pers
     expose :max_tried_count
     expose :description
     expose :time_to_pass
     expose :theme #, using Theme::Entity
     expose :name
-    expose :categgory, unless: lambda { |instance, options|  options[:env]["rack.request.query_hash"]["categgory_id"] }
-    expose :subject, unless: lambda { |instance, options|  options[:env]["rack.request.query_hash"]["subject_id"] }
+    expose :categgory, unless: lambda { |instance, options|  options[:env]["rack.request.query_hash"]["categgory_id"] unless options.blank? }
+    expose :subject, unless: lambda { |instance, options|  options[:env]["rack.request.query_hash"]["subject_id"] unless options.blank? }
   end
 end
 
