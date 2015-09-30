@@ -1,36 +1,36 @@
 import Ember from 'ember';
-import EmberValidations from 'ember-validations';
+// import EmberValidations from 'ember-validations';
 // import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
 
-export default Ember.ObjectController.extend(EmberValidations.Mixin, {
+export default Ember.ObjectController.extend( {
   authenticator: 'simple-auth-authenticator:devise',
   selectedKlass: '',
   klasses: function() {
     return this.get('klasses');
   },
 
-  validations: {
-    full_name: {
-      presence: true,
-      length: { minimum: 5 }
-    },
-    email: {
-      presence: true,
-      format: { with: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i, allowBlank: true }
-    },
-    password: {
-      confirmation: true,
-      length: {minimum: 8}
-    },
-    passwordConfirmation: {
-      presence: {
-        message: ' Please confirm your password'
-      }
-    },
-    categgory: {
-      presence: true
-    }
-  },
+  // validations: {
+  //   full_name: {
+  //     presence: true,
+  //     length: { minimum: 5 }
+  //   },
+  //   email: {
+  //     presence: true,
+  //     format: { with: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i, allowBlank: true }
+  //   },
+  //   password: {
+  //     confirmation: true,
+  //     length: {minimum: 8}
+  //   },
+  //   passwordConfirmation: {
+  //     presence: {
+  //       message: ' Please confirm your password'
+  //     }
+  //   },
+  //   categgory: {
+  //     presence: true
+  //   }
+  // },
 
 
   actions: {

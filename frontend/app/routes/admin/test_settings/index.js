@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model: function() {
 
     var currentUser = this.get('currentUser');
-    var categgories_with_subjects = currentUser.get('categgories_with_subjects')
+    var categgories_with_subjects = currentUser.get('categgories_with_subjects');
     // debugger;
     return Ember.RSVP.hash({
       subjects: categgories_with_subjects.mapBy('subject'),

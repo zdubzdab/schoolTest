@@ -99,10 +99,10 @@ export default Ember.ObjectController.extend(EmberValidations.Mixin, {
         // });
 
         // _self.get('errors');
-      })
+      });
       }
   }
-})
+});
 
 // addTag: function(money_transaction){
 //       console.log('addTag');

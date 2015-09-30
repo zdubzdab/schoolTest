@@ -21,12 +21,13 @@ export default Ember.Controller.extend( {
       if(test_settings){
         self.set('testsSettingsIsShowed', true);
         self.set('test_settings', test_settings);
-      };
+      }
       }
     });
   },
 
   watchCateggory: function() {
+    var self = this; 
     if( Ember.isEmpty(this.get('categgory')) ){
       self.set('testsSettingsIsShowed', false);
       this.resetSubjects();
@@ -38,6 +39,7 @@ export default Ember.Controller.extend( {
   }.observes('categgory'),
 
   watchSubject: function() {
+    var self = this; 
     if( Ember.isEmpty(this.get('categgory')) || Ember.isEmpty(this.get('subject')) ){
       self.set('testsSettingsIsShowed', false);
       return false;

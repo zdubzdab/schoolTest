@@ -4,7 +4,7 @@
   prompt="Please select a class"
   optionValuePath="content.id"
   optionLabelPath="content.name"
-  selectionBinding="categgory"
+  selection=categgory
 }}
 
 <label for="subject">Subject</label>
@@ -13,7 +13,7 @@
   prompt="Please select a subject"
   optionValuePath="content.id"
   optionLabelPath="content.name"
-  selectionBinding="subject"
+  selection=subject
 }}
 
 {{#if testsSettingsIsShowed }}
@@ -24,7 +24,7 @@
       <th>Description</th>
       <th>Actions</th>
     </tr>
-    {{#each test_setting in test_settings}}
+    {{#each test_settings as |test_setting|}}
       <tr>
         <td>{{ test_setting.name }}</td>
         <td>{{ test_setting.description }}</td>
