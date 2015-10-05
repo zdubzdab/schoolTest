@@ -3,21 +3,20 @@
 module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
+      'default-src': "'self' http://localhost:3000/",
+      'script-src': "'self' http://localhost:3000/ 'unsafe-inline' 'unsafe-eval' use.typekit.net maps.googleapis.com maps.gstatic.com",
       'font-src': "'self' data: use.typekit.net",
-      'connect-src': "'self'",
-      'img-src': "'self' www.facebook.com p.typekit.net",
-      'style-src': "'self' 'unsafe-inline' use.typekit.net",
-      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+      'connect-src': "'self' http://localhost:3000/",
+      'img-src': "'self' https://csi.gstatic.com/ data:",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net"
+      // 'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise',
       store: 'simple-auth-session-store:local-storage'
     },
-
-    'simple-auth-devise': {
-      serverTokenEndpoint:  'users/sign_in'
+    'simple-auth-devise':{
+      serverTokenEndpoint: "http://localhost:3000/users/sign_in"
     },
     locationType: 'hash',
     modulePrefix: 'frontend',
@@ -37,7 +36,6 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.apiHost = "http://localhost:3000";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -58,7 +56,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
   }
 
   return ENV;
