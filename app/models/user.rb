@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
@@ -9,18 +10,23 @@ class User < ActiveRecord::Base
   has_many :answers
   # TODO: rename foreign_key
   belongs_to :categgory, foreign_key: 'klass_id'
+  belongs_to :subject
   has_many :categgories_with_subjects
 
-  # scope :with_subjects, ->(subject_ids) { joins(:subjects).where(subjects_users: {subject_id: subject_ids} ).uniq }
+  mount_uploader :avatar, AvatarUploader
+
+  validates :full_name, presence: true,
+                    length: { minimum: 2 },
+                    uniqueness: true
+  validates :email, presence: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
+                    message: :bad_email_format } ,
+                    uniqueness: true
 
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
     end
-  end
-
-  def i_am_teacher?
-    self.admin
   end
 
   private
