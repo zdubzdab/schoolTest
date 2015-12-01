@@ -3,6 +3,8 @@ class CateggoriesWithSubject < ActiveRecord::Base
   belongs_to :categgory
   belongs_to :user
 
+  resourcify#rolify
+
   class Entity < Grape::Entity
     expose :id
     # expose :user

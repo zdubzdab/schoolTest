@@ -5,40 +5,41 @@ source 'https://rubygems.org'
 # Use SCSS for stylesheets
 gem "rails"
 gem "devise"
-
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 #NOTE I am not sure about this
 # gem "guard-livereload"
 # gem "guard"
-
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem "grape", "~> 0.12"
 gem 'grape-active_model_serializers'
 gem 'grape-entity', github: 'intridea/grape-entity'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 gem "font-awesome-rails"
 gem 'slim-rails', '~> 3.0'
 gem 'paper_trail'
-
 gem 'pg'
-
 gem 'thin'
 gem 'cancancan'
 gem 'progress_bar'
-
 gem 'friendly_id', '>= 5.0'
+gem "rolify"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rmagick'
+gem 'will_paginate'#postorinkova_navihatsia
+gem 'will_paginate-foundation'
+gem 'ransack'
+gem 'routing-filter'
 
 group :assets do
   gem "coffee-rails"
 end
-
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -57,5 +58,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+  gem 'faker'
 end
 

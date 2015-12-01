@@ -21,3 +21,6 @@
 /api/log
 
 config/database.yml
+
+# Ignore images
+/public/uploads/*

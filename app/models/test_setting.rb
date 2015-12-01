@@ -5,6 +5,8 @@ class TestSetting < ActiveRecord::Base
   belongs_to :categgory
   belongs_to :theme
 
+  resourcify#rolify
+
   accepts_nested_attributes_for :questions
 
   scope :with_theme, ->(theme_id){ where(test_settings: {theme_id: theme_id} ) }

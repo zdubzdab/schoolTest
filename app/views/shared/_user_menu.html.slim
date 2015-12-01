@@ -1,8 +1,22 @@
 ul.nav.nav-pills.pull-right
+  .btn-group
+    button.btn.btn-info.dropdown-toggle data-toggle="dropdown" type="button"
+      = t('.buttons.language')
+      span.caret
+    ul.dropdown-menu role="menu"
+      li
+        = link_to_unless_current "English", locale: "en"
+      li
+        = link_to_unless_current "Українська", locale: "ua"
+
+
+
   - if user_signed_in?
-    li= link_to "Головна", root_path
-    li= link_to "Тестування", can?(:manage, Test) ? teachers_test_settings_path : tests_path
-    li= link_to "Вийти", destroy_user_session_path, method: :delete
+    li= link_to t('.buttons.main'), root_path
+    li= link_to t('.buttons.testing'), can?(:manage, Test) ? teachers_test_settings_path : tests_path
+    li= link_to t('.buttons.edit_profile'), edit_user_registration_path
+    li= link_to t('.buttons.sign_out'), destroy_user_session_path, method: :delete
   - else
-    li= link_to "Логін", new_user_session_path
-    li= link_to "Зареєструватися", new_user_registration_path
+    li= link_to t('.buttons.log_in'), new_user_session_path
+    li= link_to t('.buttons.register'), new_user_registration_path
+

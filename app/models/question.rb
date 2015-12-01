@@ -3,5 +3,7 @@ class Question < ActiveRecord::Base
   belongs_to :test_setting
   # has_many :settings, throught: :answer_settings
 
+  resourcify#rolify
+
   validates_presence_of :text
 end

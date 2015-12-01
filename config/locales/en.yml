@@ -1,31 +1,48 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
   activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        full_name: "Прізвище та Ім’я"
+        email: "Емейл"
+        password: "Пароль"
     errors:
       models:
         user:
           attributes:
+            full_name:
+              blank: "не може бути пустим"
+              too_short: "занадто коротке (мінімум три символи)"
+            email:
+              blank: "не може бути пустим"
+              bad_email_format: "має бути такого формату: xxx@xxx.xxx"
             password:
-              confirmation: "Паролі не співпадають"
-              too_short: "Пароль занадто короткий( мінімум %{count} символів)"
+              blank: "не може бути пустим"
+              confirmation: "Passwords don't match"
+              too_short: "Password is too short( min %{count} symbols)"
+
+  # views:
+  devise:
+    registrations:
+      new:
+        h_registration: "Реєстрація"
+        name: "Прізвище та Ім’я"
+        class: "Клас"
+        password: "Пароль"
+        password_confirmation: "Підтвердження паролю"
+        choose_avatar: "Виберіть аватар"
+        buttons:
+          student: "Учень"
+          teacher: "Вчитель"
+          submit: "Реєстрація"
+  shared:
+    user_menu:
+      buttons:
+        main: "Головна"
+        testing: "Тестування"
+        edit_profile: "Редагувати профіль"
+        sign_out: "Вийти"
+        log_in: "Логін"
+        register: "Зареєструватися"
+        language: "Змінити мову"
