@@ -1,0 +1,75 @@
+ua:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        full_name: "Прізвище та Ім’я"
+        email: "Емейл"
+        password: "Пароль"
+        password_confirmation: "Підтвердження паролю"
+        current_password: "Поточний пароль"
+        categgory_id: "Клас"
+        subject_id: "Предмет"
+    errors:
+      models:
+        user:
+          attributes:
+            full_name:
+              blank: "не може бути пустим"
+              too_short: "занадто коротке (мінімум три символи)"
+            email:
+              blank: "не може бути пустим"
+              bad_email_format: "має бути такого формату: xxx@xxx.xxx"
+            password:
+              blank: "не може бути пустим"
+              confirmation: "Паролі не співпадають"
+              too_short: "занадто короткий(мінімум %{count} символів)"
+            password_confirmation:
+              confirmation: "пароль не співпадає"
+            current_password:
+              blank: "не може бути пустим"
+  # views:
+  devise:
+    registrations:
+      new:
+        h_registration: "Реєстрація"
+        min_password_length: "мінімум 8 символів"
+        choose_avatar: "Виберіть аватар"
+        buttons:
+          student: "Учень"
+          teacher: "Вчитель"
+          submit: "Реєстрація"
+      edit:
+        h_edit: "Редагування профілю"
+        choose_avatar: "Виберіть аватар"
+        avatar: "Аватар"
+        leave_blank: "(Залиште пустим якщо не хочете змінювати)"
+        we_need_password: "(нам потрібен ваш поточний пароль для підтвердження ваших змін)"
+        h_cancel_account: "Відмінити мій акаунт"
+        unhappy: "Незадоволені?"
+        are_you_sure: "Ви впевнені?"
+        buttons:
+          student: "Учень"
+          teacher: "Вчитель"
+          submit: "Реєстрація"
+          back: "Назад"
+          cancel_account: "Відмінити мій акаунт"
+
+
+    sessions:
+      new:
+        h_log_in: "Авторизація"
+        remember: "Запам'ятати мене"
+        buttons:
+          submit: "Авторизація"
+  shared:
+    user_menu:
+      buttons:
+        main: "Головна"
+        testing: "Тестування"
+        edit_profile: "Редагувати профіль"
+        sign_out: "Вийти"
+        log_in: "Логін"
+        register: "Зареєструватися"
+        language: "Змінити мову"

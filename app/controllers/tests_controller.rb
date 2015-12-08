@@ -35,6 +35,8 @@ class TestsController < ApplicationController
     end
 
     def prepare_params
-      
+
     end
+
 end
+
