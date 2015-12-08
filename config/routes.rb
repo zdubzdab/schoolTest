@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :test_settings
   end
 
+  match 'welcome',    to: 'welcome#index',    via:  [:get]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

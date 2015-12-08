@@ -1,7 +1,14 @@
 class WelcomeController < ApplicationController
   def index
-    # if user_signed_in?
-    #
-    # end
+
+    @tidings = Tiding.paginate(page: params[:page], per_page: 2).order("created_at DESC")
+
+    if params[:search]
+      @tidings = Tiding.search(params[:search]).paginate(page: params[:page], per_page: 2).order("created_at DESC")
+
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 end

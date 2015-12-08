@@ -31,9 +31,15 @@ TestSetting.last(2).each do |ts|
   Test.create_with(user_id: @petia_user.id).find_or_create_by(test_setting_id: ts.id)
 end
 
-Question.create(text: "Two plus five")
-Question.create(text: "Ten divide five")
-Question.create(text: "Ten plus five")
-AnswerSetting.create(name: "Four")
-AnswerSetting.create(name: "Three")
-AnswerSetting.create(name: "Forty four")
+Tiding.delete_all
+5.times do |n|
+  title  = Faker::Commerce.department
+  text = Faker::Lorem.paragraph
+  main  = false
+  ava = Faker::Avatar.image("my-own-slug")
+  Tiding.create!(title: title,
+               text: text,
+               main: main)
+end
+
+Tiding.create_with(text: Faker::Lorem.paragraph(15), main: true).find_or_create_by(title: 'Main news')
