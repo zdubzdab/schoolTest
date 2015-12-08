@@ -34,18 +34,19 @@ TestSetting.last(2).each do |ts|
   Test.create_with(user_id: @petia_user.id).find_or_create_by(test_setting_id: ts.id)
 end
 
-Data.create_with(text: Faker::Lorem.paragraph(15), main: true).find_or_create_by(title: 'Main news')
-
-Data.delete_all
-5.times do |n|
-  title  = Faker::Commerce.department
-  text = Faker::Lorem.paragraph
-  main  = false
-  ava = Faker::Avatar.image("my-own-slug")
-  Data.create!(title: title,
-               text: text,
-               main: main)
+unless Tiding.any?
+   5.times do |n|
+    title  = Faker::Commerce.department
+    text = Faker::Lorem.paragraph(15)
+    main  = false
+    ava = Faker::Avatar.image("my-own-slug")
+    Tiding.create!(title: title,
+                    text: text,
+                    main: main)
+  end
 end
+
+Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_by(title: 'Main news')
 
 [:admin, :student, :teacher].each do |role|
   Role.find_or_create_by(name: role)

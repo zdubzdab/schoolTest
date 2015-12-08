@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       resources :test_settings
     end
 
+  match 'welcome',    to: 'welcome#index',    via:  [:get]
 end

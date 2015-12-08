@@ -1,0 +1,11 @@
+#tiding_list
+  h4 Новини
+  - @tidings.each do |tiding|
+    ul style="list-style-type:none"
+      li
+        = date_format(tiding.updated_at)
+        b
+          = tiding.title
+
+
+
