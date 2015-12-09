@@ -34,8 +34,9 @@ ul.nav.nav-tabs
         br
         .actions
           = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+        br
         = render "devise/shared/links"
-
+        = link_to t('.buttons.back'), :back
 
   .tab-pane#tab2
     h3
@@ -72,4 +73,6 @@ ul.nav.nav-tabs
         br
         .actions
           = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+        br
         = render "devise/shared/links"
+        = link_to t('.buttons.back'), :back

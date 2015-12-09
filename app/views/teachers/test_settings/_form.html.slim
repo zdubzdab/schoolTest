@@ -1,32 +1,54 @@
+h3
+  = t '.h_test_creation'
 .col-md-4
-.col-md-4
-  = form_for [:teacher, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
+  = form_for [:teachers, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
+    - if @test_setting.errors.any?
+        #error_explanation
+          h4
+            = t('errors.messages.not_saved', count: @test_setting.errors.count, resource: TestSetting.model_name.human)
+          ul
+            - @test_setting.errors.full_messages.each do |msg|
+              li= msg
+
     .form-group
-      = f.label :klass_id
-      = f.select :klass_id, all_klass_options, class: 'form-control'
+      = f.label :categgory_id, t('.class')
+      br
+      = f.select :categgory_id, all_klass_options, class: 'form-control'
     .form-group
-      = f.label :subject_id
+      = f.label :subject_id, t('.subject')
+      br
       = f.select :subject_id, all_subject_options, class: 'form-control'
     .form-group
-      = f.label :theme_id
+      = f.label :theme_id, t('.theme')
+      br
       = f.select :theme_id, all_theme_options, class: 'form-control'
     .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control'
     .form-group
-      = f.label :description
+      = f.label :description, t('.description')
       = f.text_field :description, class: 'form-control'
     .form-group
       = f.label :time_to_pass
       = f.number_field :time_to_pass, class: 'form-control'
     .form-group
-      = f.label :max_tried_count
+      = f.label :max_tried_count, t('.max_tried_count')
       = f.number_field :max_tried_count, in: 1...10, class: 'form-control'
     .form-group
-      - @test_setting.questions.any?
-        - @test_setting.questions.each do |question|
-          = render 'question_form', f: f, question: question
-      = link_to 'Add Question', add_question_teacher_test_settings_path(@test_setting), id: 'add-question'
+      b
+        = t('.choose_video')
+      br
+      = f.label :video do
+        = f.file_field :video
     .form-group
-      = f.submit 'Save Test'
-.col-md-4
+      = link_to t('.buttons.back'), root_path
+    .col-md-16#question_answer
+      = f.fields_for :questions do |builder|
+        = render 'question_fields', f: builder
+        hr
+        .l_add_question#links_q_a
+          = link_to_add_fields t('.buttons.add_question'), f, :questions
+          = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_test"
+
+
+

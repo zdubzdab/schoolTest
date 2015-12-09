@@ -7,9 +7,14 @@ class TestSetting < ActiveRecord::Base
 
   resourcify#rolify
 
-  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :questions, allow_destroy: true
 
   scope :with_theme, ->(theme_id){ where(test_settings: {theme_id: theme_id} ) }
+
+  mount_uploader :video, VideoUploader
+
+  validates_presence_of :name
+  validates_presence_of :time_to_pass
 
   class Entity < Grape::Entity
     expose :id

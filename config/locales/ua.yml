@@ -1,14 +1,19 @@
 ua:
   errors:
     messages:
+      blank_question: "не може бути пустим"
+      blank_answer: "не може бути пустою"
       not_saved:
-        one: "Через одну помилку %{resource} не може бути збережена:"
-        other: "Через помилки %{resource} не може бути збережена:"
+        one: "Через одну помилку %{resource} неможливо зберегти:"
+        other: "Через помилки %{resource} неможливо зберегти:"
   activerecord:
     models:
       user:
+      test_setting: тест
+      test_settings: тести
+      question: питання
       tiding: новина
-      tidings: новини
+      tidings: новини   
     attributes:
       user:
         full_name: "Прізвище та Ім’я"
@@ -18,9 +23,17 @@ ua:
         current_password: "Поточний пароль"
         categgory_id: "Клас"
         subject_id: "Предмет"
+      test_setting:
+        name: "Назва"
+        time_to_pass: "Час виконання"
+      test_setting/questions:
+        text: "Запитання"
+      questions/answer_settings:
+        name: "Відповідь"
       tiding:
         title: "Заголовок"
         text: "Текст"
+
     errors:
       models:
         user:
@@ -41,6 +54,14 @@ ua:
               confirmation: "пароль не співпадає"
             current_password:
               blank: "не може бути пустим"
+        test_setting:
+          attributes:
+            name:
+              blank: "не може бути пустою"
+            time_to_pass:
+              blank: "не може бути пустим"
+            text:
+              blank: "не може бути пустим"
         tiding:
           attributes:
             title:
@@ -49,6 +70,7 @@ ua:
               taken: "вже існує"
             text:
               blank: "не може бути пустим"
+
   # views:
   devise:
     registrations:
@@ -60,6 +82,7 @@ ua:
           student: "Учень"
           teacher: "Вчитель"
           submit: "Реєстрація"
+          back: "Назад"
       edit:
         h_edit: "Редагування профілю"
         choose_avatar: "Виберіть аватар"
@@ -91,7 +114,33 @@ ua:
         log_in: "Логін"
         register: "Зареєструватися"
         language: "Змінити мову"
+        new_test: "Новий тест"
         add_news: "Додати новину"
+  teachers:
+    test_settings:
+      form:
+        h_test_creation: "Створення тестів"
+        class: "Клас"
+        subject: "Предмет"
+        theme: "Тема"
+        description: "Пояснення"
+        max_tried_count: "Кількість спроб"
+        choose_video: "Виберіть відео"
+        question: "gbnf"
+        buttons:
+          back: "Назад"
+          save: "Зберегти тест"
+          add_question: "Додати запитання"
+      question_fields:
+        question: "Запитання"
+        buttons:
+          remove: "Видалити"
+          add_answer: "Додати відповідь"
+      answer_setting_fields:
+        answer: "Відповідь"
+        mark_if_right: "Позначте, якщо відповідь правильна"
+        buttons:
+          remove: "Видалити"
   admin:
     tidings:
       new:

@@ -1,10 +1,10 @@
-.form-group#answer_f
-  p
-    = f.label :name, t('.answer')
-    br
-    = f.text_field :name, class: 'form-control'
-    = f.label :rigth, t('.mark_if_right')
-    = check_box_tag(:rigth)
-    br
-    = link_to_remove_fields  t('.buttons.remove'), f
+.fields
+  .form-groupr#answer_f
+    p
+      = f.label :name, t('.answer')
+      = f.text_field :name, class: 'form-control'
+      = f.label :rigth, t('.mark_if_right')
+      = f.check_box :rigth
+      br
+      = link_to_remove_fields  t('.buttons.remove'), f
 

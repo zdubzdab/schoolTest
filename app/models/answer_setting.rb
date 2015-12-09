@@ -3,4 +3,7 @@ class AnswerSetting < ActiveRecord::Base
   belongs_to :question
 
   resourcify#rolify
+
+  validates_presence_of :name, message: :blank_answer
+
 end
