@@ -5,7 +5,7 @@
       li
         = date_format(tiding.updated_at)
         b
-          = tiding.title
+          = link_to tiding.title, admin_tiding_path(tiding)
 
 
 

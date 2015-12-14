@@ -1,7 +1,14 @@
 ua:
+  errors:
+    messages:
+      not_saved:
+        one: "Через одну помилку %{resource} не може бути збережена:"
+        other: "Через помилки %{resource} не може бути збережена:"
   activerecord:
     models:
       user:
+      tiding: новина
+      tidings: новини
     attributes:
       user:
         full_name: "Прізвище та Ім’я"
@@ -11,6 +18,9 @@ ua:
         current_password: "Поточний пароль"
         categgory_id: "Клас"
         subject_id: "Предмет"
+      tiding:
+        title: "Заголовок"
+        text: "Текст"
     errors:
       models:
         user:
@@ -18,9 +28,11 @@ ua:
             full_name:
               blank: "не може бути пустим"
               too_short: "занадто коротке (мінімум три символи)"
+              taken: "вже занятий"
             email:
               blank: "не може бути пустим"
               bad_email_format: "має бути такого формату: xxx@xxx.xxx"
+              taken: "вже занятий"
             password:
               blank: "не може бути пустим"
               confirmation: "Паролі не співпадають"
@@ -28,6 +40,14 @@ ua:
             password_confirmation:
               confirmation: "пароль не співпадає"
             current_password:
+              blank: "не може бути пустим"
+        tiding:
+          attributes:
+            title:
+              blank: "не може бути пустим"
+              too_short: "занадто короткий (мінімум три символи)"
+              taken: "вже існує"
+            text:
               blank: "не може бути пустим"
   # views:
   devise:
@@ -55,8 +75,6 @@ ua:
           submit: "Реєстрація"
           back: "Назад"
           cancel_account: "Відмінити мій акаунт"
-
-
     sessions:
       new:
         h_log_in: "Авторизація"
@@ -73,3 +91,18 @@ ua:
         log_in: "Логін"
         register: "Зареєструватися"
         language: "Змінити мову"
+        add_news: "Додати новину"
+  admin:
+    tidings:
+      new:
+        h_news_creation: "Створення новини"
+        title: "Заголовок"
+        text: "Текст"
+        mark_if_right: "Позначте, якщо новина головна"
+        choose_avatar: "Виберіть фотографії"
+        buttons:
+          submit: "Зберегти"
+          back: "Назад"
+      show:
+        buttons:
+          back: "Назад"
