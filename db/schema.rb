@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215155104) do
+ActiveRecord::Schema.define(version: 20151217133821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20151215155104) do
   add_index "categgories_with_subjects", ["categgory_id"], name: "index_categgories_with_subjects_on_categgory_id", using: :btree
   add_index "categgories_with_subjects", ["subject_id"], name: "index_categgories_with_subjects_on_subject_id", using: :btree
   add_index "categgories_with_subjects", ["user_id"], name: "index_categgories_with_subjects_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text    "text"
@@ -137,5 +147,6 @@ ActiveRecord::Schema.define(version: 20151215155104) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "comments", "users"
   add_foreign_key "users", "subjects"
 end

@@ -1,0 +1,49 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*admin index*/
+
+#author, #main_part, #comment_created_at {
+  background: #F7FBFF;
+  padding-top: 5px;
+  padding-left: 10px;
+  border: 1px solid #0099FF;
+}
+
+#author {
+  position:relative;
+  left:0px;
+  top:7px;
+}
+
+#main_part {
+  position:relative;
+  left:0%;
+  top:0%;
+}
+
+#comment_created_at {
+  position:relative;
+  left:593px;
+  top:7px;
+}
+
+#one_comment {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position:relative;
+  left:80px;
+  top:0px;
+}
+
+#comments_pagination {
+  position:relative;
+  left:480px;
+  top:0px;
+}
+
+#delete_part {
+  position:relative;
+  left:300px;
+  top:11px;
+}
