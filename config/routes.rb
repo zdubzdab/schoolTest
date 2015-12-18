@@ -10,5 +10,9 @@ Rails.application.routes.draw do
       resources :test_settings
     end
 
+    namespace :admin do
+      resources :tidings, only: [:show, :new, :create]
+    end
+
   match 'welcome',    to: 'welcome#index',    via:  [:get]
 end

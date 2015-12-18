@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204124200) do
+ActiveRecord::Schema.define(version: 20151215102629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(version: 20151204124200) do
   add_index "categgories_with_subjects", ["categgory_id"], name: "index_categgories_with_subjects_on_categgory_id", using: :btree
   add_index "categgories_with_subjects", ["subject_id"], name: "index_categgories_with_subjects_on_subject_id", using: :btree
   add_index "categgories_with_subjects", ["user_id"], name: "index_categgories_with_subjects_on_user_id", using: :btree
-
-  create_table "datas", force: :cascade do |t|
-    t.string  "title"
-    t.text    "text"
-    t.boolean "main"
-    t.json    "avatars"
-  end
 
   create_table "questions", force: :cascade do |t|
     t.text    "text"
@@ -83,6 +76,7 @@ ActiveRecord::Schema.define(version: 20151204124200) do
     t.integer  "categgory_id"
     t.integer  "subject_id"
     t.integer  "time_to_pass",    default: 0
+    t.string   "video"
   end
 
   add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree

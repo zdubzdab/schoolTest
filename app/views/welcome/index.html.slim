@@ -9,26 +9,24 @@
   .container-fluid
     .row-fluid
       .col-md-8#main_new_field
-        - @tidings.each do |tiding|
-          - if tiding.main?
-            h4
-              = tiding.title
-            = tiding.text
+        h4
+          = @post.title
+        = @post.text
 
       .col-md-4#search_field
         = form_tag(welcome_path, method: "get", class: "search_form", remote: true) do
           = text_field_tag :search, params[:search], placeholder: "Search Articles"
           = submit_tag "Search", name: nil, class: "btn btn-info", remote: true
 
-        = link_to "#", id: "clean_search_field" do 
+        = link_to "#", id: "clean_search_field" do
           i#clean_search.fa.fa-remove.fa-3x data-title="clear search"
 
-        .sort_paginate_ajax#news_field
+        #news_field
           = render partial: 'tidings'
 
           .pagination.pagination-centered
             ul style="list-style-type:none"
-              li.active
+              li.sort_paginate_ajax
                 span= will_paginate @tidings, renderer: FoundationPagination::Rails
 
 #footer
