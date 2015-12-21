@@ -7,8 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # natalia.turok1105@gmail.com
 
-teacher = User.create_with(full_name: 'Адмін Адмін', password: '123123123').find_or_create_by(email: 'admin.admin@gmail.com')
-
 %w[перший другий третій четвертий п’ятий шостий сьомий восьмий дев’ятий десятий одинадцятий].each do |i|
   Categgory.find_or_create_by(name: i)
 end
@@ -18,9 +16,6 @@ end
 Categgory.last(2).each do |k|
   %w[хімія біологія].each{|s| Subject.create_with(categgory_id: k.id).find_or_create_by(name: s)}
 end
-
-student = User.create_with(full_name: 'student', password: 'password', categgory_id: Categgory.last.id).find_or_create_by(email: 'student@gmail.com')
-teacher_not_admin = User.create_with(full_name: 'teacher', password: 'password', subject_id: Subject.last.id).find_or_create_by(email: 'teacher@gmail.com')
 
 Subject.last(2).each do |s|
   %w[тема1 тема2].each{|t| Theme.create_with(subject_id: s.id).find_or_create_by(name: t)}
@@ -52,6 +47,26 @@ Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_
   Role.find_or_create_by(name: role)
 end
 
-teacher.add_role(:admin)
-student.add_role(:student)
-teacher_not_admin.add_role(:teacher)
+User.create_with(full_name: 'admin admin', password: 'password').find_or_create_by(email: 'admin@gmail.com').add_role(:admin)
+
+10.times do |n|
+  name  = "student#{n+1}"
+  email = "student#{n+1}@gmail.com"
+  categgory_id = Categgory.last.id
+  password  = "password"
+  User.create_with(full_name: name,
+                   categgory_id: categgory_id,
+                   password: password,
+                   password_confirmation: password).find_or_create_by(email: email).add_role(:student)
+end
+
+5.times do |n|
+  name  = "teacher#{n+1}"
+  email = "teacher#{n+1}@gmail.com"
+  password  = "password"
+  subject_id = Subject.last.id
+  User.create_with(full_name: name,
+                   subject_id: subject_id,
+                   password: password,
+                   password_confirmation: password).find_or_create_by(email: email).add_role(:teacher)
+end

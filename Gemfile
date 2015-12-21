@@ -38,6 +38,7 @@ gem 'will_paginate'#postorinkova_navihatsia
 gem 'will_paginate-foundation'
 gem 'ransack'
 gem 'routing-filter'
+gem 'kaminari'
 
 group :assets do
   gem "coffee-rails"

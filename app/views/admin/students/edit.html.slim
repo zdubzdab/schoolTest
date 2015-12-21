@@ -1,0 +1,30 @@
+.col-md-12
+  h3
+    = t('.h_edit')
+
+.col-md-3
+  = form_for(@user, url: admin_student_path(@user), html: {method: "patch"}) do |f|
+    - if @user.errors.any?
+        #error_explanation
+          h4
+            = t('errors.messages.not_saved', count: @user.errors.count, resource: User.model_name.human)
+          ul
+            - @user.errors.full_messages.each do |msg|
+              li= msg
+    .form-group
+      = f.label :full_name
+      = f.text_field :full_name, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :email
+      br
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      = f.label :categgory_id
+      br
+      = f.collection_select :categgory_id, Categgory.all, :id, :name, class: 'form-control'
+
+    .actions
+      br
+      = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+    br
+      = link_to t('.buttons.back'), admin_students_path

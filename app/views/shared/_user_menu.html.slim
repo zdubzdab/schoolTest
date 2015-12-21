@@ -11,6 +11,7 @@ ul.nav.nav-pills.pull-right
 
   - if user_signed_in?
     - if current_user.has_role? :admin
+      li= link_to t('.buttons.manage_students'), admin_students_path
       li= link_to t('.buttons.add_news'), new_admin_tiding_path
     li= link_to t('.buttons.new_test'), can?(:manage, Test) ? new_teachers_test_setting_path : tests_path
     li= link_to t('.buttons.main'), root_path
