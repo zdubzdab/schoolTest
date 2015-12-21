@@ -7,12 +7,17 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     namespace :teachers do
-      resources :test_settings
+      resources :questions
+      resources :test_settings do
+        collection do
+          get 'search_test_settings'
+        end
+      end
     end
 
     namespace :admin do
       resources :tidings, only: [:show, :new, :create]
     end
 
-  match 'welcome',    to: 'welcome#index',    via:  [:get]
+    get 'welcome',    to: 'welcome#index'
 end

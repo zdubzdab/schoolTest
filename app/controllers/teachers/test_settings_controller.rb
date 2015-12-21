@@ -5,19 +5,25 @@ class Teachers::TestSettingsController < ApplicationController
 
   def index
     @questions = Question.all
+    @test_settings = TestSetting.all
   end
 
   def new
-    @test_setting = TestSetting.new(subject_id: session[:filter].try(:[], 'subject'), klass_id: session[:filter].try(:[], 'klass'), theme_id: session[:filter].try(:[], 'theme'))
+    subject = params.fetch(:subject_id, "")
+    categgory = params.fetch(:categgory_id, "")
+    theme = params.fetch(:theme_id, "")
+    @test_setting = TestSetting.new(subject_id: subject.try(:id), categgory_id: categgory.try(:id), theme_id: theme.try(:id))
+    question = @test_setting.questions.build
+    3.times { question.answer_settings.build }
   end
 
   def create
     @test_setting = TestSetting.new(test_settings_params)
 
     if @test_setting.save
-      redirect_to [:teacher, :test_settings]
+      redirect_to [:teachers, :test_settings]
     else
-      render 'form'
+      render "_form"
     end
   end
 
@@ -33,12 +39,6 @@ class Teachers::TestSettingsController < ApplicationController
     end
   end
 
-  def add_question
-    @test_setting = TestSetting.new
-    @test_setting.questions.build
-    render partial: 'question_form', layout: false, locals: {test_setting: @test_setting}
-  end
-
   def edit
     @test_settings = TestSetting.find(params[:id])
     @test = @test_setting.test
@@ -47,6 +47,6 @@ class Teachers::TestSettingsController < ApplicationController
 
   private
     def test_settings_params
-      params.require(:test_setting).permit( :klass_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, questions_attributes: [:text] )
+      params.require(:test_setting).permit( :categgory_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, :video, questions_attributes: [:text, :id,  :_destroy, answer_settings_attributes: [:name, :id, :rigth, :_destroy]] )
     end
 end

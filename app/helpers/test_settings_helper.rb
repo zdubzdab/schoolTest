@@ -4,7 +4,7 @@ module TestSettingsHelper
   end
 
   def all_klass_options
-    Klass.all.map{|s| [s.name, s.id]}
+    Categgory.all.map{|s| [s.name, s.id]}
   end
 
   def all_theme_options

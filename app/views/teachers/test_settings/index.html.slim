@@ -1,22 +1,8 @@
-#select-form
-  select data-bind="options: avaliableCateggories, optionsText: 'categgoryName', value: selectedCateggory, optionsCaption: 'Виберіть клас'"
-
-  select data-bind="options: availableSubjects, optionsText: 'subjectName', value: selectedCountry, optionsCaption: 'Виберіть предмет'"
-
-  select data-bind="options: availableThemes, optionsText: 'themeName', value: selectedCountry, optionsCaption: 'Виберіть тему'"
-
-  .new-item
-    = link_to 'Додати тест', [:new, :teachers, :test_setting]
-#test-table
-
-
-/ = render 'teacher/questions/form'
-/ = render 'teacher/answer_settings/form'
-/ = render 'teacher/questions/question'
-
-javascript:
-  $(document).ready(function(){
-    var selectElement = document.getElementById('select-form');
-    var selectForm = new forms.selects.selectTeacherViewModel();
-    ko.applyBindings(selectForm, selectElement);
-  })
+= render 'shared/user_menu'
+.col-md-12
+  - @test_settings.each do |test|
+    ul
+      li
+        = test.name
+      li
+        = video_tag test.video_url.to_s, controls: true

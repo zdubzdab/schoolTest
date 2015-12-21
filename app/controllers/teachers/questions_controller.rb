@@ -13,7 +13,7 @@ class Teachers::QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         format.js
-        format.html { redirect_to teacher_test_settings_path }
+        format.html { redirect_to new_teachers_test_setting_path }
       else
         format.html { render partial: "form" }
         format.js
@@ -25,7 +25,7 @@ class Teachers::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.destroy
       respond_to do |format|
-        format.html { redirect_to teacher_test_settings_path }
+        format.html { redirect_to teachers_test_settings_path }
         format.js  { }
       end
   end
