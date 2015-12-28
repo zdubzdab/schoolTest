@@ -1,7 +1,8 @@
 class Students::PersonsController < ApplicationController
 
   def profile
-    @subjects = current_user.subjects
+    @categgories_with_subjects = current_user.categgories_with_subjects
+    @subject = current_user.subject
   end
 
   private

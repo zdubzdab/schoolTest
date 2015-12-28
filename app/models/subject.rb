@@ -1,6 +1,8 @@
 class Subject < ActiveRecord::Base
   has_many :themes
   has_many :users
+  has_many :categgories_with_subjects
+  has_many :categgories, through: :categgories_with_subjects
 
   resourcify#rolify
   # TODO: remove relation table or found use case

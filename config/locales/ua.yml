@@ -263,3 +263,8 @@ ua:
       search: "Пошук"
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
+  students:
+    persons:
+      profile:
+        buttons:
+          back: "Назад"

@@ -1,2 +1,19 @@
-h3
-  Profile
+.col-md-12
+  h3
+    Profile
+
+  p
+    / = @subject.try(&:name)
+  p
+    - @categgories_with_subjects.each do |categgories_with_subject|
+      ul
+        li
+          = categgories_with_subject.subject.name
+
+
+
+    = select_tag(:subject_id, options_from_collection_for_select(@categgories_with_subjects, :id, :id))
+
+.col-md-10
+  = link_to t('.buttons.back'), root_path
+- console

@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   belongs_to :categgory
   belongs_to :subject
   has_many :categgories_with_subjects
+  has_many :categgories, through: :categgories_with_subjects
+  has_many :subjects, through: :categgories_with_subjects
   has_many :comments
 
   mount_uploader :avatar, AvatarUploader
