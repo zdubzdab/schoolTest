@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     namespace :teachers do
+      resources :questions
       resources :test_settings do
         resources :users, only: [:show]
+        collection do
+          get 'search_test_settings'
+        end
       end
     end
 
@@ -39,6 +43,3 @@ Rails.application.routes.draw do
     end
 
 end
-
-
-

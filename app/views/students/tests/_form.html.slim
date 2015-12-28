@@ -1,9 +1,11 @@
 = form_for [:students, :test_setting, @test], html: { class: 'test-form'} do |f|
 
-  .col-md-10#fields_for_answers
+  .col-md-12#fields_for_answers
     = f.hidden_field :user_id
     - @test_setting.questions.each do |question|
+      hr
       = question.text
+      br
       - answers_for_question(@test, question.id).each do |answer|
         = f.fields_for :answers, answer do |builder|
           = label_tag(:answer_label, builder.object.answer_setting.name)
@@ -12,4 +14,5 @@
           = builder.hidden_field :answer_setting_id
           = builder.hidden_field :user_id
           br
+    br
     = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_result"

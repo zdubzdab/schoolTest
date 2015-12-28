@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   belongs_to :categgory
   belongs_to :subject
   has_many :categgories_with_subjects
+  has_many :categgories, through: :categgories_with_subjects
+  has_many :subjects, through: :categgories_with_subjects
   has_many :comments
 
   mount_uploader :avatar, AvatarUploader
@@ -44,14 +46,4 @@ class User < ActiveRecord::Base
         break token unless User.where(authentication_token: token).first
       end
     end
-
-  class Entity < Grape::Entity
-    expose :id
-    expose :full_name
-    expose :email
-    expose :categgory, using: Categgory::Entity
-    expose :admin
-    expose :categgories_with_subjects, using: CateggoriesWithSubject::Entity
-  end
-
 end

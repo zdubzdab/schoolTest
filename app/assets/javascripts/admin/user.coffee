@@ -1,5 +1,5 @@
 $ ->
-  $("body").on "click", '.b_delete_teacher', 'ajax:success', (evt, data, status, xhr) ->
+  $("body").on 'ajax:success', '.b_delete_teacher', (evt, data, status, xhr) ->
     $(this).closest('tr').fadeOut()
 
   $('body').on 'click', '#admin_teacher_table_pagination  a', (event, data, status, xhr) ->

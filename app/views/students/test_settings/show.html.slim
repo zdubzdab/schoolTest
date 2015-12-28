@@ -1,0 +1,55 @@
+.col-md-11
+  h3
+    = t '.h_testing'
+
+  .col-md-6#description_section
+    p
+      = t '.testing_theme'
+      b
+        = @test_setting.name
+    br
+    p
+      = t '.testing_description'
+      = @test_setting.description
+    br
+    p
+      = t '.testing_time_to_pass'
+      = @test_setting.time_to_pass
+      = t '.seconds'
+    br
+    p
+      = t '.testing_max_tried_count'
+      = @test_setting.max_tried_count
+    br
+    p
+      = t '.you_have_attempting'
+      = @test_setting.max_tried_count - @attempts_number.count
+
+  #section_with_files_and_video
+    .col-md-10
+      hr
+
+    .col-md-10
+      h4
+        = t '.h_files'
+      - @test_setting.files.each do |doc|
+        br
+        i.fa.fa-file-pdf-o.fa-3x
+        = link_to chop(doc.url), doc.url
+      hr
+
+    .col-md-10
+      h4
+        = t '.h_videos'
+      - @test_setting.videos.each do |video|
+        = video_tag video, size: "480x360", controls: true
+      hr
+
+    .col-md-8
+      - if @test_setting.max_tried_count > @attempts_number.count
+        = button_to t('.buttons.pass_test'), new_students_test_setting_test_path(@test_setting), method: "get", id: "button_pass_test"
+      - else
+        #you_couldnt_try
+          = t '.the_end'
+        br
+      = link_to t('.buttons.back'), students_test_settings_path

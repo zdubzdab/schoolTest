@@ -35,7 +35,7 @@ gem 'ransack'
 gem 'routing-filter'
 gem 'kaminari'
 gem "i18n-js", ">= 3.0.0.rc11"
-gem 'faker'
+gem "zdubzdab_hola", '0.1.4'
 
 group :assets do
   gem "coffee-rails"
@@ -58,6 +58,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+  gem 'faker'
 end
 
 group :production do
