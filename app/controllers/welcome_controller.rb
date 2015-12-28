@@ -18,6 +18,11 @@ class WelcomeController < ApplicationController
       format.html { render partial: "tidings" if request.xhr? }
     end
   end
+
+  def show
+    @tiding = Tiding.find(params[:id])
+  end
+
 end
 
 

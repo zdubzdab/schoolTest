@@ -37,9 +37,14 @@
       b
         = t('.choose_video')
       br
-      = f.label :video do
-        = f.file_field :video
+      = f.label :videos do
+        = f.file_field :videos, multiple: true
     .form-group
+      b
+        = t('.choose_files')
+      br
+      = f.label :files do
+        = f.file_field :files, multiple: true
     .col-md-16#question_answer
       = f.fields_for :questions do |builder|
         = render 'question_fields', f: builder
@@ -48,5 +53,3 @@
           = link_to_add_fields t('.buttons.add_question'), f, :questions
 
       = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_test"
-
-

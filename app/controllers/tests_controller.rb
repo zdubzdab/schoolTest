@@ -30,13 +30,6 @@ class TestsController < ApplicationController
 
     def tests_params
       params.require(:test).permit(:klass, :subject, :theme_id)
-      # params.require(:test).permit(:stuff_id, :subject, :description, customer_attributes: [:first_name, :last_name, :email, :guest], comments_attributes: [:message, :user_id, :parent_id])
-
     end
-
-    def prepare_params
-
-    end
-
 end
 

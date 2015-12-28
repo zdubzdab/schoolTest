@@ -101,4 +101,3 @@ end
   user_id  = User.first.id + Faker::Number.between(1, 30)
   Comment.create_with(text: text, user_id: user_id).find_or_create_by(name: name)
 end
-

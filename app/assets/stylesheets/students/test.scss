@@ -1,13 +1,12 @@
 /*new*/
 #time_section {
   position:relative;
-  left:420px;
+  left:19%;
   top:0px;
 }
 
 #test_section {
   position:relative;
-  left:0px;
   top:-20px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -19,12 +18,16 @@
 
 #test_name_section {
   position:relative;
-  left:25px;
+  left:2%;
   top:0px;
 }
 
 #checkbox_from_test {
   position:relative;
-  left:7px;
+  left:1%;
   top:1px;
+}
+
+#attention-text {
+  color: red;
 }

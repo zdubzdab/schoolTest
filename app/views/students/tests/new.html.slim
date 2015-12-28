@@ -1,0 +1,19 @@
+.col-md-12
+  h3
+    = t '.h_testing'
+
+  .col-md-8#test_name_section
+    p
+      = t '.test_name'
+      b
+        = @test_setting.name
+    b#attention-text
+      = t '.attention'
+
+  .col-md-2#time_section
+    = t '.you_have_time'
+    = content_tag(:div, nil, data: {content: @test_setting.time_to_pass}, id: "time_tab")
+
+  .col-md-8#test_section
+    = render "form"
+
