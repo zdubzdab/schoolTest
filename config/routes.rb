@@ -24,6 +24,12 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:index, :create, :new]
 
+    namespace :students do
+      get 'profile',  to: "persons#profile"
+    end
+
+    get 'welcome',    to: 'welcome#index'    
+    
     resources :users, only: [:index]
 
     get 'welcome',    to: 'welcome#index'

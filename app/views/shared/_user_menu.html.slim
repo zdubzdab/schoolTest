@@ -11,6 +11,8 @@ ul.nav.nav-pills.pull-right
 
   li= link_to t('.buttons.comments'), new_comment_path
   - if user_signed_in?
+    - if current_user.has_role? :student
+      li= link_to t('.buttons.pass_test'), students_profile_path
     - if current_user.has_role? :admin
       li= link_to t('.buttons.wath_comments'), admin_comments_path
       li= link_to t('.buttons.manage_students'), admin_students_path

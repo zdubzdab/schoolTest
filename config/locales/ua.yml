@@ -134,6 +134,7 @@ ua:
         wath_comments: "Розглянути пропозиції"
         comments: "Пропозиції"
         add_news: "Додати новину"
+        pass_test: "Пройти тест"
         manage_students: "Редагувати учнів"
         index: "Вчителі"
         edit: "Редагувати вчителів"
