@@ -8,16 +8,16 @@ ua:
         other: "Через помилки неможливо зберегти %{resource}:"
   activerecord:
     models:
-      user: користувача 
+      user: користувача
       users: користувачів
       test_setting: тест
       test_settings: тести
       question: питання
       tiding: новина
-      tidings: новини   
+      tidings: новини
     attributes:
       user:
-        full_name: "Прізвище та Ім’я"
+        full_name: "Прізвище Ім'я Побатькові"
         email: "Емейл"
         password: "Пароль"
         password_confirmation: "Підтвердження паролю"
@@ -72,6 +72,13 @@ ua:
             text:
               blank: "не може бути пустим"
 
+  views:
+    pagination:
+      first: "Перша"
+      last: "Остання"
+      previous: "Попередня"
+      next: "Наступна"
+
   # views:
   devise:
     registrations:
@@ -86,8 +93,8 @@ ua:
           back: "Назад"
       edit:
         h_edit: "Редагування профілю"
-        choose_avatar: "Виберіть аватар"
-        avatar: "Аватар"
+        choose_avatar: "Видалити фото"
+        avatar: "Фото"
         leave_blank: "(Залиште пустим якщо не хочете змінювати)"
         we_need_password: "(нам потрібен ваш поточний пароль для підтвердження ваших змін)"
         h_cancel_account: "Відмінити мій акаунт"
@@ -96,7 +103,7 @@ ua:
         buttons:
           student: "Учень"
           teacher: "Вчитель"
-          submit: "Реєстрація"
+          submit: "Зберегти зміни"
           back: "Назад"
           cancel_account: "Відмінити мій акаунт"
     sessions:
@@ -118,6 +125,17 @@ ua:
         new_test: "Новий тест"
         add_news: "Додати новину"
         manage_students: "Редагувати учнів"
+        index: "Вчителі"
+        edit: "Редагувати вчителів"
+  users:
+    index:
+      h_teachers: "Наші вчителі"
+      buttons:
+        back: "Назад"
+    users:
+      name: "Прізвище Ім'я Побатькові"
+      email: "Емейл"
+      photo: "Фото"
   teachers:
     test_settings:
       form:
@@ -144,6 +162,34 @@ ua:
         buttons:
           remove: "Видалити"
   admin:
+    users:
+      index:
+        h_teachers: "Наші вчителі"
+        name: "Прізвище Ім'я Побатькові"
+        email: "Емейл"
+        photo: "Фото"
+        buttons:
+          back: "Назад"
+      users:
+        name: "Прізвище Ім'я Побатькові"
+        email: "Емейл"
+        photo: "Фото"
+        edit: "Редагувати"
+        destroy: "Видалити"
+        confirm_destroy: "Ви впевнені, що хочете видалити даного вчителя?"
+        buttons:
+          edit: "Редагувати"
+          destroy: "Видалити"
+      destroy:
+        controllers:
+          error: "Ви не можете видалити цього вчителя."
+      edit:
+        h_edit: "Редагування вчителя"
+        delete_avatar: "Видалити фото"
+        avatar: "Фото"
+        buttons:
+          submit: "Зберегти"
+          back: "Назад"
     tidings:
       new:
         h_news_creation: "Створення новини"
@@ -180,3 +226,8 @@ ua:
       destroy:
         controllers:
           error: "Ви не можете видалити цього учня."
+  welcome:
+    index:
+      search: "Пошук"
+      placeholder_search: "Пошук новин"
+      search_clear: "Очистити пошук"

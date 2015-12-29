@@ -1,4 +1,4 @@
-.col-md-8
+.col-md-3
   h3
     = t '.h_edit'
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
@@ -11,14 +11,16 @@
       div
         | Currently waiting confirmation for: #{resource.unconfirmed_email}
     .field
+      b
+        = t('.avatar')
       - if current_user.avatar.url.present?
-        b
-          = t('.avatar')
+        br
         = image_tag(current_user.avatar.url(:thumb))
+        br
         = f.label :remove_avatar do
           = f.check_box :remove_avatar
-      b
-        = t('.choose_avatar')
+        b
+          = t('.choose_avatar')
       = f.file_field :avatar
       = f.hidden_field :avatar_cache
     .field
@@ -29,7 +31,6 @@
       = f.password_field :password, autocomplete: "off"
     .field
       = f.label :password_confirmation
-      br
       = f.password_field :password_confirmation, autocomplete: "off"
     .field
       = f.label :current_password

@@ -14,20 +14,15 @@
         = @post.text
 
       .col-md-4#search_field
-        = form_tag(welcome_path, method: "get", class: "search_form", remote: true) do
-          = text_field_tag :search, params[:search], placeholder: "Search Articles"
-          = submit_tag "Search", name: nil, class: "btn btn-info", remote: true
+        = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
+          = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
+          = submit_tag t('.search'), class: "btn btn-info"
 
         = link_to "#", id: "clean_search_field" do
-          i#clean_search.fa.fa-remove.fa-3x data-title="clear search"
+          i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
 
-        #news_field
+        #partial_news
           = render partial: 'tidings'
-
-          .pagination.pagination-centered
-            ul style="list-style-type:none"
-              li.sort_paginate_ajax
-                span= will_paginate @tidings, renderer: FoundationPagination::Rails
 
 #footer
   = render 'shared/footer'

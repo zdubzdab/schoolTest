@@ -1,0 +1,9 @@
+.col-md-12
+  h3
+    = t('.h_teachers')
+
+#partial_teachers
+  = render partial: 'users'
+
+.col-md-12#b
+  = link_to t('.buttons.back'), root_path

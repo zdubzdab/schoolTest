@@ -5,10 +5,17 @@ $ ->
   $("#clean_search_field").click ->
     $('#search').val("")
 
-  $('.sort_paginate_ajax  a').click ->
-    $.getScript @href
-    false
-  return
 
-
+  $(".search_form").submit (event, data, status, xhr) ->
+    form = $(".search_form")
+    formData = form.serialize()
+    url = $(this).attr("action")
+    $.ajax
+      url: url
+      type: 'GET'
+      data: formData
+      dataType: 'html'
+      success: (data) ->
+        $('#partial_news').html data
+    event.preventDefault()
 

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ADMIN_STUDENTS_INDEX_PAGES = 20
+  ADMIN_USERS_INDEX_PAGES = 12
+  USERS_INDEX_PAGES = 12
 
   has_many :tests
   has_many :answers
@@ -25,6 +27,7 @@ class User < ActiveRecord::Base
                     uniqueness: true
 
   scope :students, -> { with_role(:student) }
+  scope :teachers, -> { with_role(:teacher) }
 
   def ensure_authentication_token
     if authentication_token.blank?
