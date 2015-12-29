@@ -34,7 +34,6 @@ unless Tiding.any?
     title  = Faker::Commerce.department
     text = Faker::Lorem.paragraph(15)
     main  = false
-    ava = Faker::Avatar.image("my-own-slug")
     Tiding.create!(title: title,
                     text: text,
                     main: main)
@@ -70,3 +69,13 @@ end
                    password: password,
                    password_confirmation: password).find_or_create_by(email: email).add_role(:teacher)
 end
+
+teacher.add_role(:admin)
+student.add_role(:student)
+teacher_not_admin.add_role(:teacher)
+
+teacher1 = User.create_with(full_name: 'teacher1', password: 'password', subject_id: Subject.last.id).find_or_create_by(email: '1teacher@gmail.com')
+teacher2 = User.create_with(full_name: 'teacher2', password: 'password', subject_id: Subject.last.id).find_or_create_by(email: '2teacher@gmail.com')
+
+teacher1.add_role(:teacher)
+teacher2.add_role(:teacher)

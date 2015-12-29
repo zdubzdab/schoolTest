@@ -1,14 +1,23 @@
 class WelcomeController < ApplicationController
-  def index
-    @tidings = Tiding.paginate(page: params[:page], per_page: 5).order("created_at DESC")
-    @post = Tiding.where(main: true).last
-    if params[:search]
-      @tidings = Tiding.search(params[:search]).paginate(page: params[:page], per_page: 2).order("created_at DESC")
 
-      respond_to do |format|
-        format.html
-        format.js
-      end
+  def index
+    @post = Tiding.where(main: true).last
+    @tidings = Tiding.order("created_at DESC").page(params[:page]).per(Tiding::WELCOME_INDEX_PAGES)
+    respond_to do |format|
+      format.html { render partial: "tidings" if request.xhr? }
+    end
+  end
+
+  def search
+    if params[:search]
+      @tidings = Tiding.search(params[:search]).order("created_at DESC").page(params[:page]).per(Tiding::WELCOME_INDEX_PAGES)
+    else
+      @tidings = Tiding.order("created_at DESC").page(params[:page]).per(Tiding::WELCOME_INDEX_PAGES)
+    end
+    respond_to do |format|
+      format.html { render partial: "tidings" if request.xhr? }
     end
   end
 end
+
+

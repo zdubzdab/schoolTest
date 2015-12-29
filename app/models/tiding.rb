@@ -2,6 +2,8 @@ class Tiding < ActiveRecord::Base
 
   resourcify#rolify
 
+  WELCOME_INDEX_PAGES = 5
+
   def self.search(query)
     where("title like ?", "%#{query}%")
   end

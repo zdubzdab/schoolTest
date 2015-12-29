@@ -1,0 +1,39 @@
+.col-md-12
+  h3
+    = t('.h_edit')
+
+.col-md-3
+  = form_for [:admin, @user], html: { multipart: true } do |f|
+    - if @user.errors.any?
+        #error_explanation
+          h4
+            = t('errors.messages.not_saved', count: @user.errors.count, resource: User.model_name.human)
+          ul
+            - @user.errors.full_messages.each do |msg|
+              li= msg
+    .field
+      = f.label :full_name
+      = f.text_field :full_name, autofocus: true
+    .field
+      = f.label :email
+      br
+      = f.email_field :email
+    .field
+      b
+        = t('.avatar')
+      - if @user.avatar.url.present?
+        br
+        = image_tag(@user.avatar.url(:thumb))
+        br
+        = f.label :remove_avatar do
+          = f.check_box :remove_avatar
+        b
+          = t('.delete_avatar')
+      = f.file_field :avatar
+      = f.hidden_field :avatar_cache
+
+    .actions
+      br
+      = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+    br
+      = link_to t('.buttons.back'), admin_users_path

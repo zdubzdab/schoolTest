@@ -34,8 +34,7 @@ gem 'friendly_id', '>= 5.0'
 gem "rolify"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
-gem 'will_paginate'#postorinkova_navihatsia
-gem 'will_paginate-foundation'
+gem 'will_paginate'
 gem 'ransack'
 gem 'routing-filter'
 gem 'kaminari'
