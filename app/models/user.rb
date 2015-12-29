@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  ADMIN_STUDENTS_INDEX_PAGES = 20
+
   has_many :tests
   has_many :answers
-  # TODO: rename foreign_key
-  belongs_to :categgory, foreign_key: 'klass_id'
+  belongs_to :categgory
   belongs_to :subject
   has_many :categgories_with_subjects
 
@@ -22,6 +23,8 @@ class User < ActiveRecord::Base
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                     message: :bad_email_format } ,
                     uniqueness: true
+
+  scope :students, -> { with_role(:student) }
 
   def ensure_authentication_token
     if authentication_token.blank?

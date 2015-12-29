@@ -1,0 +1,23 @@
+/*admin student */
+      /* index */
+#admin_table_with_students {
+  position:relative;
+  left:220px;
+  top:0px;
+
+  td {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+#admin_student_table_pagination {
+  position:relative;
+  left:470px;
+  top:0px;
+}

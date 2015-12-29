@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
+      resources :students, only: [:index, :edit, :update, :destroy]
       resources :tidings, only: [:show, :new, :create]
     end
 
