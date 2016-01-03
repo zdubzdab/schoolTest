@@ -268,3 +268,5 @@ ua:
       profile:
         buttons:
           back: "Назад"
+          choose_subject: "Виберіть предмет"
+          choose_theme: "Виберіть тему"

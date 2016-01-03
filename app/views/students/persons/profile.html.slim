@@ -3,17 +3,20 @@
     Profile
 
   p
-    / = @subject.try(&:name)
-  p
-    - @categgories_with_subjects.each do |categgories_with_subject|
+    - @subjects.each do |subject|
       ul
         li
-          = categgories_with_subject.subject.name
+          = subject.name
 
 
 
-    = select_tag(:subject_id, options_from_collection_for_select(@categgories_with_subjects, :id, :id))
+.select_form
+  = form_for :test, url: {action: "search_test_settings"}, method: 'get', class: 'select-form' do |f|
+    = select_tag(:subject_id, options_from_collection_for_select(@subjects, :id, :name), {prompt: t('.buttons.choose_subject')})
+    = f.grouped_collection_select(:theme_id, Subject.order(:name), :themes, :name, :id, :name, {prompt: t('.buttons.choose_theme')})
+
+#show
 
 .col-md-10
   = link_to t('.buttons.back'), root_path
-- console
+

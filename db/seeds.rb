@@ -21,22 +21,29 @@ Subject.last(2).each do |s|
   %w[тема1 тема2].each{|t| Theme.create_with(subject_id: s.id).find_or_create_by(name: t)}
 end
 
+%w[Хімія_тема1 Хімія_тема2 Хімія_тема3].each do |x|
+  Theme.create_with(subject_id: Subject.first.id).find_or_create_by(name: x)
+end
+%w[Біологія_тема1 Біологія_тема2 Біологія_тема3].each do |t|
+  Theme.create_with(subject_id: Subject.last.id).find_or_create_by(name: t)
+end
+
 Theme.last(2).each do |t|
   %w[тест1 тест2].each{ |tt| TestSetting.create_with(theme_id: t.id).find_or_create_by(name: tt) }
 end
 
-TestSetting.last(2).each do |ts|
-  Test.create_with(user_id: User.first.id).find_or_create_by(test_setting_id: ts.id)
-end
+# TestSetting.last(2).each do |ts|
+#   Test.create_with(user_id: User.first.id).find_or_create_by(test_setting_id: ts.id)
+# end
 
-20.times do |n|
-  title = "Title#{n+1}"
-  text = Faker::Lorem.paragraph(15)
-  Tiding.create_with(text: text,
-                     main: false).find_or_create_by(title: title)
-end
+# 20.times do |n|
+#   title = "Title#{n+1}"
+#   text = Faker::Lorem.paragraph(15)
+#   Tiding.create_with(text: text,
+#                      main: false).find_or_create_by(title: title)
+# end
 
-Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_by(title: 'Main news')
+# Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_by(title: 'Main news')
 
 # [:admin, :student, :teacher].each do |role|
 #   Role.find_or_create_by(name: role)
@@ -75,7 +82,7 @@ Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_
 # CateggoriesWithSubject.create!(subject_id: Subject.first.id, categgory_id: Categgory.first.id, user_id: 55)
 # CateggoriesWithSubject.create!(subject_id: Subject.last.id, categgory_id: Categgory.first.id, user_id: 55)
 
-User.create_with(full_name: 'admis', password: 'password', avatar: Faker::Avatar.image).find_or_create_by(email: 'ad@gmail.com').add_role(:student)
+# User.create_with(full_name: 'admis', password: 'password', avatar: Faker::Avatar.image).find_or_create_by(email: 'ad@gmail.com').add_role(:student)
 
 unless Comment.any?
    10.times do |n|

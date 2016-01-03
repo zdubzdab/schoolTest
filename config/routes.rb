@@ -28,6 +28,14 @@ Rails.application.routes.draw do
       get 'profile',  to: "persons#profile"
     end
 
+  namespace 'students' do
+    resources 'persons' do
+      collection do
+        get 'search_test_settings'
+      end
+    end
+  end
+
     get 'welcome',    to: 'welcome#index'    
     
     resources :users, only: [:index]
