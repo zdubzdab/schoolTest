@@ -4,8 +4,7 @@
 $ ->
   $("#clean_search_field").click ->
     $('#search').val("")
-
-
+    
   $(".search_form").submit (event, data, status, xhr) ->
     form = $(".search_form")
     formData = form.serialize()

@@ -74,8 +74,14 @@ teacher.add_role(:admin)
 student.add_role(:student)
 teacher_not_admin.add_role(:teacher)
 
-teacher1 = User.create_with(full_name: 'teacher1', password: 'password', subject_id: Subject.last.id).find_or_create_by(email: '1teacher@gmail.com')
-teacher2 = User.create_with(full_name: 'teacher2', password: 'password', subject_id: Subject.last.id).find_or_create_by(email: '2teacher@gmail.com')
+unless Comment.any?
+   10.times do |n|
+    name  = Faker::Commerce.department
+    text = Faker::Lorem.paragraph(5)
+    user_id  = User.last.id
+    Comment.create!(name: name,
+                    text: text,
+                    user_id: user_id)
+  end
+end
 
-teacher1.add_role(:teacher)
-teacher2.add_role(:teacher)

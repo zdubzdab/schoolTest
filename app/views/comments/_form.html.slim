@@ -1,0 +1,20 @@
+= form_for :comment, url: {controller: "comments", action: "create"}, html: { class: 'test-settings-form' } , method: 'post' do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      h4
+        = t('errors.messages.not_saved', count: @comment.errors.count, resource: Comment.model_name.human)
+      ul
+        - @comment.errors.full_messages.each do |msg|
+          li= msg
+
+  .col-md-3
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :text
+      = f.text_area :text, class: 'form-control'
+      - if user_signed_in?
+        = f.hidden_field :user_id, value: current_user.id
+    .actions
+      = f.submit t('.buttons.submit'), class: "btn btn-info"

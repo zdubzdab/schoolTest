@@ -1,0 +1,25 @@
+.col-md-12
+  - @comments.each do |comment|
+    .col-md-10#one_comment
+      ol
+        .col-md-3#author
+          - if comment.user
+            = comment.user.full_name
+          - else
+            = t('.guest')
+        .col-md-2#comment_created_at
+          = date_format(comment.created_at)
+        .col-md-2#delete_part
+          = link_to admin_comment_path(comment), method: :delete, remote: true, class: "b_delete_comment" do
+            i#clean_search.fa.fa-remove.fa-3x
+        .col-md-12#main_part
+          #comment_text
+            b
+              = comment.name
+            br
+            = comment.text
+
+.col-md-6#comments_pagination
+  ul.ul_list_style
+    li.active
+      span= paginate @comments, remote: true

@@ -16,13 +16,18 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
+      resources :comments, only: [:index, :destroy]
       resources :students, only: [:index, :edit, :update, :destroy]
       resources :users, only: [:index, :edit, :update, :destroy]
       resources :tidings, only: [:show, :new, :create]
-    end
+     end
+
+    resources :comments, only: [:index, :create, :new]
 
     resources :users, only: [:index]
 
+    get 'welcome',    to: 'welcome#index'
+    
     resources :welcome do
       collection do
         get 'search'
