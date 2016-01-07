@@ -7,8 +7,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     namespace :teachers do
-      resources :questions
-      resources :test_settings do
+      resources :test_settings, only: [:index, :new, :create] do
         collection do
           get 'search_test_settings'
         end
@@ -24,25 +23,17 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:index, :create, :new]
 
-    namespace :students do
-      get 'profile',  to: "persons#profile"
-    end
-
-  namespace 'students' do
-    resources 'persons' do
-      collection do
-        get 'search_test_settings'
+    namespace 'students' do
+      resources 'test_settings', only: [:index, :show, :new, :create] do
+        collection do
+          get 'search_test_settings'
+        end
       end
     end
-  end
 
-    get 'welcome',    to: 'welcome#index'    
-    
     resources :users, only: [:index]
 
-    get 'welcome',    to: 'welcome#index'
-    
-    resources :welcome do
+    resources :welcome, only: [:index] do
       collection do
         get 'search'
       end

@@ -8,9 +8,4 @@ class Categgory < ActiveRecord::Base
   resourcify#rolify
 
   validates_presence_of :name
-
-  class Entity < Grape::Entity
-    expose :id
-    expose :name
-  end
 end

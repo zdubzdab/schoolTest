@@ -38,8 +38,14 @@ h3
       b
         = t('.choose_video')
       br
-      = f.label :video do
-        = f.file_field :video
+      = f.label :videos do
+        = f.file_field :videos, multiple: true
+    .form-group
+      b
+        = t('.choose_files')
+      br
+      = f.label :files do
+        = f.file_field :files, multiple: true
     .form-group
       = link_to t('.buttons.back'), root_path
     .col-md-16#question_answer

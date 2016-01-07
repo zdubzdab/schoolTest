@@ -1,0 +1,64 @@
+
+#question_f {
+  position:relative;
+  top:50px;
+}
+#question_answer {
+  position:relative;
+  left:750px;
+  top:-670px;
+}
+
+.test-settings-form {
+  height: 600px;
+}
+
+.l_add_question {
+  position:relative;
+  left:0px;
+  top:30px;
+}
+
+#test_setting_categgory_id, #test_setting_subject_id, #test_setting_theme_id, #b_save_test, #subject_id, #test_theme_id, #test_theme_select_box, #button_pass_test {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  color: White;
+  background: #5bc0de;
+  border: Black;
+  height: 40px;
+  width: 175px;
+}
+
+#b_save_test {
+  position:relative;
+  left:-120px;
+  top:50px;
+}
+
+/* students*/
+/* index*/
+#show_test_setting_links {
+  position:relative;
+  left:-200px;
+  top:70px;
+}
+
+#h_test_list {
+  position:relative;
+  left:100px;
+}
+
+/* students*/
+/* show*/
+#button_pass_test {
+  position:relative;
+  left:440px;
+  top:10px;
+}
+
+#section_with_files_and_video {
+  position:relative;
+  left:100px;
+  top:0px;
+}

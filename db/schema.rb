@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217133821) do
+ActiveRecord::Schema.define(version: 20160105150529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,8 @@ ActiveRecord::Schema.define(version: 20151217133821) do
     t.integer  "categgory_id"
     t.integer  "subject_id"
     t.integer  "time_to_pass",    default: 0
-    t.string   "video"
+    t.json     "files"
+    t.json     "videos"
   end
 
   add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree

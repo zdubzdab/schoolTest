@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ADMIN_STUDENTS_INDEX_PAGES = 20
-  ADMIN_USERS_INDEX_PAGES = 12
-  USERS_INDEX_PAGES = 12
+  ADMIN_USERS_INDEX_PAGES = 5
+  USERS_INDEX_PAGES = 5
 
   has_many :tests
   has_many :answers
@@ -45,14 +45,4 @@ class User < ActiveRecord::Base
         break token unless User.where(authentication_token: token).first
       end
     end
-
-  class Entity < Grape::Entity
-    expose :id
-    expose :full_name
-    expose :email
-    expose :categgory, using: Categgory::Entity
-    expose :admin
-    expose :categgories_with_subjects, using: CateggoriesWithSubject::Entity
-  end
-
 end

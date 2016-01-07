@@ -168,7 +168,7 @@ ua:
         description: "Пояснення"
         max_tried_count: "Кількість спроб"
         choose_video: "Виберіть відео"
-        question: "gbnf"
+        choose_files: "Виберіть файли"
         buttons:
           back: "Назад"
           save: "Зберегти тест"
@@ -264,9 +264,31 @@ ua:
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
   students:
-    persons:
-      profile:
+    test_settings:
+      index:
+        h_testing: "Тестування"
+        h_tests: "Тести"
+        choose_subject: "Предмет"
+        choose_theme: "Виберіть тему"
         buttons:
           back: "Назад"
           choose_subject: "Виберіть предмет"
-          choose_theme: "Виберіть тему"
+      test_settings:
+
+        buttons:
+          show_test: " - пройти тест"
+      show:
+        h_testing: "Тестування"
+        testing_theme: "Тест на тему: "
+        testing_description: "Короткий опис: "
+        h_files: "Файли"
+        h_videos: "Відео"
+        buttons:
+          back: "Назад"
+          pass_test: "Пройти тест"
+      there_is_not_test:
+        h_this_theme_doesnt_have_tests: "На цю тему, поки що, немає тестів"
+      new:
+        h_testing: "Тестування"
+        buttons:
+          back: "Назад"

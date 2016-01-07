@@ -25,6 +25,7 @@ class Teachers::TestSettingsController < ApplicationController
     else
       render "_form"
     end
+
   end
 
   def search_test_settings
@@ -46,6 +47,6 @@ class Teachers::TestSettingsController < ApplicationController
 
   private
     def test_settings_params
-      params.require(:test_setting).permit( :categgory_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, :video, questions_attributes: [:text, :id,  :_destroy, answer_settings_attributes: [:name, :id, :rigth, :_destroy]] )
+      params.require(:test_setting).permit( :categgory_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, {videos: []}, {files: []}, questions_attributes: [:text, :id,  :_destroy, answer_settings_attributes: [:name, :id, :rigth, :_destroy]] )
     end
 end
