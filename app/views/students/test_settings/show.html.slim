@@ -11,6 +11,18 @@
     p
       = t '.testing_description'
       = @test_setting.description
+    br
+    p
+      = t '.testing_time_to_pass'
+      = @test_setting.time_to_pass
+      = t '.seconds'
+    br
+    p
+      = t '.testing_max_tried_count'
+      = @test_setting.max_tried_count
+
+    #until
+
   #section_with_files_and_video
     .col-md-10
       hr
@@ -22,7 +34,6 @@
         br
         i.fa.fa-file-pdf-o.fa-3x
         = link_to chop(doc.url), doc.url
-    .col-md-10
       hr
 
     .col-md-10
@@ -30,7 +41,6 @@
         = t '.h_videos'
       - @test_setting.videos.each do |video|
         = video_tag video, size: "480x360", controls: true
-    .col-md-10
       hr
 
     .col-md-8

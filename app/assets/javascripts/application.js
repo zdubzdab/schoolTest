@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require lib/jquery.plugin
-//= require lib/jquery.countdown
+//= require jquery.countdown
 //= require twitter/bootstrap
 //= require knockout-3.3.0
 //= require namespace

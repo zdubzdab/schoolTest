@@ -283,6 +283,9 @@ ua:
         testing_description: "Короткий опис: "
         h_files: "Файли"
         h_videos: "Відео"
+        testing_time_to_pass: "Час проходження: "
+        testing_max_tried_count: "Кількість спроб: "
+        seconds: "секунд"
         buttons:
           back: "Назад"
           pass_test: "Пройти тест"

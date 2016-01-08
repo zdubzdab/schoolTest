@@ -20,7 +20,7 @@ class Students::TestSettingsController < ApplicationController
   end
 
   def new
-
+    @test_setting = TestSetting.find(params[:id])
   end
 
   private

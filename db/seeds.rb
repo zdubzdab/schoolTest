@@ -94,13 +94,13 @@ end
 #   user_id  = User.last.id
 #   Comment.create_with(text: text, user_id: user_id).find_or_create_by(name: name)
 
-unless Comment.any?
-   10.times do |n|
-    name  = Faker::Commerce.department
-    text = Faker::Lorem.paragraph(5)
-    user_id  = User.last.id
-    Comment.create!(name: name,
-                    text: text,
-                    user_id: user_id)
-  end
-end
+# unless Comment.any?
+#    10.times do |n|
+#     name  = Faker::Commerce.department
+#     text = Faker::Lorem.paragraph(5)
+#     user_id  = User.last.id
+#     Comment.create!(name: name,
+#                     text: text,
+#                     user_id: user_id)
+#   end
+# end
