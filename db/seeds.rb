@@ -70,10 +70,6 @@ end
                    password_confirmation: password).find_or_create_by(email: email).add_role(:teacher)
 end
 
-teacher.add_role(:admin)
-student.add_role(:student)
-teacher_not_admin.add_role(:teacher)
-
 unless Comment.any?
    10.times do |n|
     name  = Faker::Commerce.department
