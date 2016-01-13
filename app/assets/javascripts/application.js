@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.countdown
+//= require lib/jquery.plugin
+//= require lib/jquery.countdown
 //= require twitter/bootstrap
 //= require knockout-3.3.0
 //= require namespace
+//= require i18n
+//= require i18n/translations
 //= require_tree .

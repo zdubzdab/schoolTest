@@ -18,13 +18,14 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :destroy]
       resources :students, only: [:index, :edit, :update, :destroy]
       resources :users, only: [:index, :edit, :update, :destroy]
-      resources :tidings, only: [:show, :new, :create]
+      resources :tidings, only: [:index, :show, :new, :create]
      end
 
     resources :comments, only: [:index, :create, :new]
 
     namespace 'students' do
-      resources 'test_settings', only: [:index, :show, :new, :create] do
+      resources 'test_settings', only: [:index, :show] do
+        resources 'tests', only: [:new, :create]
         collection do
           get 'search_test_settings'
         end

@@ -20,8 +20,10 @@
     p
       = t '.testing_max_tried_count'
       = @test_setting.max_tried_count
-
-    #until
+    br
+    p
+      = t '.you_have_attempting'
+      = @test_setting.max_tried_count - @attempts_number.count
 
   #section_with_files_and_video
     .col-md-10
@@ -44,6 +46,17 @@
       hr
 
     .col-md-8
+      - if @test_setting.max_tried_count > @attempts_number.count
+        = button_to t('.buttons.pass_test'), new_students_test_setting_test_path(@test_setting), method: "get", id: "button_pass_test"
+      - else
+        #you_couldnt_try
+          = t '.the_end'
+        br
+      / = @test_setting.max_tried_count
+      / = current_user.tests.count
+      / = @test_setting.tests.count
+      / = @attempts_number.count
       = link_to t('.buttons.back'), students_test_settings_path
-      = button_to t('.buttons.pass_test'), new_students_test_setting_path, method: "get", id: "button_pass_test"
+      / - if @test_setting.max_tried_count
+
       br

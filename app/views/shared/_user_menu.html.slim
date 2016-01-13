@@ -10,21 +10,21 @@ ul.nav.nav-pills.pull-right
         = link_to_unless_current "Українська", locale: "ua"
 
   li= link_to t('.buttons.comments'), new_comment_path
+  li= link_to t('.buttons.index'), users_path
   - if user_signed_in?
     - if current_user.has_role? :student
       li= link_to t('.buttons.pass_test'), students_test_settings_path
-    - if current_user.has_role? :admin
-      li= link_to t('.buttons.wath_comments'), admin_comments_path
-      li= link_to t('.buttons.manage_students'), admin_students_path
-      li= link_to t('.buttons.edit'), admin_users_path
-      li= link_to t('.buttons.add_news'), new_admin_tiding_path
-    li= link_to t('.buttons.new_test'), can?(:manage, Test) ? new_teachers_test_setting_path : tests_path
-    li= link_to t('.buttons.main'), root_path
-    li= link_to t('.buttons.index'), users_path
-    li= link_to t('.buttons.testing'), can?(:manage, Test) ? teachers_test_settings_path : tests_path
+    - elsif current_user.has_role? :teacher
+      li= link_to t('.buttons.new_test'), new_teachers_test_setting_path
+      li= link_to t('.buttons.testing'), teachers_test_settings_path
+    - elsif current_user.has_role? :admin
+      li= link_to t('.buttons.new_test'), new_teachers_test_setting_path
+      li= link_to t('.buttons.testing'), teachers_test_settings_path
+      li= link_to t('.buttons.admin_main_page'), admin_tidings_path
     li= link_to t('.buttons.edit_profile'), edit_user_registration_path
     li= link_to t('.buttons.sign_out'), destroy_user_session_path, method: :delete
   - else
     li= link_to t('.buttons.log_in'), new_user_session_path
     li= link_to t('.buttons.register'), new_user_registration_path
+
 h2 Школа №

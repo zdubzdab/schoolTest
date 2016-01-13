@@ -1,5 +1,8 @@
 class Admin::TidingsController < ApplicationController
 
+  def index
+  end
+
   def new
     @tiding = Tiding.new
   end

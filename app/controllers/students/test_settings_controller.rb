@@ -17,11 +17,10 @@ class Students::TestSettingsController < ApplicationController
 
   def show
     @test_setting = TestSetting.find(params[:id])
+    tests_belongs_to_test_setting = Test.where(test_setting_id: @test_setting.id)
+    @attempts_number = tests_belongs_to_test_setting.where(user_id: current_user.id)
   end
 
-  def new
-    @test_setting = TestSetting.find(params[:id])
-  end
 
   private
 

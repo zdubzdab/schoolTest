@@ -1,0 +1,12 @@
+.fields
+  ol
+    - @test_setting.questions.each do |question|
+      li
+        = question.text
+        ol
+          - question.answer_settings.each do |answer|
+            li
+              = answer.name
+              = f.check_box :rigth
+              = f.hidden_field :user_id, value: current_user.id
+              = f.hidden_field :answer_setting_id, value: answer.id

@@ -1,0 +1,8 @@
+= form_for [:students, :test_setting, @test], html: { class: 'test-form'} do |f|
+
+  .col-md-10#fields_for_answers
+    = f.fields_for :answers do |builder|
+      = render 'answer_fields', f: builder
+
+      = f.hidden_field :user_id, value: current_user.id
+      = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_result"

@@ -20,6 +20,6 @@ $ ->
       dataType: "html"
       success: (request) ->
         $("#show_test_setting_links").html(request)
-        debugger;
 
-  $('#until').countdown({until: liftoffTime, format: 'HMS'})
+
+

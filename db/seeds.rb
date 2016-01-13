@@ -13,8 +13,8 @@ end
 
 @petia_user = User.create_with(full_name: 'Петя Пяточкін', password: '123123123').find_or_create_by(email: 'petia.pato4kin@gmail.com', categgory_id: Categgory.last.id)
 
-Categgory.last(2).each do |k|
-  %w[хімія біологія].each{|s| Subject.create_with(categgory_id: k.id).find_or_create_by(name: s)}
+%w[хімія біологія].each do |s|
+  Subject.find_or_create_by(name: s)
 end
 
 %w[Хімія_тема1 Хімія_тема2 Хімія_тема3].each do |x|
@@ -30,16 +30,35 @@ Theme.last(6).each do |t|
     description = Faker::Lorem.paragraph(5)
     max_tried_count = Faker::Number.between(2, 5)
     time_to_pass = Faker::Number.between(60, 120)
+    categgory_id = Categgory.first.id + Faker::Number.between(1, 10)
     TestSetting.create_with(theme_id: t.id,
+                            subject_id: t.subject_id,
+                            categgory_id: categgory_id,
                             description: description,
                             max_tried_count: max_tried_count,
                             time_to_pass: time_to_pass).find_or_create_by(name: name)
   end
 end
 
-# TestSetting.last(2).each do |ts|
-#   Test.create_with(user_id: User.first.id).find_or_create_by(test_setting_id: ts.id)
+# TestSetting.last(12).each do |ts|
+#   5.times do
+#     Question.create_with(test_setting_id: ts.id).find_or_create_by(text: Faker::Lorem.sentence)
+#   end
 # end
+
+# Question.last(60).each do |q|
+#   3.times do
+#     rigth = [true, false].sample
+#     few_answers = [true, false].sample
+#     AnswerSetting.create_with(question_id: q.id,
+#                               rigth: rigth,
+#                               few_answers: few_answers).find_or_create_by(name: Faker::Lorem.sentence)
+#   end
+# end
+
+TestSetting.last(12).each do |ts|
+  Test.create_with(user_id: User.first.id + Faker::Number.between(22, 41)).find_or_create_by(test_setting_id: ts.id)
+end
 
 20.times do |n|
   title = "Title#{n+1}"
@@ -88,19 +107,10 @@ end
 #   end
 # end
 
-# 10.times do |n|
-#   name = "Comment_name#{n+1}"
-#   text = Faker::Lorem.paragraph(5)
-#   user_id  = User.last.id
-#   Comment.create_with(text: text, user_id: user_id).find_or_create_by(name: name)
+20.times do |n|
+  name = "Comment_name#{n+1}"
+  text = Faker::Lorem.paragraph(8)
+  user_id  = User.first.id + Faker::Number.between(1, 30)
+  Comment.create_with(text: text, user_id: user_id).find_or_create_by(name: name)
+end
 
-# unless Comment.any?
-#    10.times do |n|
-#     name  = Faker::Commerce.department
-#     text = Faker::Lorem.paragraph(5)
-#     user_id  = User.last.id
-#     Comment.create!(name: name,
-#                     text: text,
-#                     user_id: user_id)
-#   end
-# end

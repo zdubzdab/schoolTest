@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105150529) do
+ActiveRecord::Schema.define(version: 20160113103608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,11 @@ ActiveRecord::Schema.define(version: 20160105150529) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id"
     t.integer "answer_setting_id"
+    t.integer "test_id"
+    t.boolean "rigth"
   end
+
+  add_index "answers", ["test_id"], name: "index_answers_on_test_id", using: :btree
 
   create_table "categgories", force: :cascade do |t|
     t.string   "name"
@@ -148,6 +152,7 @@ ActiveRecord::Schema.define(version: 20160105150529) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "answers", "tests"
   add_foreign_key "comments", "users"
   add_foreign_key "users", "subjects"
 end
