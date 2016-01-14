@@ -1,4 +1,10 @@
-
+/*teachers*/
+/*test_setting*/
+/*new*/
+#b_back_test_setting_new {
+  position:relative;
+  top:70px;
+}
 #question_f {
   position:relative;
   top:50px;
@@ -16,7 +22,7 @@
 .l_add_question {
   position:relative;
   left:0px;
-  top:30px;
+  top:40px;
 }
 
 #test_setting_categgory_id, #test_setting_subject_id, #test_setting_theme_id, #b_save_test, #subject_id, #test_theme_id, #test_theme_select_box, #button_pass_test {
@@ -32,8 +38,8 @@
 
 #b_save_test {
   position:relative;
-  left:-120px;
-  top:50px;
+  left:750px;
+  top:-600px;
 }
 
 /* students*/
@@ -63,8 +69,23 @@
   top:0px;
 }
 
-#you_couldnt_try{
+#you_couldnt_try {
   position:relative;
   left:280px;
+  top:0px;
+}
+
+/*teachers*/
+/*test_setting*/
+/*index*/
+#table_with_test_settings {
+  position:relative;
+  left:110px;
+  top:0px;
+}
+
+#test_setting_table_pagination {
+  position:relative;
+  left:410px;
   top:0px;
 }

@@ -5,6 +5,8 @@ class TestSetting < ActiveRecord::Base
   belongs_to :categgory
   belongs_to :theme
 
+  TEACHER_TESTSETTING_INDEX_PAGES = 10
+
   resourcify#rolify
 
   accepts_nested_attributes_for :questions, allow_destroy: true

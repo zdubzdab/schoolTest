@@ -1,5 +1,3 @@
-h3
-  = t '.h_test_creation'
 .col-md-4
   = form_for [:teachers, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
     - if @test_setting.errors.any?
@@ -46,15 +44,13 @@ h3
       br
       = f.label :files do
         = f.file_field :files, multiple: true
-    .form-group
-      = link_to t('.buttons.back'), root_path
     .col-md-16#question_answer
       = f.fields_for :questions do |builder|
         = render 'question_fields', f: builder
         hr
         .l_add_question#links_q_a
           = link_to_add_fields t('.buttons.add_question'), f, :questions
-          = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_test"
 
+    = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_test"
 
 

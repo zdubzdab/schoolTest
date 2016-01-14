@@ -3,7 +3,17 @@ class Students::TestsController < ApplicationController
   def new
     @test = Test.new
     @test_setting = TestSetting.find(params[:test_setting_id])
-    @test.answers.build
+    @test_setting.questions.each do |question|
+      question.answer_settings.each do |answer_setting|
+        @test.answers.build
+      end
+    end
+    # @test_setting.questions.each do |question|
+    #   @test.answers.build
+    # end
+    # @test_setting.questions.count.times {@test.answers.build}
+    # 3.times {@test.answers.build}
+    # @test.answers.build
   end
 
   def create

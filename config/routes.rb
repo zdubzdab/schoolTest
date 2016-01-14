@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     namespace :teachers do
-      resources :test_settings, only: [:index, :new, :create] do
+      resources :test_settings do
         collection do
           get 'search_test_settings'
         end

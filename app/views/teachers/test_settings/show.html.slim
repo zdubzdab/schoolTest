@@ -20,10 +20,6 @@
     p
       = t '.testing_max_tried_count'
       = @test_setting.max_tried_count
-    br
-    p
-      = t '.you_have_attempting'
-      = @test_setting.max_tried_count - @attempts_number.count
 
   #section_with_files_and_video
     .col-md-10
@@ -45,11 +41,22 @@
         = video_tag video, size: "480x360", controls: true
       hr
 
-    .col-md-8
-      - if @test_setting.max_tried_count > @attempts_number.count
-        = button_to t('.buttons.pass_test'), new_students_test_setting_test_path(@test_setting), method: "get", id: "button_pass_test"
-      - else
-        #you_couldnt_try
-          = t '.the_end'
-        br
-      = link_to t('.buttons.back'), students_test_settings_path
+  #question_answer_section
+    .col-md-12
+      h4
+        = t '.h_test'
+
+      ol
+        - @test_setting.questions.each do |question|
+          li
+            = question.text
+            ol
+              - question.answer_settings.each do |answer|
+                li
+                  = answer.name
+
+
+  .col-md-12#b_back_test_setting_show
+    = link_to t('.buttons.edit'), edit_teachers_test_setting_path
+    br
+    = link_to t('.buttons.back'), teachers_test_settings_path

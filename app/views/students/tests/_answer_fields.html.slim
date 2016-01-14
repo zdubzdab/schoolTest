@@ -7,6 +7,6 @@
           - question.answer_settings.each do |answer|
             li
               = answer.name
-              = f.check_box :rigth
+              = f.check_box :rigth, id: "checkbox_from_test"
               = f.hidden_field :user_id, value: current_user.id
               = f.hidden_field :answer_setting_id, value: answer.id

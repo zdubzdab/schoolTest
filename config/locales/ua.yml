@@ -161,8 +161,16 @@ ua:
         sucessful: "Ваша пропозиція успішно створена і буде розглянута найближчим часом."
   teachers:
     test_settings:
-      form:
+      new:
         h_test_creation: "Створення тестів"
+        buttons:
+          back: "Назад"
+      edit:
+        h_test_editing: "Редагування тестів"
+        buttons:
+          back: "Назад"
+          show: "Подивитись на тест"
+      form:
         class: "Клас"
         subject: "Предмет"
         theme: "Тема"
@@ -171,7 +179,6 @@ ua:
         choose_video: "Виберіть відео"
         choose_files: "Виберіть файли"
         buttons:
-          back: "Назад"
           save: "Зберегти тест"
           add_question: "Додати запитання"
       question_fields:
@@ -184,6 +191,38 @@ ua:
         mark_if_right: "Позначте, якщо відповідь правильна"
         buttons:
           remove: "Видалити"
+      index:
+        h_tests: "Тести"
+        controllers:
+          error: "Ви не можете видалити цей тест."
+        buttons:
+          back: "Назад"
+      test_setting:
+        subject: "Предмет"
+        theme: "Тема"
+        name: "Назва"
+        description: "Опис"
+        edit: "Редагувати"
+        destroy: "Видалити"
+        confirm_destroy: "Ви дійсно хочете вдалити даний тест?"
+        show: "Переглянути"
+        buttons:
+          edit: "Редагувати"
+          destroy: "Видалити"
+          show: "Переглянути"
+      show:
+        h_testing: "Тестування"
+        testing_theme: "Тест на тему: "
+        testing_description: "Короткий опис: "
+        h_files: "Файли"
+        h_videos: "Відео"
+        testing_time_to_pass: "Час проходження: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        seconds: "секунд"
+        h_test: "Тест"
+        buttons:
+          edit: "Редагувати"
+          back: "Назад"
   admin:
     users:
       index:
@@ -191,6 +230,8 @@ ua:
         name: "Прізвище Ім'я Побатькові"
         email: "Емейл"
         photo: "Фото"
+        controllers:
+          error: "Ви не можете видалити цього вчителя."
         buttons:
           back: "Назад"
       users:
@@ -203,9 +244,6 @@ ua:
         buttons:
           edit: "Редагувати"
           destroy: "Видалити"
-      destroy:
-        controllers:
-          error: "Ви не можете видалити цього вчителя."
       edit:
         h_edit: "Редагування вчителя"
         delete_avatar: "Видалити фото"
