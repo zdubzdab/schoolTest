@@ -1,29 +1,18 @@
-#head
-  = render 'shared/site_header'
-#body
-  = render 'shared/user_menu'
+.col-md-8#main_new_field
+  = image_tag("image.jpg", size: "65x100", class: "img")
+  h4
+    = @post.try(:title)
+  = @post.try(:text)
 
-= image_tag("image.jpg", size: "65x100", class: "img")
+.col-md-4#search_field
+  = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
+    = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
+    = submit_tag t('.search'), class: "btn btn-info"
 
-.wrapper.container
-  .container-fluid
-    .row-fluid
-      .col-md-8#main_new_field
-        h4
-          = @post.try(:title)
-        = @post.try(:text)
+  = link_to "#", id: "clean_search_field" do
+    i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
 
-      .col-md-4#search_field
-        = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
-          = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
-          = submit_tag t('.search'), class: "btn btn-info"
+  #partial_news
+    = render partial: 'tidings'
 
-        = link_to "#", id: "clean_search_field" do
-          i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
-
-        #partial_news
-          = render partial: 'tidings'
-
-#footer
-  = render 'shared/footer'
 

@@ -23,7 +23,7 @@ class Teachers::TestSettingsController < ApplicationController
     @test_setting = TestSetting.new(test_settings_params)
 
     if @test_setting.save
-      redirect_to [:teachers, :test_settings]
+      redirect_to [:teachers, :test_settings], notice: t('.controllers.successfull')
     else
       render "new"
     end

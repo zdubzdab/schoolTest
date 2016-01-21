@@ -1,0 +1,50 @@
+.col-md-12
+  h3
+    = t '.h_test_results'
+
+  .col-md-10#result_section
+    p
+      = t '.you_pass_test_from_theme'
+      = @test.theme.try(:name)
+    p
+      = t '.you_pass_test'
+      = @test.test_setting.try(:name)
+    p
+      = t '.testing_max_tried_count'
+      = @test.test_setting.max_tried_count
+    p
+      = t '.you_have_attempting'
+      = @test.test_setting.max_tried_count - @attempts_number.count
+    p
+      - @test.test_setting.questions.each do |question|
+
+    p result:
+    p
+      = @result
+    br
+    / - @true_answers.each do |q|
+    /   = q.answer_setting.id
+    p questions:
+    p
+      = @questions.count
+    br
+    p true_answers:
+    p
+      = @true_answers.count
+      / = q.answer_setting.name
+
+  .col-md-10
+    br
+    = link_to t('.buttons.page_for_choose_tests'), students_test_settings_path
+    / p
+    /   = t '.you_have_subjects'
+    / ol
+    /   - @subjects.each do |subject|
+    /     li
+    /       = subject.name
+    /       ol
+    /         - subject.themes.each do |theme|
+    /           li
+    /             = theme.name
+
+

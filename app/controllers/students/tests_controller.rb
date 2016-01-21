@@ -1,5 +1,17 @@
 class Students::TestsController < ApplicationController
 
+  def index
+    @test_setting = TestSetting.find(params[:test_setting_id])
+    @questions = @test_setting.questions
+    tests_belongs_to_test_setting = Test.where(test_setting_id: @test_setting.id)
+    @attempts_number = tests_belongs_to_test_setting.where(user_id: current_user.id)
+    # @tests = current_user.tests
+    @test = current_user.tests.last
+    @subjects = current_user.subjects
+    @true_answers = Answer.current_test(@test.id).current_student(current_user.id).with_true.joins(:answer_setting).where( answer_settings: {rigth: 'true'} )
+    @result = @true_answers.count / @questions.count * 100
+  end
+
   def new
     @test = Test.new
     @test_setting = TestSetting.find(params[:test_setting_id])
@@ -21,16 +33,11 @@ class Students::TestsController < ApplicationController
     @test = @test_setting.tests.create(tests_params)
 
     if @test.save
-      redirect_to students_test_settings_path
+      redirect_to students_test_setting_tests_path
     else
       render 'new'
     end
   end
-
-  def show
-    @test_setting = TestSetting.find(params[:id])
-  end
-
 
   private
 

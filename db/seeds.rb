@@ -60,12 +60,12 @@ TestSetting.last(12).each do |ts|
   Test.create_with(user_id: User.first.id + Faker::Number.between(22, 41)).find_or_create_by(test_setting_id: ts.id)
 end
 
-20.times do |n|
-  title = "Title#{n+1}"
-  text = Faker::Lorem.paragraph(15)
-  Tiding.create_with(text: text,
-                     main: false).find_or_create_by(title: title)
-end
+# 20.times do |n|
+#   title = Faker::Commerce.department
+#   text = Faker::Lorem.paragraph(15)
+#   Tiding.create_with(text: text,
+#                      main: false).find_or_create_by(title: title)
+# end
 
 Tiding.create_with(text: Faker::Lorem.paragraph(20), main: true).find_or_create_by(title: 'Main news')
 

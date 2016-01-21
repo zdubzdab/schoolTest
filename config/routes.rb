@@ -18,14 +18,14 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :destroy]
       resources :students, only: [:index, :edit, :update, :destroy]
       resources :users, only: [:index, :edit, :update, :destroy]
-      resources :tidings, only: [:index, :show, :new, :create]
+      resources :tidings, only: [:index, :new, :create]
      end
 
     resources :comments, only: [:index, :create, :new]
 
     namespace 'students' do
       resources 'test_settings', only: [:index, :show] do
-        resources 'tests', only: [:new, :create]
+        resources 'tests', only: [:new, :create, :index]
         collection do
           get 'search_test_settings'
         end
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index]
 
-    resources :welcome, only: [:index] do
+    resources :welcome, only: [:index, :show] do
       collection do
         get 'search'
       end

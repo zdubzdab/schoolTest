@@ -80,6 +80,12 @@ ua:
             text:
               blank: "не може бути пустим"
 
+  # controllers:
+  #   teachers:
+  #     test_settings:
+  #       create:
+  #         successfull: "Ви успішо створили тест"
+
   views:
     pagination:
       first: "Перша"
@@ -125,8 +131,8 @@ ua:
         remember: "Запам'ятати мене"
         buttons:
           submit: "Авторизація"
-  shared:
-    user_menu:
+  layouts:
+    header:
       buttons:
         testing: "Список тестів"
         edit_profile: "Редагувати профіль"
@@ -139,6 +145,7 @@ ua:
         pass_test: "Пройти тест"
         index: "Вчителі"
         admin_main_page: "Адмінка"
+        test_results: "Результати тестів"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -161,6 +168,12 @@ ua:
         sucessful: "Ваша пропозиція успішно створена і буде розглянута найближчим часом."
   teachers:
     test_settings:
+      create:
+        controllers:
+          successfull: "Ви успішо створили тест"
+      destroy:
+        controllers:
+          error: "Ви не можете видалити цей тест"
       new:
         h_test_creation: "Створення тестів"
         buttons:
@@ -193,8 +206,6 @@ ua:
           remove: "Видалити"
       index:
         h_tests: "Тести"
-        controllers:
-          error: "Ви не можете видалити цей тест."
         buttons:
           back: "Назад"
       test_setting:
@@ -309,6 +320,9 @@ ua:
       search: "Пошук"
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
+    show:
+      buttons:
+        back: "Назад"
   students:
     test_settings:
       index:
@@ -352,3 +366,11 @@ ua:
       form:
         buttons:
           save: "Зберегти тест"
+      index:
+        h_test_results: "Результати тесту"
+        you_pass_test_from_theme: "Тест на тему: "
+        you_pass_test: "Назва тесту: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        you_have_attempting: "У вас залишилось спроб: "
+        buttons:
+          page_for_choose_tests: "Усі тести"
