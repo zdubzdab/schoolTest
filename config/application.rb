@@ -25,14 +25,17 @@ module SchoolTest
     config.i18n.fallbacks = true
 
     # rails will fallback to en, no matter what is set as config.i18n.default_locale
-    config.i18n.fallbacks = [:en]
+    config.i18n.fallbacks = [:ua]
 
     # fallbacks value can also be a hash - a map of fallbacks if you will
     # missing translations of ua and fr languages will fallback to english
     config.i18n.fallbacks = {'ua' => 'en'}
 
+    config.middleware.use I18n::JS::Middleware
+
     config.active_record.raise_in_transactional_callbacks = true
 
     config.middleware.use ActionDispatch::Flash
+    I18n.available_locales = ["en", "ua"]
   end
 end

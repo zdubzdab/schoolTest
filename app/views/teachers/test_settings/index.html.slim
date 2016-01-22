@@ -1,8 +1,11 @@
 = render 'shared/user_menu'
+
 .col-md-12
-  - @test_settings.each do |test|
-    ul
-      li
-        = test.name
-      li
-        = video_tag test.video_url.to_s, controls: true
+  h3
+    = t('.h_tests')
+
+  #test_settings_partial
+    = render 'test_setting'
+
+.col-md-12#b
+  = link_to t('.buttons.back'), root_path

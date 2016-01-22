@@ -38,6 +38,7 @@ gem 'will_paginate'
 gem 'ransack'
 gem 'routing-filter'
 gem 'kaminari'
+gem "i18n-js", ">= 3.0.0.rc11"
 
 group :assets do
   gem "coffee-rails"

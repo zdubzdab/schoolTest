@@ -4,8 +4,10 @@ class Teachers::TestSettingsController < ApplicationController
   layout 'application'
 
   def index
-    @questions = Question.all
-    @test_settings = TestSetting.all
+    @test_settings = TestSetting.order("created_at DESC").page(params[:page]).per(TestSetting::TEACHER_TESTSETTING_INDEX_PAGES)
+    respond_to do |format|
+      format.html { render partial: "test_setting" if request.xhr? }
+    end
   end
 
   def new
@@ -23,7 +25,7 @@ class Teachers::TestSettingsController < ApplicationController
     if @test_setting.save
       redirect_to [:teachers, :test_settings]
     else
-      render "_form"
+      render "new"
     end
   end
 
@@ -40,8 +42,30 @@ class Teachers::TestSettingsController < ApplicationController
 
   def edit
     @test_settings = TestSetting.find(params[:id])
-    @test = @test_setting.test
-    render '_form'
+  end
+
+  def edit
+    @test_settings = TestSetting.find(params[:id])
+  end
+
+  def update
+    if @test_settings.update(test_settings_params)
+      redirect_to teachers_test_settings_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @test_setting = TestSetting.find(params[:id])
+
+    respond_to do |format|
+      if @test_setting.destroy
+        format.js { render nothing: true }
+      else
+        format.html { redirect_to teachers_test_settings_path, notice: t('.controllers.error') }
+      end
+    end
   end
 
   private

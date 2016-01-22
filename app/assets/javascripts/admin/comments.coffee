@@ -9,5 +9,5 @@ $ ->
         $('#comments_partial').html data
     event.preventDefault()
 
-  $("body").on "click", '.b_delete_comment', 'ajax:success', (evt, data, status, xhr) ->
+  $("body").on 'ajax:success', '.b_delete_comment', (evt, data, status, xhr) ->
     $(this).closest('ol').fadeOut()
