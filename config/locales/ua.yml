@@ -80,6 +80,12 @@ ua:
             text:
               blank: "не може бути пустим"
 
+  # controllers:
+  #   teachers:
+  #     test_settings:
+  #       create:
+  #         successfull: "Ви успішо створили тест"
+
   views:
     pagination:
       first: "Перша"
@@ -125,8 +131,8 @@ ua:
         remember: "Запам'ятати мене"
         buttons:
           submit: "Авторизація"
-  shared:
-    user_menu:
+  layouts:
+    header:
       buttons:
         testing: "Список тестів"
         edit_profile: "Редагувати профіль"
@@ -136,8 +142,10 @@ ua:
         language: "Змінити мову"
         new_test: "Новий тест"
         comments: "Додати пропозицію"
+        pass_test: "Пройти тест"
         index: "Вчителі"
         admin_main_page: "Адмінка"
+        test_results: "Результати тестів"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -160,6 +168,12 @@ ua:
         sucessful: "Ваша пропозиція успішно створена і буде розглянута найближчим часом."
   teachers:
     test_settings:
+      create:
+        controllers:
+          successfull: "Ви успішо створили тест"
+      destroy:
+        controllers:
+          error: "Ви не можете видалити цей тест"
       new:
         h_test_creation: "Створення тестів"
         buttons:
@@ -176,7 +190,7 @@ ua:
         description: "Пояснення"
         max_tried_count: "Кількість спроб"
         choose_video: "Виберіть відео"
-        question: "gbnf"
+        choose_files: "Виберіть файли"
         buttons:
           save: "Зберегти тест"
           add_question: "Додати запитання"
@@ -192,8 +206,6 @@ ua:
           remove: "Видалити"
       index:
         h_tests: "Тести"
-        controllers:
-          error: "Ви не можете видалити цей тест."
         buttons:
           back: "Назад"
       test_setting:
@@ -308,11 +320,42 @@ ua:
       search: "Пошук"
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
+    show:
+      buttons:
+        back: "Назад"
+  students:
+    test_settings:
+      index:
+        h_testing: "Тестування"
+        h_tests: "Тести"
+        choose_subject: "Предмет"
+        choose_theme: "Виберіть тему"
+        buttons:
+          back: "Назад"
+          choose_subject: "Виберіть предмет"
+      test_settings:
+        buttons:
+          show_test: " - пройти тест"
+      show:
+        h_testing: "Тестування"
+        testing_theme: "Тест на тему: "
+        testing_description: "Короткий опис: "
+        h_files: "Файли"
+        h_videos: "Відео"
         testing_time_to_pass: "Час проходження: "
         testing_max_tried_count: "Загальна кількість спроб: "
         you_have_attempting: "У вас залишилось спроб: "
         seconds: "секунд"
         the_end: "Ви не можете пройти даний тест тому, що використали усі спроби"
+        buttons:
+          back: "Назад"
+          pass_test: "Пройти тест"
+      there_is_not_test:
+        h_this_theme_doesnt_have_tests: "На цю тему, поки що, немає тестів"
+      new:
+        h_testing: "Тестування"
+        buttons:
+          back: "Назад"
     tests:
       new:
         h_testing: "Тестування"
@@ -323,3 +366,11 @@ ua:
       form:
         buttons:
           save: "Зберегти тест"
+      index:
+        h_test_results: "Результати тесту"
+        you_pass_test_from_theme: "Тест на тему: "
+        you_pass_test: "Назва тесту: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        you_have_attempting: "У вас залишилось спроб: "
+        buttons:
+          page_for_choose_tests: "Усі тести"
