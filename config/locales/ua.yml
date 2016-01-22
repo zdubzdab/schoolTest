@@ -87,6 +87,11 @@ ua:
       previous: "Попередня"
       next: "Наступна"
 
+  js:
+    welcome:
+      index:
+        you_really_want: "Якщо ви закриєте або перезагрузите сторінку, то здача тесту завершиться і будуть враховані лише ті питання на які ви дали відповідь"
+
   # views:
   devise:
     registrations:
@@ -123,20 +128,16 @@ ua:
   shared:
     user_menu:
       buttons:
-        main: "Головна"
-        testing: "Тестування"
+        testing: "Список тестів"
         edit_profile: "Редагувати профіль"
         sign_out: "Вийти"
         log_in: "Логін"
         register: "Зареєструватися"
         language: "Змінити мову"
         new_test: "Новий тест"
-        wath_comments: "Розглянути пропозиції"
-        comments: "Пропозиції"
-        add_news: "Додати новину"
-        manage_students: "Редагувати учнів"
+        comments: "Додати пропозицію"
         index: "Вчителі"
-        edit: "Редагувати вчителів"
+        admin_main_page: "Адмінка"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -159,8 +160,16 @@ ua:
         sucessful: "Ваша пропозиція успішно створена і буде розглянута найближчим часом."
   teachers:
     test_settings:
-      form:
+      new:
         h_test_creation: "Створення тестів"
+        buttons:
+          back: "Назад"
+      edit:
+        h_test_editing: "Редагування тестів"
+        buttons:
+          back: "Назад"
+          show: "Подивитись на тест"
+      form:
         class: "Клас"
         subject: "Предмет"
         theme: "Тема"
@@ -169,7 +178,6 @@ ua:
         choose_video: "Виберіть відео"
         question: "gbnf"
         buttons:
-          back: "Назад"
           save: "Зберегти тест"
           add_question: "Додати запитання"
       question_fields:
@@ -182,6 +190,38 @@ ua:
         mark_if_right: "Позначте, якщо відповідь правильна"
         buttons:
           remove: "Видалити"
+      index:
+        h_tests: "Тести"
+        controllers:
+          error: "Ви не можете видалити цей тест."
+        buttons:
+          back: "Назад"
+      test_setting:
+        subject: "Предмет"
+        theme: "Тема"
+        name: "Назва"
+        description: "Опис"
+        edit: "Редагувати"
+        destroy: "Видалити"
+        confirm_destroy: "Ви дійсно хочете вдалити даний тест?"
+        show: "Переглянути"
+        buttons:
+          edit: "Редагувати"
+          destroy: "Видалити"
+          show: "Переглянути"
+      show:
+        h_testing: "Тестування"
+        testing_theme: "Тест на тему: "
+        testing_description: "Короткий опис: "
+        h_files: "Файли"
+        h_videos: "Відео"
+        testing_time_to_pass: "Час проходження: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        seconds: "секунд"
+        h_test: "Тест"
+        buttons:
+          edit: "Редагувати"
+          back: "Назад"
   admin:
     users:
       index:
@@ -189,6 +229,8 @@ ua:
         name: "Прізвище Ім'я Побатькові"
         email: "Емейл"
         photo: "Фото"
+        controllers:
+          error: "Ви не можете видалити цього вчителя."
         buttons:
           back: "Назад"
       users:
@@ -201,9 +243,6 @@ ua:
         buttons:
           edit: "Редагувати"
           destroy: "Видалити"
-      destroy:
-        controllers:
-          error: "Ви не можете видалити цього вчителя."
       edit:
         h_edit: "Редагування вчителя"
         delete_avatar: "Видалити фото"
@@ -234,6 +273,13 @@ ua:
       show:
         buttons:
           back: "Назад"
+      index:
+        buttons:
+          main: "Головна"
+          wath_comments: "Розглянути пропозиції"
+          add_news: "Додати новину"
+          manage_students: "Редагувати учнів"
+          edit: "Редагувати вчителів"
     students:
       index:
         h_students: "Учні"
@@ -262,3 +308,18 @@ ua:
       search: "Пошук"
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
+        testing_time_to_pass: "Час проходження: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        you_have_attempting: "У вас залишилось спроб: "
+        seconds: "секунд"
+        the_end: "Ви не можете пройти даний тест тому, що використали усі спроби"
+    tests:
+      new:
+        h_testing: "Тестування"
+        test_name: "Тест на тему: "
+        you_have_time: "Залишилось часу:"
+        buttons:
+          back: "Назад"
+      form:
+        buttons:
+          save: "Зберегти тест"
