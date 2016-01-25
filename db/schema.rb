@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113103608) do
+ActiveRecord::Schema.define(version: 20160122165641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,10 +92,12 @@ ActiveRecord::Schema.define(version: 20160113103608) do
     t.integer  "time_to_pass",    default: 0
     t.json     "files"
     t.json     "videos"
+    t.integer  "user_id"
   end
 
   add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree
   add_index "test_settings", ["subject_id"], name: "index_test_settings_on_subject_id", using: :btree
+  add_index "test_settings", ["user_id"], name: "index_test_settings_on_user_id", using: :btree
 
   create_table "tests", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -154,5 +156,6 @@ ActiveRecord::Schema.define(version: 20160113103608) do
 
   add_foreign_key "answers", "tests"
   add_foreign_key "comments", "users"
+  add_foreign_key "test_settings", "users"
   add_foreign_key "users", "subjects"
 end

@@ -1,0 +1,25 @@
+.col-md-10
+  table.table.table-bordered.table-condensed.table-striped#table_with_test_settings
+    tr
+      th = t '.subject'
+      th = t '.theme'
+      th = t '.name'
+      th = t '.description'
+      th = t '.show'
+      th = t '.edit'
+      th = t '.destroy'
+
+      - @test_settings.each do |test|
+        tr
+          td = test.subject.name
+          td = test.theme.name
+          td = test.name
+          td = test.description
+          td = link_to t('.buttons.show'), teachers_test_setting_path(test)
+          td = link_to t('.buttons.edit'), edit_teachers_test_setting_path(test)
+          td = link_to t('.buttons.destroy'), teachers_test_setting_path(test), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_test_setting"
+
+.col-md-6#test_setting_table_pagination
+  ul.ul_list_style
+    li.active
+      span= paginate @test_settings

@@ -1,0 +1,18 @@
+.col-md-10
+  table.table.table-bordered.table-condensed.table-striped#table_with_test_results
+    tr
+      th = t '.user_name'
+      th = t '.class'
+      th = t '.result'
+      th = t '.tries_number'
+      th = t '.show'
+
+      - @users.each do |user, number|
+        tr
+          td = user[0]
+          td = user[1]
+          td = user[2]
+          td = number.count
+          td = link_to t('.buttons.show'), teachers_test_setting_user_path(@test_setting, user[3])
+
+
