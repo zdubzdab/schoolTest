@@ -1,4 +1,5 @@
 class Admin::StudentsController < ApplicationController
+  authorize_resource class: false
 
   def index
     @students = User.students.order("created_at DESC").page(params[:page]).per(User::ADMIN_STUDENTS_INDEX_PAGES)

@@ -35,4 +35,3 @@ $ ->
       success: (data) ->
         $('#partial_news').html data
     event.preventDefault()
-

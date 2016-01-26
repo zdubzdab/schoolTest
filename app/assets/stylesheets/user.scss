@@ -1,48 +1,12 @@
-/* teacher */
+/* user */
       /* index */
 #table_with_teachers {
   position:relative;
-  left:220px;
-  top:0px;
+  left:25%;
 
-  td {
-    vertical-align: middle;
-    text-align: center;
-  }
-
-  th {
-    vertical-align: middle;
-    text-align: center;
-  }
 }
 
 #teacher_table_pagination {
   position:relative;
-  left:500px;
-  top:0px;
-}
-
-
-/*admin teacher */
-      /* index */
-#admin_table_with_teachers {
-  position:relative;
-  left:220px;
-  top:0px;
-
-  td {
-    vertical-align: middle;
-    text-align: center;
-  }
-
-  th {
-    vertical-align: middle;
-    text-align: center;
-  }
-}
-
-#admin_teacher_table_pagination {
-  position:relative;
-  left:450px;
-  top:0px;
+  left:27%;
 }

@@ -5,7 +5,7 @@ class Tiding < ActiveRecord::Base
   WELCOME_INDEX_PAGES = 5
 
   def self.search(query)
-    where("title like ?", "%#{query.downcase}%")
+    where("lower(title) like ?", "%#{query.downcase}%")
   end
 
   validates :title, presence: true,

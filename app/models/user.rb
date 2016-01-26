@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ADMIN_STUDENTS_INDEX_PAGES = 20
-  ADMIN_USERS_INDEX_PAGES = 12
-  USERS_INDEX_PAGES = 12
+  ADMIN_USERS_INDEX_PAGES = 5
+  USERS_INDEX_PAGES = 5
 
   has_many :tests
   has_many :test_settings

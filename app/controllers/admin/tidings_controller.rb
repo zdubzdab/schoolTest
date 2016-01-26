@@ -1,7 +1,5 @@
 class Admin::TidingsController < ApplicationController
-
-  def index
-  end
+  load_and_authorize_resource
 
   def new
     @tiding = Tiding.new

@@ -3,7 +3,7 @@
     = t('.h_edit')
 
 .col-md-3
-  = form_for [:admin, @user], html: { multipart: true } do |f|
+  = form_for [:admin, @user], html: {id: "admin-edit-teacher", multipart: true } do |f|
     - if @user.errors.any?
         #error_explanation
           h4

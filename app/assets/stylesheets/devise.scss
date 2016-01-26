@@ -32,3 +32,33 @@ input.carrier {
   width: 175px;
   font-weight: bold;
 }
+
+.sign_up_student {
+  height: 463px;
+}
+
+.sign_up_teacher {
+  height: 300px;
+}
+
+/*sign in*/
+.sign_in_form {
+  height: 465px;
+}
+
+#form_forgot_password{
+  height:465px;
+}
+
+#b_send_me {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  color: White;
+  background: #5bc0de;
+  border: Black;
+  height: 40px;
+  width: 175px;
+  position:relative;
+  top:30px;
+}

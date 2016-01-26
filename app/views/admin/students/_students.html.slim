@@ -1,5 +1,5 @@
-.col-md-8#admin_field_table_with_students
-  table.table.table-bordered.table-condensed.table-striped#admin_table_with_students
+.col-md-8
+  table.table.table-bordered.table-condensed.table-striped#admin-table-with-students
     tr
       th = t '.name'
       th = t '.email'
@@ -15,7 +15,7 @@
           td = link_to t('.edit'), edit_admin_student_path(user)
           td = link_to t('.destroy'), admin_student_path(user), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b_delete_student"
 
-.col-md-6#admin_student_table_pagination
+.col-md-6#admin-student-table-pagination
   ul.ul_list_style
     li.active
       span= paginate @students, remote: true
