@@ -1,0 +1,40 @@
+h4
+  = t '.h_passed_tests'
+
+.col-md-4#description_section
+    p
+      = t '.user_name'
+      b
+        = @user.full_name
+    br
+    p
+      = t '.class'
+      = @user.categgory.try(:name)
+    br
+    p
+      = t '.testing_theme'
+      b
+        = @test_setting.name
+    br
+    p
+      = t '.testing_max_tried_count'
+      = @test_setting.max_tried_count
+
+
+.col-md-6
+  table.table.table-bordered.table-condensed.table-striped#table_with_tries
+    tr
+      th = t '.number_of_try'
+      th = t '.result'
+      th = t '.time'
+
+      - @tests.each_with_index do |test, i|
+        tr
+          td
+            = (i+1)
+          td = test.complete_pers
+          td = test_created(test)
+
+.col-md-12
+  br
+  = link_to t('.buttons.back'), :back

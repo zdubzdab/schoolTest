@@ -1,0 +1,31 @@
+.col-md-11
+  h3
+    = t '.h_testing'
+
+  .col-md-6#description_section
+    p
+      = t '.testing_theme'
+      b
+        = @test_setting.name
+    br
+    p
+      = t '.testing_description'
+      = @test_setting.description
+    br
+    p
+      = t '.testing_time_to_pass'
+      = @test_setting.time_to_pass
+      = t '.seconds'
+    br
+    p
+      = t '.testing_max_tried_count'
+      = @test_setting.max_tried_count
+    br
+
+  .col-md-12#test_results_partial
+    = render 'test_results'
+
+  .col-md-12#b_back_test_setting_show
+    = link_to t('.buttons.edit'), edit_teachers_test_setting_path
+    br
+    = link_to t('.buttons.back'), teachers_test_settings_path

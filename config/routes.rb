@@ -8,9 +8,7 @@ Rails.application.routes.draw do
 
     namespace :teachers do
       resources :test_settings do
-        collection do
-          get 'search_test_settings'
-        end
+        resources :users, only: [:show]
       end
     end
 

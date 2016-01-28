@@ -205,7 +205,7 @@ ua:
         buttons:
           remove: "Видалити"
       index:
-        h_tests: "Тести"
+        h_tests: "Список тестів"
         buttons:
           back: "Назад"
       test_setting:
@@ -215,24 +215,45 @@ ua:
         description: "Опис"
         edit: "Редагувати"
         destroy: "Видалити"
-        confirm_destroy: "Ви дійсно хочете вдалити даний тест?"
+        confirm_destroy: "Ви дійсно хочете видалити даний тест?"
         show: "Переглянути"
         buttons:
           edit: "Редагувати"
           destroy: "Видалити"
           show: "Переглянути"
       show:
-        h_testing: "Тестування"
+        h_testing: "Результати тесту"
         testing_theme: "Тест на тему: "
         testing_description: "Короткий опис: "
-        h_files: "Файли"
-        h_videos: "Відео"
         testing_time_to_pass: "Час проходження: "
         testing_max_tried_count: "Загальна кількість спроб: "
         seconds: "секунд"
-        h_test: "Тест"
         buttons:
-          edit: "Редагувати"
+          edit: "Редагувати тест"
+          back: "Назад"
+          show: "Деталі"
+      test_results:
+        user_name: "Прізвище Ім'я Побатькові учня"
+        result: "Результат кращого тесту, %"
+        time: "Час проходження тесту"
+        class: "Клас"
+        tries_number: "К-сть використаних спроб"
+        show: "Деталі"
+        buttons:
+          show: "Деталі"
+    users:
+      show:
+        h_passed_tests: "Результати тесту"
+        number_of_try: "Номер спроби"
+        user_name: "Результати тесту"
+        class: "Результати тесту"
+        result: "Результат"
+        time: "Час"
+        testing_theme: "Тест на тему: "
+        testing_max_tried_count: "Загальна кількість спроб: "
+        user_name: "Прізвище Ім'я Побатькові учня: "
+        class: "Клас: "
+        buttons:
           back: "Назад"
   admin:
     users:

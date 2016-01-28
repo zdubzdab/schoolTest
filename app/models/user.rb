@@ -11,11 +11,13 @@ class User < ActiveRecord::Base
   USERS_INDEX_PAGES = 12
 
   has_many :tests
+  has_many :test_settings
   has_many :answers
   belongs_to :categgory
   belongs_to :subject
   has_many :categgories_with_subjects
   has_many :comments
+
 
   mount_uploader :avatar, AvatarUploader
 

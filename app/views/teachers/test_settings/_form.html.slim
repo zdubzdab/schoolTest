@@ -12,6 +12,7 @@
       = f.label :categgory_id, t('.class')
       br
       = f.select :categgory_id, all_klass_options, class: 'form-control'
+      = f.hidden_field :user_id, value: current_user.id
     .form-group
       = f.label :subject_id, t('.subject')
       br
