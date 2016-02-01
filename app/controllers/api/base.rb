@@ -1,6 +1,4 @@
 # require 'devise'
-require 'pry'
-
 module API
 
   class Base < Grape::API
