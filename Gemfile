@@ -10,6 +10,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'carrierwave-video', github: 'begin29/carrierwave-video'
+gem 'puma'
+gem "rack-timeout"
 #NOTE I am not sure about this
 # gem "guard-livereload"
 # gem "guard"
@@ -27,7 +29,6 @@ gem "font-awesome-rails"
 gem 'slim-rails', '~> 3.0'
 gem 'paper_trail'
 gem 'pg'
-gem 'thin'
 gem 'cancancan'
 gem 'progress_bar'
 gem 'friendly_id', '>= 5.0'

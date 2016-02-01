@@ -90,8 +90,7 @@ ActiveRecord::Schema.define(version: 20160122165641) do
     t.integer  "categgory_id"
     t.integer  "subject_id"
     t.integer  "time_to_pass",    default: 0
-    t.json     "files"
-    t.json     "videos"
+    t.string   "video"
     t.integer  "user_id"
   end
 
