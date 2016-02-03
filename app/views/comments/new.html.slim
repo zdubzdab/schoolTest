@@ -1,9 +1,8 @@
-.col-md-12
-  h3
-    = t '.h_add_suggestions'
-  .col-md-8
-    = render 'form'
+h3
+  = t '.h_add_suggestions'
 
-  .col-md-8
-    br
-    = link_to t('.buttons.back'), root_path
+.col-md-8
+  = render 'form'
+
+.col-md-8
+  = link_to t('.buttons.back'), root_path

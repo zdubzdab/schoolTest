@@ -5,7 +5,7 @@ $ ->
   $("body").on "click", '.b_delete_student', 'ajax:success', (evt, data, status, xhr) ->
     $(this).closest('tr').fadeOut()
 
-  $('body').on 'click', '#admin_student_table_pagination  a', (event, data, status, xhr) ->
+  $('body').on 'click', '#admin-student-table-pagination  a', (event, data, status, xhr) ->
     url = $(this).attr("href")
     $.ajax
       url: url

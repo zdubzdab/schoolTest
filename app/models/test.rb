@@ -6,5 +6,8 @@ class Test < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers
 
+  after_create :count_result
+
   resourcify#rolify
+
 end

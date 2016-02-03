@@ -1,28 +1,22 @@
-#head
-  = render 'shared/site_header'
-#body
-  = render 'shared/user_menu'
+.col-md-12#field_between_header_footer
+  .panel.panel-default#main_new_field
+    .panel-heading#panel_heading_main_new
+      h4.header-in-panel-main-new
+        = @post.try(:title)
+    .panel-body
+      = @post.try(:text)
 
-= image_tag("image.jpg", size: "65x100", class: "img")
+  .panel.panel-info#search_field
+    .panel-heading#panel-heading-search
+      h4.header-in-panels
+        = t('.h_search')
+    .panel-body
+      = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
+        = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
+        = submit_tag t('.search'), class: "btn btn-info"
 
-.wrapper.container
-  .container-fluid
-    .row-fluid
-      .col-md-8#main_new_field
-        h4
-          = @post.try(:title)
-        = @post.try(:text)
+      = link_to "#", id: "clean_search_field" do
+        i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
 
-      .col-md-4#search_field
-        = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
-          = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
-          = submit_tag t('.search'), class: "btn btn-info"
-
-        = link_to "#", id: "clean_search_field" do
-          i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
-
-        #partial_news
-          = render partial: 'tidings'
-
-#footer
-  = render 'shared/footer'
+    #partial_news
+      = render partial: 'tidings'

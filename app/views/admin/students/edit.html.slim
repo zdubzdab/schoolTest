@@ -3,7 +3,7 @@
     = t('.h_edit')
 
 .col-md-3
-  = form_for(@user, url: admin_student_path(@user), html: {method: "patch"}) do |f|
+  = form_for(@user, url: admin_student_path(@user), html: {class: "admin-edit-student", method: "patch"}) do |f|
     - if @user.errors.any?
         #error_explanation
           h4

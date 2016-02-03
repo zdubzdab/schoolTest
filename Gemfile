@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Use SCSS for stylesheets
 gem "rails"
@@ -8,13 +6,8 @@ gem "devise"
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
-
 gem 'carrierwave-video', github: 'begin29/carrierwave-video'
-gem 'puma'
-gem "rack-timeout"
-#NOTE I am not sure about this
-# gem "guard-livereload"
-# gem "guard"
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,6 +22,8 @@ gem "font-awesome-rails"
 gem 'slim-rails', '~> 3.0'
 gem 'paper_trail'
 gem 'pg'
+gem 'thin'
+
 gem 'cancancan'
 gem 'progress_bar'
 gem 'friendly_id', '>= 5.0'
@@ -65,3 +60,7 @@ group :development, :test do
   gem 'pry'
 end
 
+group :production do
+  gem 'puma'
+  gem "rack-timeout"
+end

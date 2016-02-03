@@ -1,13 +1,16 @@
-#tiding_list
-  h4 Новини
-  - @tidings.each do |tiding|
-    ul.ul_list_style
-      li
-        = date_format(tiding.updated_at)
-        b
-          = link_to tiding.title, admin_tiding_path(tiding)
+.panel.panel-info#tiding_list
+  .panel-heading#panel-heading-news
+    h4.header-in-panels
+      = t('.h_news')
+  .panel-body
+    - @tidings.each do |tiding|
+      ul.ul_list_style
+        li
+          = date_format(tiding.updated_at)
+          b
+            = link_to tiding.title, welcome_path(tiding)
 
-#tiding_table_pagination
-  ul.ul_list_style
-    li.active
-      span= paginate @tidings
+    #tiding_table_pagination
+      ul.ul_list_style
+        li.active
+          span= paginate @tidings

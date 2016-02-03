@@ -88,16 +88,19 @@ ua:
 
   views:
     pagination:
-      first: "Перша"
-      last: "Остання"
-      previous: "Попередня"
-      next: "Наступна"
+      first: "<<"
+      last: ">>"
+      previous: "<"
+      next: ">"
 
   js:
     welcome:
       index:
         you_really_want: "Якщо ви закриєте або перезагрузите сторінку, то здача тесту завершиться і будуть враховані лише ті питання на які ви дали відповідь"
 
+#cancan
+  unauthorized:
+    default: "Ви не маєте доступу до цієї сторінки."
   # views:
   devise:
     registrations:
@@ -131,9 +134,26 @@ ua:
         remember: "Запам'ятати мене"
         buttons:
           submit: "Авторизація"
+    passwords:
+      new:
+        h_forgot_password: "Забули пароль?"
+        on_this_address: "На цю адресу ми надішлемо інструкції для відновлення паролю"
+        buttons:
+          send_me: "Надіслати"
+    shared:
+      links:
+        buttons:
+          login: "Логін"
+          sign_up: "Реєстрація"
+          forgot_password: "Забули пароль?"
+          dont_resive_instructions: "Не отримали інструкції для підтвердження акаунту?"
+          dont_resive_instructions_to_unbloc: "Не отримали інструкції для розблокуванння акаунту?"
+          come_from: "Зайти із#{provider.to_s.titleize}"
   layouts:
     header:
+      h_main_header: "школа №"
       buttons:
+        main: "Головна"
         testing: "Список тестів"
         edit_profile: "Редагувати профіль"
         sign_out: "Вийти"
@@ -143,9 +163,13 @@ ua:
         new_test: "Новий тест"
         comments: "Додати пропозицію"
         pass_test: "Пройти тест"
-        index: "Вчителі"
+        teachers: "Вчителі"
         admin_main_page: "Адмінка"
         test_results: "Результати тестів"
+        wath_comments: "Розглянути пропозиції"
+        add_news: "Додати новину"
+        manage_students: "Редагувати учнів"
+        edit: "Редагувати вчителів"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -306,13 +330,6 @@ ua:
       show:
         buttons:
           back: "Назад"
-      index:
-        buttons:
-          main: "Головна"
-          wath_comments: "Розглянути пропозиції"
-          add_news: "Додати новину"
-          manage_students: "Редагувати учнів"
-          edit: "Редагувати вчителів"
     students:
       index:
         h_students: "Учні"
@@ -338,9 +355,12 @@ ua:
           error: "Ви не можете видалити цього учня."
   welcome:
     index:
+      h_search: "Пошук"
       search: "Пошук"
       placeholder_search: "Пошук новин"
       search_clear: "Очистити пошук"
+    tidings:
+      h_news: "Новини"
     show:
       buttons:
         back: "Назад"

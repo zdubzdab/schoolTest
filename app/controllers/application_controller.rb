@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, notice: exception.message
+  end
+
   protected
 
   def configure_permitted_parameters

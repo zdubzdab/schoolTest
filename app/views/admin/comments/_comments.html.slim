@@ -11,7 +11,7 @@
           = date_format(comment.created_at)
         .col-md-2#delete_part
           = link_to admin_comment_path(comment), method: :delete, remote: true, class: "b_delete_comment" do
-            i#clean_search.fa.fa-remove.fa-3x
+            i#clean_suggestion.fa.fa-remove.fa-3x
         .col-md-12#main_part
           #comment_text
             b

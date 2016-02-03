@@ -8,17 +8,21 @@ class Ability
 
     if user.has_role? :admin
       can :manage, :all
-    end
-
-    if user.has_role? :teacher
-      can :manage, :all
-    end
-
-    if user.new_record?
-      can :read, :all
+    elsif user.has_role? :teacher
+      can :create, Comment
+      can :read, Tiding
+      can :read, User
+      can :read, Test
+      can :read, TestSetting
+    elsif user.has_role? :student
+      can :create, Comment
+      can :read, Tiding
+      can :read, User
     else
-      #  TODO: temporary ability, need to fix this
-      can :manage, Test
+      can :create, Comment
+      can :read, Tiding
+      can :read, User
     end
+
   end
 end
