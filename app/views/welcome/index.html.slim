@@ -1,12 +1,15 @@
-.col-md-12#field_between_header_footer
-  .panel.panel-default#main_new_field
+.col-md-12
+  .panel.panel-default.col-md-8#main_new_field
     .panel-heading#panel_heading_main_new
       h4.header-in-panel-main-new
         = @post.try(:title)
     .panel-body
       = @post.try(:text)
+    hr.main-new-hr
+    - @post.photos.each do |photo|
+      = image_tag(photo.url(:thumb), class: "main-new-photo")
 
-  .panel.panel-info#search_field
+  .panel.panel-info.col-md-4#search_field
     .panel-heading#panel-heading-search
       h4.header-in-panels
         = t('.h_search')
@@ -18,5 +21,6 @@
       = link_to "#", id: "clean_search_field" do
         i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
 
+  .col-md-4
     #partial_news
       = render partial: 'tidings'

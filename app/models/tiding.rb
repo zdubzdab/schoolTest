@@ -4,6 +4,8 @@ class Tiding < ActiveRecord::Base
 
   WELCOME_INDEX_PAGES = 5
 
+  mount_uploaders :photos, PhotoUploader
+
   def self.search(query)
     where("lower(title) like ?", "%#{query.downcase}%")
   end

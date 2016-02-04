@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_many :categgories_with_subjects
   has_many :comments
 
-
   mount_uploader :avatar, AvatarUploader
 
   validates :full_name, presence: true,

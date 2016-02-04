@@ -22,6 +22,6 @@ class Admin::TidingsController < ApplicationController
     private
 
     def tiding_params
-      params.require(:tiding).permit(:id, :text, :title, :main)
+      params.require(:tiding).permit(:id, :text, :title, :main, {photos: []})
     end
 end

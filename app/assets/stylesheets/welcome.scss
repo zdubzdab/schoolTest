@@ -2,22 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#field_between_header_footer {
-  height: 571px;
-}
-
 #search_field {
-  width: 33%;
   height: 190px;
   position:relative;
-  left: 68.1%;
-  top: -340px;
+  top:-7px;
+  left: 1%;
   margin-bottom:0px;
 }
 
 .search_form {
   position:relative;
-  left:7.5%;
+  left:1.5%;
   top:30px;
 }
 
@@ -27,7 +22,7 @@
 
 #clean_search {
   position:relative;
-  left: 85%;
+  left: 90%;
   top: -10px;
   float: center;
   margin-right: 10px;
@@ -49,9 +44,11 @@
 
 #tiding_list {
   position:relative;
-  top: 41px;
-  width: 100%;
+  top: 15px;
+  left: -1.4%;
+  width: 109%;
   height: 309px;
+  margin-bottom: 72px;
 }
 
 #tiding_table_pagination {
@@ -61,26 +58,26 @@
 }
 
 #main_new_field {
-  padding: 20px 20px 20px 20px;
-  width: 69.5%;
+  padding: 15px 15px 15px 15px;
   position:relative;
   top: -7px;
-  left: -2.2%;
+  left: -1.0%;
   border-color: #5bc0de;
-  h4 {
-    color: #ffffff;
-  }
+
   background: #ccffff;
 }
 
 #panel_heading_main_new {
   position:relative;
-  top: -20px;
-  left: -2.9%;
-  width: 105.8%;
+  top: -15px;
+  left: -2.2%;
+  width: 104.5%;
   background: #5bc0de;
   color: #ffffff;
   border-color: #ccffff;
+  h4 {
+    color: #ffffff;
+  }
 }
 
 #button-dropdown-admin {
@@ -92,6 +89,9 @@
 
 #panel-heading-search {
   height: 60px;
+  width: 110%;
+  position:relative;
+  left: -5%;
 }
 
 #panel-heading-news {
@@ -101,4 +101,12 @@
 .header-in-panels {
   position:relative;
   top: -10px;
+}
+
+.main-new-hr {
+  border-top: 1px solid #5bc0de;
+}
+
+.main-new-photo {
+  margin: 10px 10px 10px 10px;
 }

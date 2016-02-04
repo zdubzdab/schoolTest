@@ -323,7 +323,7 @@ ua:
         title: "Заголовок"
         text: "Текст"
         mark_if_right: "Позначте, якщо новина головна"
-        choose_avatar: "Виберіть фотографії"
+        choose_photos: "Виберіть фотографії"
         buttons:
           submit: "Зберегти"
           back: "Назад"
