@@ -22,7 +22,7 @@ gem "font-awesome-rails"
 gem 'slim-rails', '~> 3.0'
 gem 'paper_trail'
 gem 'pg'
-gem 'thin'
+gem 'thin', group: :development
 
 gem 'cancancan'
 gem 'progress_bar'

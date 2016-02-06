@@ -6,8 +6,9 @@
     .panel-body
       = @post.try(:text)
     hr.main-new-hr
-    - @post.photos.each do |photo|
-      = image_tag(photo.url(:thumb), class: "main-new-photo")
+    - if !@post.blank?
+      - @post.photos.each do |photo|
+        = image_tag(photo.url(:thumb), class: "main-new-photo")
 
   .panel.panel-info.col-md-4#search_field
     .panel-heading#panel-heading-search
