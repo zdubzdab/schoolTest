@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @post = Tiding.where(main: true).last
+    @tiding = Tiding.main.last
     @tidings = Tiding.order("created_at DESC").page(params[:page]).per(Tiding::WELCOME_INDEX_PAGES)
     respond_to do |format|
       format.html { render partial: "tidings" if request.xhr? }
@@ -21,6 +21,10 @@ class WelcomeController < ApplicationController
 
   def show
     @tiding = Tiding.find(params[:id])
+    @tidings = Tiding.order("created_at DESC").page(params[:page]).per(Tiding::WELCOME_INDEX_PAGES)
+    respond_to do |format|
+      format.html { render partial: "tidings" if request.xhr? }
+    end
   end
 
 end

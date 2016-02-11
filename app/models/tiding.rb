@@ -15,4 +15,6 @@ class Tiding < ActiveRecord::Base
                     uniqueness: true
   validates :text, presence: true
 
+  scope :main, -> { where(main: 'true' ) }
+
 end

@@ -348,7 +348,7 @@ ua:
         controllers:
           error: "Ви не можете видалити цього учня."
   welcome:
-    index:
+    right_panel:
       h_search: "Пошук"
       search: "Пошук"
       placeholder_search: "Пошук новин"

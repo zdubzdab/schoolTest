@@ -1,7 +1,7 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+/*index*/
 #search_field {
   height: 190px;
   position:relative;
@@ -22,7 +22,7 @@
 
 #clean_search {
   position:relative;
-  left: 90%;
+  left: 97%;
   top: -10px;
   float: center;
   margin-right: 10px;
@@ -45,8 +45,8 @@
 #tiding_list {
   position:relative;
   top: 15px;
-  left: -1.4%;
-  width: 109%;
+  left: -4%;
+  width: 110.5%;
   height: 309px;
   margin-bottom: 72px;
 }
@@ -63,7 +63,6 @@
   top: -7px;
   left: -1.0%;
   border-color: #5bc0de;
-
   background: #ccffff;
 }
 
@@ -89,13 +88,16 @@
 
 #panel-heading-search {
   height: 60px;
-  width: 110%;
+  width: 110.8%;
   position:relative;
-  left: -5%;
+  left: -5.3%;
 }
 
 #panel-heading-news {
   height: 60px;
+  width: 110.8%;
+  position:relative;
+  left: -5.3%;
 }
 
 .header-in-panels {
@@ -108,5 +110,70 @@
 }
 
 .main-new-photo {
-  margin: 10px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
+  position:relative;
+  left: -2.3%;
+  top: -6px;
+}
+
+#carusel-link-left {
+  position:relative;
+  top: 220px;
+}
+
+#carusel-link-right {
+  position:relative;
+  top: 220px;
+}
+
+#myCarousel {
+  height: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.panel-body{
+  .item > a > img {
+    display: block;
+    margin: 0 auto;
+    height: 480px;
+  }
+}
+
+/*show*/
+#carusel-on-show-page {
+  position:relative;
+  left: 0.5%;
+  width: 66%;
+
+  .item > a > img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 480px;
+  }
+}
+
+#tiding-text-show-page {
+  position:relative;
+  left: 0%;
+  top: -50px;
+}
+
+#right-panel {
+  position:relative;
+  left: -0.6%;
+  top: 7px;
+  width: 34%;
+
+  #tiding_table_pagination {
+    position:relative;
+    left: -12%;
+    width: 125%;
+  }
+
+  #tiding_list {
+    position:relative;
+    left: -4%;
+    }
 }
