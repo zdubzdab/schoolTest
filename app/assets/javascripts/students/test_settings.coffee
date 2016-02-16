@@ -20,6 +20,3 @@ $ ->
       dataType: "html"
       success: (request) ->
         $("#show_test_setting_links").html(request)
-
-
-

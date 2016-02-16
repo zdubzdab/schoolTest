@@ -12,7 +12,7 @@ module TestSettingsHelper
   end
 
   def chop(string)
-    string.to_s.gsub("/uploads/test_setting/files/", " ").gsub(/\d/, " ").tr('/', ' ')
+    string.to_s.split("/")[4].insert(0, ' ')
   end
 
   def result(test)

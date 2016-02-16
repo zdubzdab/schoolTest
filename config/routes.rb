@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
     namespace 'students' do
       resources 'test_settings', only: [:index, :show] do
+        get "download"
         resources 'tests', only: [:new, :create, :index]
         collection do
           get 'search_test_settings'

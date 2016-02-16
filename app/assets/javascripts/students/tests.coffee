@@ -1,6 +1,13 @@
 $ ->
   liftOff = ->
     $(window).unbind "beforeunload"
+    url = $(".test-form").attr("action")
+    window.location = 'url'
+    serialized_data = $(".test-form").serialize()
+    $.ajax
+      url: url
+      type: "post"
+      data: serialized_data
 
   url = $(".test-form").attr("action")
   time = $('#time_tab').data('content')
@@ -10,8 +17,8 @@ $ ->
     $(window).unload ->
       url = $(".test-form").attr("action")
       window.location = 'url'
-      variable = $(".test-form").serialize()
+      serialized_data = $(".test-form").serialize()
       $.ajax
         url: url
         type: "post"
-        data: variable
+        data: serialized_data

@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160204103536) do
     t.json     "files"
     t.json     "videos"
     t.integer  "user_id"
-    t.integer  "user_id"
   end
 
   add_index "test_settings", ["categgory_id"], name: "index_test_settings_on_categgory_id", using: :btree

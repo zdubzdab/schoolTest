@@ -38,47 +38,6 @@
     return ("0" + number.toString()).substr(-2);
   };
 
-  // Improved toFixed number rounding function with support for unprecise floating points
-  // JavaScript's standard toFixed function does not round certain numbers correctly (for example 0.105 with precision 2).
-  var toFixed = function(number, precision) {
-    return decimalAdjust('round', number, -precision).toFixed(precision);
-  };
-
-  // Is a given variable an object?
-  // Borrowed from Underscore.js
-  var isObject = function(obj) {
-    var type = typeof obj;
-    return type === 'function' || type === 'object' && !!obj;
-  };
-
-  // Is a given value an array?
-  // Borrowed from Underscore.js
-  var isArray = function(obj) {
-    if (Array.isArray) {
-      return Array.isArray(obj);
-    };
-    return Object.prototype.toString.call(obj) === '[object Array]';
-  };
-
-  var decimalAdjust = function(type, value, exp) {
-    // If the exp is undefined or zero...
-    if (typeof exp === 'undefined' || +exp === 0) {
-      return Math[type](value);
-    }
-    value = +value;
-    exp = +exp;
-    // If the value is not a number or the exp is not an integer...
-    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-      return NaN;
-    }
-    // Shift
-    value = value.toString().split('e');
-    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-    // Shift back
-    value = value.toString().split('e');
-    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-  }
-
   // Set default days/months translations.
   var DATE = {
       day_names: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -127,7 +86,7 @@
     , locale: "en"
     // Set the translation key separator.
     , defaultSeparator: "."
-    // Set the placeholder format. Accepts `{{placeholder}}` and `%{placeholder}`.
+    // Set the placeholder format. Accepts `{placeholder}}` and `%{placeholder}`.}
     , placeholder: /(?:\{\{|%\{)(.*?)(?:\}\}?)/gm
     // Set if engine should fallback to the default locale when a translation
     // is missing.
@@ -220,7 +179,7 @@
       result = result(locale);
     }
 
-    if (isArray(result) === false) {
+    if (result instanceof Array === false) {
       result = [result];
     }
 
@@ -449,7 +408,7 @@
 
     if (typeof(translation) === "string") {
       translation = this.interpolate(translation, options);
-    } else if (isObject(translation) && this.isSet(options.count)) {
+    } else if (translation instanceof Object && this.isSet(options.count)) {
       translation = this.pluralize(options.count, translation, options);
     }
 
@@ -479,9 +438,9 @@
       if (this.isSet(options[name])) {
         value = options[name].toString().replace(/\$/gm, "_#$#_");
       } else if (name in options) {
-        value = this.nullPlaceholder(placeholder, message, options);
+        value = this.nullPlaceholder(placeholder, message);
       } else {
-        value = this.missingPlaceholder(placeholder, message, options);
+        value = this.missingPlaceholder(placeholder, message);
       }
 
       regex = new RegExp(placeholder.replace(/\{/gm, "\\{").replace(/\}/gm, "\\}"));
@@ -498,7 +457,7 @@
     options = this.prepareOptions(options);
     var translations, pluralizer, keys, key, message;
 
-    if (isObject(scope)) {
+    if (scope instanceof Object) {
       translations = scope;
     } else {
       translations = this.lookup(scope, options);
@@ -543,7 +502,7 @@
   };
 
   // Return a missing placeholder message for given parameters
-  I18n.missingPlaceholder = function(placeholder, message, options) {
+  I18n.missingPlaceholder = function(placeholder, message) {
     return "[missing " + placeholder + " value]";
   };
 
@@ -570,7 +529,7 @@
     );
 
     var negative = number < 0
-      , string = toFixed(Math.abs(number), options.precision).toString()
+      , string = Math.abs(number).toFixed(options.precision).toString()
       , parts = string.split(".")
       , precision
       , buffer = []
@@ -898,32 +857,7 @@
     }
 
     return scope;
-  };
-  /**
-   * Merge obj1 with obj2 (shallow merge), without modifying inputs
-   * @param {Object} obj1
-   * @param {Object} obj2
-   * @returns {Object} Merged values of obj1 and obj2
-   *
-   * In order to support ES3, `Object.prototype.hasOwnProperty.call` is used
-   * Idea is from:
-   * https://stackoverflow.com/questions/8157700/object-has-no-hasownproperty-method-i-e-its-undefined-ie8
-   */
-  I18n.extend = function ( obj1, obj2 ) {
-    var extended = {};
-    var prop;
-    for (prop in obj1) {
-      if (Object.prototype.hasOwnProperty.call(obj1, prop)) {
-        extended[prop] = obj1[prop];
-      }
-    }
-    for (prop in obj2) {
-      if (Object.prototype.hasOwnProperty.call(obj2, prop)) {
-        extended[prop] = obj2[prop];
-      }
-    }
-    return extended;
-  };
+  }
 
   // Set aliases, so we can save some typing.
   I18n.t = I18n.translate;

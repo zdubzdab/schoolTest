@@ -4,6 +4,6 @@ module TestHelper
   end
 
   def add_pers_to_result(result)
-    result.to_s.concat '%'
+    "#{result}%"
   end
 end

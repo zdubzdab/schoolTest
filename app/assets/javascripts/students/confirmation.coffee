@@ -10,5 +10,3 @@ $.fn.unconfirm = ->
 $ ->
   $("#time_section").confirm()
   $("#b_save_result").unconfirm()
-
-

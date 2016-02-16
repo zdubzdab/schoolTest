@@ -6,7 +6,7 @@ class Test < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers
 
-  after_create :count_and_paste_result_into_test_table
+  after_create :count_and_paste_test_result_into_test_table
 
   # include ZdubzdabHola::CountResult::LocalInstanceMethods
   include MyModule
