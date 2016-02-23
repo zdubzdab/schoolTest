@@ -35,14 +35,16 @@
       - @test_setting.files.each do |doc|
         br
         i.fa.fa-file-pdf-o.fa-3x
-        = link_to chop(doc.url), doc.url
+        = link_to chop(doc.current_path), students_test_setting_download_path(@test_setting, path_to_file: doc.current_path)
       hr
 
     .col-md-10
       h4
         = t '.h_videos'
       - @test_setting.videos.each do |video|
-        = video_tag video, size: "480x360", controls: true
+        br
+        i.fa.fa-file-video-o.fa-3x
+        = link_to chop(video.current_path), students_test_setting_download_path(@test_setting, path_to_file: video.current_path)
       hr
 
     .col-md-8
