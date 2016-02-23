@@ -25,4 +25,7 @@ config/database.yml
 # Ignore images
 /public/uploads/*
 
+# Ignore trash
+/public/assets/*
+
 **.orig

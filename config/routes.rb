@@ -28,9 +28,9 @@ Rails.application.routes.draw do
     namespace 'students' do
       resources 'test_settings', only: [:index, :show] do
         get "download"
-        resources 'tests', only: [:new, :create, :index]
-        collection do
-          get 'search_test_settings'
+        get 'search_test_settings', on: :collection
+        resources 'tests', only: [:new, :create, :show] do
+           post 'finish_test', on: :collection
         end
       end
     end
@@ -42,5 +42,4 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-
 end

@@ -1,5 +1,6 @@
 h3
   = t '.h_testing'
+
 .col-md-6
   .select_form#form-student-choose-tests
     = form_for :test_setting, url: {action: "search_test_settings"}, method: 'get', class: 'select-form' do |f|
@@ -24,4 +25,3 @@ h3
 .col-md-7
   br
   = link_to t('.buttons.back'), root_path
-

@@ -1,6 +1,8 @@
 $.fn.confirm = ->
-  if $('.test-form').length > 0
-    $(window).on "beforeunload", ->
+  if $(this).length > 0
+    $(window).bind "beforeunload", ->
+      serialized_data = $(".test-form").serialize()
+      localStorage.setItem('form', JSON.stringify(serialized_data))
       $('#overlay').show()
       setTimeout (->
         $('#overlay').hide()
@@ -10,8 +12,9 @@ $.fn.confirm = ->
 
 $.fn.unconfirm = ->
   $(this).bind "click", ->
-    $(window).off "beforeunload"
+    $(window).unbind "beforeunload"
 
 $ ->
   $("#time_section").confirm()
   $("#b_save_result").unconfirm()
+

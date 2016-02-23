@@ -55,3 +55,10 @@
           = t '.the_end'
         br
       = link_to t('.buttons.back'), students_test_settings_path
+
+javascript:
+  $(document).ready(function() {
+    $("body").on('click', "#button_pass_test", function() {
+      localStorage.setItem("user_id:_#{current_user.id}_ts_id:_#{@test_setting.id}", $.now())
+    });
+  });

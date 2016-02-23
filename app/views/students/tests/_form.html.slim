@@ -16,4 +16,8 @@
           br
     br
     = f.submit t('.buttons.save'), class: "btn btn-info", id: "b_save_result"
-    #overlay
+
+javascript:
+  $(document).ready(function() {
+    finish_test("user_id:_#{current_user.id}_ts_id:_#{@test_setting.id}")
+  });

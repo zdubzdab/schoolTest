@@ -14,10 +14,7 @@
       = @test.test_setting.max_tried_count
     p
       = t '.you_have_attempting'
-      = @test.test_setting.max_tried_count - @attempts_number.count
-    p
-      - @test.test_setting.questions.each do |question|
-
+      = count_attempts_number(@test.test_setting.max_tried_count, @current_user_passed_tests.count)
     p
       = t '.result'
       = add_pers_to_result(@test.complete_pers)

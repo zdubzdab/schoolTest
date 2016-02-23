@@ -1,13 +1,5 @@
 class Students::TestsController < ApplicationController
 
-  def index
-    @test_setting = TestSetting.find(params[:test_setting_id])
-    @questions = @test_setting.questions
-    tests_belongs_to_test_setting = Test.where(test_setting_id: @test_setting.id)
-    @attempts_number = tests_belongs_to_test_setting.where(user_id: current_user.id)
-    @test = current_user.tests.last
-  end
-
   def new
     @test = Test.new(user_id: current_user.id)
     @test_setting = TestSetting.find(params[:test_setting_id])
@@ -27,16 +19,30 @@ class Students::TestsController < ApplicationController
     @test = @test_setting.tests.new(tests_params)
 
     if @test.save
-      redirect_to students_test_setting_tests_path, notice: t('.controllers.successfull')
+      redirect_to students_test_setting_test_path(@test_setting.id, @test.id), notice: t('.controllers.successfull')
+    else
+      render 'new'
+    end
+  end
+
+  def finish_test
+    @test_setting = TestSetting.find(params[:test_setting_id])
+    @test = @test_setting.tests.new(tests_params)
+
+    if @test.save
+      render json: { url: students_test_setting_test_path(@test_setting.id, @test.id) }
     else
       render 'new'
     end
   end
 
   def show
-    @test_setting = TestSetting.find(params[:id])
+    @test_setting = TestSetting.find(params[:test_setting_id])
+    @questions = @test_setting.questions
+    @current_user_passed_tests = @test_setting.tests
+                                    .where(user_id: current_user.id)
+    @test = Test.find(params[:id])
   end
-
 
   private
 

@@ -6,4 +6,9 @@ module TestHelper
   def add_pers_to_result(result)
     "#{result}%"
   end
+
+  def count_attempts_number(tried_number, attempts_number)
+    tried_number - attempts_number
+  end
+
 end

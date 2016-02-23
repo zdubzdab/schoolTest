@@ -10,11 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require lib/jquery.plugin
-//= require twitter/bootstrap
-//= require namespace
-//= require i18n
-//= require i18n/translations
-//= require bootstrap
+//= require application
+//= require lib/jquery.countdown
+//= require user
+//= require welcome
+//= require_directory ./students
+//= require_directory ./teachers

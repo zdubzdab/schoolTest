@@ -10,7 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require font-awesome
- *= require bootstrap_and_overrides
+ *= require application
+ *= require comment
+ *= require devise
+ *= require user
+ *= require welcome
+ *= require students/test_settings/css/jquery.countdown
+ *= require_directory ./students
+ *= require_directory ./teachers
  *= require_self
  */
