@@ -1,0 +1,21 @@
+.col-md-11
+  table.table.table-bordered.table-condensed.table-striped#table-with-news
+    tr
+      th#col-1 = t '.name'
+      th#col-2 = t '.text'
+      th#col-3 = t '.time'
+      th#col-4 = t '.edit'
+      th#col-5 = t '.destroy'
+
+      - @tidings.each do |tiding|
+        tr
+          td = tiding.title
+          td = tiding.text
+          td = date_format(tiding.created_at)
+          td = link_to t('.edit'),  edit_admin_tiding_path(tiding)
+          td = link_to t('.destroy'), admin_tiding_path(tiding), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b-delete-tiding"
+
+.col-md-6#admin-news-table-pagination
+  ul.ul_list_style
+    li.active
+      span= paginate @tidings, remote: true

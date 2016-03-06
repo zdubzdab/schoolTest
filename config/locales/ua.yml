@@ -164,6 +164,7 @@ ua:
         add_news: "Додати новину"
         manage_students: "Редагувати учнів"
         edit: "Редагувати вчителів"
+        news_list: "Список новин "
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -314,16 +315,43 @@ ua:
     tidings:
       new:
         h_news_creation: "Створення новини"
-        title: "Заголовок"
-        text: "Текст"
-        mark_if_right: "Позначте, якщо новина головна"
-        choose_photos: "Виберіть фотографії"
         buttons:
-          submit: "Зберегти"
           back: "Назад"
       show:
         buttons:
           back: "Назад"
+      index:
+        h_news_list: "Список новин"
+        buttons:
+          back: "Назад"
+
+      form:
+        mark_if_right: "Позначте, якщо новина головна"
+        choose_photos: "Виберіть фотографії"
+        buttons:
+          submit: "Зберегти"
+
+      edit:
+        h_edit_new: "Редагування новини"
+        buttons:
+          back: "Назад"
+
+      tidings:
+        name: "Назва"
+        text: "Текст"
+        time: "Час створеня"
+        edit: "Редагувати"
+        destroy: "Видалити"
+        destroy_certain: "Ви впевнені, що хочете видалити дану новину?"
+        buttons:
+          edit: "Назад"
+          destroy: "Назад"
+      destroy:
+        controllers:
+          error: "Ви не можете видалити цю новину."
+
+
+
     students:
       index:
         h_students: "Учні"
