@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+    title SchoolTest
+    = javascript_include_tag "admin"
+    = stylesheet_link_tag "admin"
+    = csrf_meta_tags
+  body
+    .wrapper.container#container
+      = render 'layouts/header'
+      .container-fluid#body
+        .row-fluid
+          #flash
+            p.notice= notice
+            p.alert= alert
+          .col-md-12
+            = yield
+      = render 'layouts/footer'

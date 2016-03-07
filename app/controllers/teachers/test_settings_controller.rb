@@ -1,10 +1,12 @@
 class Teachers::TestSettingsController < ApplicationController
   load_and_authorize_resource except: :create
   layout 'application'
+  include TestSettingsHelper
 
   def index
     @test_settings = TestSetting.for_current_teacher(current_user.id)
-                                .order("created_at DESC").page(params[:page])
+                                .order("created_at DESC")
+                                .page(params[:page])
                                 .per(TestSetting::TEACHER_TESTSETTING_INDEX_PAGES)
     respond_to do |format|
       format.html { render partial: "test_setting" if request.xhr? }
@@ -24,15 +26,17 @@ class Teachers::TestSettingsController < ApplicationController
     @test_setting = TestSetting.new(test_settings_params)
 
     if @test_setting.save
-      redirect_to [:teachers, :test_settings]
+      redirect_to [:teachers, :test_settings], notice: t('.controllers.successfull')
     else
       render "new"
     end
+
   end
 
   def show
     @test_setting = TestSetting.find(params[:id])
     @users = @test_setting.users.group_by{ |u| [u.full_name, u.categgory.try(:name), result(u.tests), u.id] }
+    @questions = @test_setting.questions
   end
 
   def edit
@@ -61,6 +65,7 @@ class Teachers::TestSettingsController < ApplicationController
 
   private
     def test_settings_params
-      params.require(:test_setting).permit(:user_id, :categgory_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, :video, questions_attributes: [:text, :id,  :_destroy, answer_settings_attributes: [:name, :id, :rigth, :_destroy]] )
+      params.require(:test_setting).permit(:user_id, :categgory_id, :subject_id, :theme_id, :name, :description, :time_to_pass, :max_tried_count, {videos: []}, {files: []}, questions_attributes: [:text, :id,  :_destroy, answer_settings_attributes: [:name, :id, :rigth, :_destroy]] )
     end
+
 end

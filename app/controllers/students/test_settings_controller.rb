@@ -1,4 +1,5 @@
 class Students::TestSettingsController < ApplicationController
+  include DownloadFromMega
 
   def index
     @subjects = current_user.subjects
@@ -20,7 +21,6 @@ class Students::TestSettingsController < ApplicationController
     tests_belongs_to_test_setting = Test.where(test_setting_id: @test_setting.id)
     @attempts_number = tests_belongs_to_test_setting.where(user_id: current_user.id)
   end
-
 
   private
 

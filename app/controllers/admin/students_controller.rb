@@ -1,4 +1,4 @@
-class Admin::StudentsController < ApplicationController
+class Admin::StudentsController < AdminController
   authorize_resource class: false
 
   def index

@@ -80,12 +80,6 @@ ua:
             text:
               blank: "не може бути пустим"
 
-  # controllers:
-  #   teachers:
-  #     test_settings:
-  #       create:
-  #         successfull: "Ви успішо створили тест"
-
   views:
     pagination:
       first: "<<"
@@ -371,9 +365,12 @@ ua:
         h_tests: "Тести"
         choose_subject: "Предмет"
         choose_theme: "Виберіть тему"
+        you_really_want: "Якщо ви закриєте або перезавантажите сторінку, то здача тесту завершиться і будуть враховані лише ті питання, на які ви дали відповідь."
         buttons:
           back: "Назад"
           choose_subject: "Виберіть предмет"
+          leave_page: "Перезавантажити сторінку"
+          stay_here: "Не перезавантажувати"
       test_settings:
         buttons:
           show_test: " - пройти тест"
@@ -402,16 +399,22 @@ ua:
         h_testing: "Тестування"
         test_name: "Тест на тему: "
         you_have_time: "Залишилось часу:"
+        attention: "Увага! Ви можете дати лише одну відповідь на запитання. Якщо Ви дасте більше одної відповіді на одне запитання, то всі відповіді на дане запитання автоматично буть вважатися неправильними."
+        h_testing: "Тестування"
         buttons:
           back: "Назад"
       form:
         buttons:
           save: "Зберегти тест"
-      index:
+      show:
         h_test_results: "Результати тесту"
         you_pass_test_from_theme: "Тест на тему: "
         you_pass_test: "Назва тесту: "
         testing_max_tried_count: "Загальна кількість спроб: "
         you_have_attempting: "У вас залишилось спроб: "
+        result: "Результат: "
         buttons:
           page_for_choose_tests: "Усі тести"
+      create:
+        controllers:
+          successfull: "Ви пройшли тест"

@@ -1,4 +1,4 @@
-class Admin::CommentsController < ApplicationController
+class Admin::CommentsController < AdminController
   load_and_authorize_resource
   before_action :set_comment, only: [:destroy]
 

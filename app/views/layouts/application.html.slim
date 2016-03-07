@@ -3,14 +3,13 @@ html
   head
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
     title SchoolTest
-    = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
-
+    = stylesheet_link_tag    "not_admin", media: "all"
+    = javascript_include_tag "not_admin"
     = csrf_meta_tags
   body
-    .wrapper.container
+    .wrapper.container#container
       = render 'layouts/header'
-      .container-fluid
+      .container-fluid#body
         .row-fluid
           #flash
             p.notice= notice

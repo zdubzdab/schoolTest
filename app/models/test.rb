@@ -6,8 +6,12 @@ class Test < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers
 
-  after_create :count_result
-
   resourcify#rolify
 
+  after_create :count_test_result
+
+    private
+    def count_test_result
+      TestResultCalculation::CountResult.new(self).count_and_paste_test_result
+    end
 end

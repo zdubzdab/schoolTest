@@ -10,7 +10,7 @@
 }
 
 .test-settings-form {
-  height: 600px;
+  height: 650px;
 }
 
 .l_add_question {
@@ -33,41 +33,7 @@
 
 #b_save_test {
   position:relative;
-  left:0%;
   top:55px;
-}
-
-/* students*/
-/* index*/
-#show_test_setting_links {
-  position:relative;
-  left:-200px;
-  top:70px;
-}
-
-#h_test_list {
-  position:relative;
-  left:100px;
-}
-
-/* students*/
-/* show*/
-#button_pass_test {
-  position:relative;
-  left:420px;
-  top:10px;
-}
-
-#section_with_files_and_video {
-  position:relative;
-  left:100px;
-  top:0px;
-}
-
-#you_couldnt_try {
-  position:relative;
-  left:280px;
-  top:0px;
 }
 
 /*teachers*/
@@ -76,11 +42,9 @@
 #table_with_test_settings {
   position:relative;
   left:10.5%;
-  top:0px;
 }
 
 #test_setting_table_pagination {
   position:relative;
   left:36%;
-  top:0px;
 }

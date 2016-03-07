@@ -24,6 +24,14 @@ GIT
       activesupport
       multi_json (>= 1.3.2)
 
+GIT
+  remote: git://github.com/zdubzdab/carrierwave-mega.git
+  revision: 67b2e71da527e6e247382906bccc4b34df2af3f6
+  specs:
+    carrierwave-mega (0.0.1)
+      carrierwave
+      rmega
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -219,6 +227,7 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rmagick (2.15.4)
+    rmega (0.2.2)
     rolify (5.0.0)
     routing-filter (0.5.1)
       actionpack (~> 4.2)
@@ -293,6 +302,7 @@ DEPENDENCIES
   better_errors
   cancancan
   carrierwave!
+  carrierwave-mega!
   carrierwave-video!
   coffee-rails
   devise
@@ -315,18 +325,17 @@ DEPENDENCIES
   rails
   ransack
   rmagick
+  rmega
   rolify
   routing-filter
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   slim-rails (~> 3.0)
   spring
+  sprockets-rails (~> 2)
   therubyracer
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate
-
-BUNDLED WITH
-   1.11.2

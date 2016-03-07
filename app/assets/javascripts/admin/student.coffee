@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $("body").on "click", '.b_delete_student', 'ajax:success', (evt, data, status, xhr) ->
+  $("body").on 'ajax:success', '.b_delete_student', (evt, data, status, xhr) ->
     $(this).closest('tr').fadeOut()
 
   $('body').on 'click', '#admin-student-table-pagination  a', (event, data, status, xhr) ->
@@ -14,3 +14,4 @@ $ ->
       success: (data) ->
         $('#partial_admin_students').html data
     event.preventDefault()
+

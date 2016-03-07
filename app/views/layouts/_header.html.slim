@@ -15,13 +15,13 @@ header
         /       = link_to_unless_current "Українська", locale: "ua"
         - if user_signed_in?
           - if current_user.has_role? :student
-            / li.pull-right= link_to t('.buttons.pass_test'), students_test_settings_path
+            li.pull-right= link_to t('.buttons.pass_test'), students_test_settings_path
           - elsif current_user.has_role? :teacher
             / li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
             / li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
           - elsif current_user.has_role? :admin
-            / li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
-            / li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
+            li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
+            li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
             li.btn-group
               button.btn.btn-info.dropdown-toggle#button-dropdown-admin data-toggle="dropdown" type="button"
                 = t('.buttons.admin_main_page')

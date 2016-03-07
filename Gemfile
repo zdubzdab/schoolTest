@@ -7,7 +7,6 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'carrierwave-video', github: 'begin29/carrierwave-video'
-
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -23,7 +22,6 @@ gem 'slim-rails', '~> 3.0'
 gem 'paper_trail'
 gem 'pg'
 gem 'thin', group: :development
-
 gem 'cancancan'
 gem 'progress_bar'
 gem 'friendly_id', '>= 5.0'
@@ -34,8 +32,10 @@ gem 'will_paginate'
 gem 'ransack'
 gem 'routing-filter'
 gem 'kaminari'
+gem 'sprockets-rails', '~> 2'
 gem "i18n-js", ">= 3.0.0.rc11"
-gem 'faker'
+gem 'rmega'
+gem "carrierwave-mega", :git => "git://github.com/zdubzdab/carrierwave-mega.git"
 
 group :assets do
   gem "coffee-rails"
@@ -58,6 +58,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+  gem 'faker'
 end
 
 group :production do

@@ -1,0 +1,7 @@
+-if @test_setting
+  - @test_setting.each do |test|
+    ul.ul_list_style
+      li
+        b
+          = test.name
+        = link_to t('.buttons.show_test'), students_test_setting_path(test)

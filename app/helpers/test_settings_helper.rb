@@ -11,6 +11,10 @@ module TestSettingsHelper
     Theme.all.map{|s| [s.name, s.id]}
   end
 
+  def chop(string)
+    string.to_s.split("/")[4].insert(0, ' ')
+  end
+
   def result(test)
     test.where(test_setting_id: @test_setting.id).maximum("complete_pers")
   end
