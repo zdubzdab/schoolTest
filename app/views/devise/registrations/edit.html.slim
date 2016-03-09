@@ -19,10 +19,21 @@ h3
         br
         = f.label :remove_avatar do
           = f.check_box :remove_avatar
-        b
-          = t('.choose_avatar')
-      = f.file_field :avatar
-      = f.hidden_field :avatar_cache
+      /   b
+      /     = t('.choose_avatar')
+      / = f.file_field :avatar
+      / = f.hidden_field :avatar_cache
+
+    .field
+      b
+        = t('.choose_avatar')
+      br
+      = f.fields_for :image do |img|
+        = img.label :photos do
+          = img.file_field :photos
+    br
+
+
     .field
       = f.label :password
       i
@@ -44,5 +55,5 @@ h3
 
   p
     = t('.unhappy')
-    = button_to t('.buttons.cancel_account'), registration_path(resource_name), data: { confirm: "t('.are_you_sure')" }, method: :delete, class: "btn btn-danger"
+    = button_to t('.buttons.cancel_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger", id: "b-cancel-account"
   = link_to t('.buttons.back'), :back

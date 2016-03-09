@@ -3,6 +3,7 @@ class Admin::TidingsController < AdminController
 
   def new
     @tiding = Tiding.new
+    @tiding.images.build
   end
 
   def create
@@ -55,6 +56,6 @@ class Admin::TidingsController < AdminController
     private
 
     def tiding_params
-      params.require(:tiding).permit(:id, :text, :title, :main, {photos: []})
+      params.require(:tiding).permit(:id, :text, :title, :main, images_attributes: [:id, :primary, {photos: []}])
     end
 end

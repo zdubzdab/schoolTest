@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307110810) do
+ActiveRecord::Schema.define(version: 20160309115751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20160307110810) do
   end
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.boolean  "primary"
+    t.json     "photos"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+  end
+
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text    "text"
@@ -120,7 +131,6 @@ ActiveRecord::Schema.define(version: 20160307110810) do
     t.boolean  "main"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json     "photos"
   end
 
   create_table "users", force: :cascade do |t|
@@ -139,7 +149,6 @@ ActiveRecord::Schema.define(version: 20160307110810) do
     t.inet     "last_sign_in_ip"
     t.string   "authentication_token"
     t.integer  "categgory_id"
-    t.string   "avatar"
     t.integer  "subject_id"
     t.string   "description"
   end
