@@ -327,7 +327,8 @@ ua:
 
       form:
         mark_if_right: "Позначте, якщо новина головна"
-        choose_photos: "Виберіть фотографії"
+        choose_photos: "Виберіть інші фотографії"
+        choose_primary_photo: "Виберіть головну фотографію"
         buttons:
           submit: "Зберегти"
 
