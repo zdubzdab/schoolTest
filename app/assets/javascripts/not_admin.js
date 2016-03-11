@@ -14,5 +14,6 @@
 //= require lib/jquery.countdown
 //= require user
 //= require welcome
+//= require bootstrap_carusel_initializer
 //= require_directory ./students
 //= require_directory ./teachers

@@ -64,19 +64,13 @@ ul.nav.nav-tabs
           = f.label :password_confirmation
           br
           = f.password_field :password_confirmation, autocomplete: "off"
-        / .field
-        /   b
-        /     = t('.choose_avatar')
-        /   = f.label :avatar do
-        /     = f.file_field :avatar, class: "carrier"
-        /     = f.hidden_field :avatar_cache
         .field
           b
             = t('.choose_avatar')
           br
-          = f.fields_for :image, @user.image do |img|
-            = img.label :photos do
-              = img.file_field :photos, multiple: true
+          = f.fields_for :image, resource.build_image do |img|
+            = img.label :photo do
+              = img.file_field :photo
         br
         .actions
           = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"

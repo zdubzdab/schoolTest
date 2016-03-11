@@ -12,3 +12,4 @@
 //
 //= require application
 //= require_directory ./admin
+//= require teachers/test_settings

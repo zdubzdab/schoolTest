@@ -1,12 +1,12 @@
 #myCarousel.carousel.slide data-ride="carousel"
   ol.carousel-indicators
-    - @tiding.photos.each_with_index do |photo, index|
+    - count_images_number(@images.count).each do |index|
       li.active data-slide-to="#{index}" data-target="#myCarousel"
 
   .carousel-inner role="listbox"
-    - @tiding.photos.each do |photo|
+    - @images.each do |img|
       .item
-        = link_to image_tag(photo.url(:thumb)), {class: "img-responsive"}
+        = link_to image_tag(img.photo.url(:big)), {class: "img-responsive"}
 
   a.left.carousel-control data-slide="prev" href="#myCarousel" role="button"
     i.fa.fa-chevron-left.fa-2x#carusel-link-left

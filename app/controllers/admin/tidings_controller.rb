@@ -49,13 +49,9 @@ class Admin::TidingsController < AdminController
     end
   end
 
-  def show
-    @tiding = Tiding.find(params[:id])
-  end
-
     private
 
     def tiding_params
-      params.require(:tiding).permit(:id, :text, :title, :main, images_attributes: [:id, :primary, {photos: []}])
+      params.require(:tiding).permit(:id, :text, :title, :main, images_attributes: [:id, :photo, :_destroy, :primary])
     end
 end
