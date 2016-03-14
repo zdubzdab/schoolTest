@@ -1,19 +1,19 @@
 .col-md-8
   table.table.table-bordered.table-condensed.table-striped#admin_table_with_teachers
     tr
-      th = t '.name'
-      th = t '.email'
-      th = t '.photo'
-      th = t '.edit'
-      th = t '.destroy'
+      th = t 'user.attributes.name'
+      th = t 'user.attributes.email'
+      th = t 'user.attributes.photo'
+      th = t 'edit'
+      th = t 'destroy'
 
       - @teachers.each do |user|
         tr
           td = user.full_name
           td = user.email
-          td = image_tag(user.avatar.url(:thumb))
-          td = link_to t('.buttons.edit'), edit_admin_user_path(user)
-          td = link_to t('.buttons.destroy'), admin_user_path(user), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_teacher"
+          td = image_tag(user.image.photo.url(:small)) if user.image
+          td = link_to t('buttons.edit'), edit_admin_user_path(user)
+          td = link_to t('buttons.destroy'), admin_user_path(user), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_teacher"
 
 .col-md-6#admin_teacher_table_pagination
   ul.ul_list_style

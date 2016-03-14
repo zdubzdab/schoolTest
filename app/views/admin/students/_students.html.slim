@@ -1,19 +1,19 @@
 .col-md-8
   table.table.table-bordered.table-condensed.table-striped#admin-table-with-students
     tr
-      th = t '.name'
-      th = t '.email'
-      th = t '.class'
-      th = t '.edit'
-      th = t '.destroy'
+      th = t 'user.attributes.name'
+      th = t 'user.attributes.email'
+      th = t 'user.attributes.class'
+      th = t 'edit'
+      th = t 'destroy'
 
       - @students.each do |user|
         tr
           td = user.full_name
           td = user.email
           td = user.categgory.try(&:id)
-          td = link_to t('.edit'), edit_admin_student_path(user)
-          td = link_to t('.destroy'), admin_student_path(user), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b_delete_student"
+          td = link_to t('edit'), edit_admin_student_path(user)
+          td = link_to t('destroy'), admin_student_path(user), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b_delete_student"
 
 .col-md-6#admin-student-table-pagination
   ul.ul_list_style

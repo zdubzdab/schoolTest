@@ -3,12 +3,12 @@ h4
 
 .col-md-4#description_section
     p
-      = t '.user_name'
+      = t 'users.attributes.name'
       b
         = @user.full_name
     br
     p
-      = t '.class'
+      = t 'users.attributes.class'
       = @user.categgory.try(:name)
     br
     p
@@ -37,4 +37,4 @@ h4
 
 .col-md-12
   br
-  = link_to t('.buttons.back'), :back
+  = link_to t('buttons.back'), :back

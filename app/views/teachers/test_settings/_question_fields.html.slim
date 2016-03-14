@@ -4,7 +4,7 @@
       = f.label :text, t('.question')
       = f.text_field :text, rows: 3, class: 'form-control'
 
-      = link_to_remove_fields t('.buttons.remove'), f
+      = link_to_remove_fields t('buttons.remove'), f
       = f.fields_for :answer_settings do |builder|
         = render 'answer_setting_fields', f: builder
       .l_add_answer#links_q_a
