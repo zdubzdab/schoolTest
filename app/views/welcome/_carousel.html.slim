@@ -1,0 +1,14 @@
+#myCarousel.carousel.slide data-ride="carousel"
+  ol.carousel-indicators
+    - count_images_number(@images.count).each do |index|
+      li.active data-slide-to="#{index}" data-target="#myCarousel"
+
+  .carousel-inner role="listbox"
+    - @images.each do |img|
+      .item
+        = link_to image_tag(img.photo.url(:big)), {class: "img-responsive"}
+
+  a.left.carousel-control data-slide="prev" href="#myCarousel" role="button"
+    i.fa.fa-chevron-left.fa-2x#carusel-link-left
+  a.right.carousel-control data-slide="next" href="#myCarousel" role="button"
+    i.fa.fa-chevron-right.fa-2x#carusel-link-right

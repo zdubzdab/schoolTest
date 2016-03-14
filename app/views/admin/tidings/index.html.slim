@@ -1,0 +1,9 @@
+.col-md-12
+  h3
+    = t('.h_news_list')
+
+#partial-news
+  = render partial: 'tidings'
+
+.col-md-12
+  = link_to t('.buttons.back'), root_path

@@ -35,6 +35,8 @@ header
                   = link_to t('.buttons.edit'), admin_users_path
                 li
                   = link_to t('.buttons.add_news'), new_admin_tiding_path
+                li
+                  = link_to t('.buttons.news_list'), admin_tidings_path
 
           li.pull-right= link_to t('.buttons.sign_out'), destroy_user_session_path, method: :delete
           li.pull-right= link_to t('.buttons.edit_profile'), edit_user_registration_path

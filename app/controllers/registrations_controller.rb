@@ -6,4 +6,5 @@ class RegistrationsController < Devise::RegistrationsController
       @user.add_role params[:user_role]
     end
   end
+
 end

@@ -1,0 +1,31 @@
+= form_for [:admin, @tiding], html: { class: 'tidings-form',  multipart: true } do |f|
+  - if @tiding.errors.any?
+      #error_explanation
+        h4
+          = t('errors.messages.not_saved', count: @tiding.errors.count, resource: Tiding.model_name.human)
+        ul
+          - @tiding.errors.full_messages.each do |msg|
+            li= msg
+  .col-md-6
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :text
+      = f.text_area :text, class: 'form-control', id: "tiding-textarea"
+    .form-group
+      = f.label :main, t('.mark_if_right')
+      = f.check_box :main
+    .form-group
+      b
+        = t('.choose_photos')
+      br
+      ol
+        = f.fields_for :images do |img|
+          = render 'image_fields', f: img
+        hr
+        .l_add_photo#links_q_a
+          = link_to_add_fields t('.buttons.add_photo'), f, :images
+    .form-group
+      br
+      = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"

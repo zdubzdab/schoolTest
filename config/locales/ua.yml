@@ -57,6 +57,7 @@ ua:
               confirmation: "пароль не співпадає"
             current_password:
               blank: "не може бути пустим"
+              invalid: "неправильний"
         test_setting:
           attributes:
             name:
@@ -109,7 +110,7 @@ ua:
           back: "Назад"
       edit:
         h_edit: "Редагування профілю"
-        choose_avatar: "Видалити фото"
+        choose_avatar: "Вибрати фото"
         avatar: "Фото"
         leave_blank: "(Залиште пустим якщо не хочете змінювати)"
         we_need_password: "(нам потрібен ваш поточний пароль для підтвердження ваших змін)"
@@ -164,6 +165,7 @@ ua:
         add_news: "Додати новину"
         manage_students: "Редагувати учнів"
         edit: "Редагувати вчителів"
+        news_list: "Список новин "
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -314,16 +316,48 @@ ua:
     tidings:
       new:
         h_news_creation: "Створення новини"
-        title: "Заголовок"
-        text: "Текст"
-        mark_if_right: "Позначте, якщо новина головна"
-        choose_photos: "Виберіть фотографії"
         buttons:
-          submit: "Зберегти"
           back: "Назад"
       show:
         buttons:
           back: "Назад"
+      index:
+        h_news_list: "Список новин"
+        buttons:
+          back: "Назад"
+      form:
+        mark_if_right: "Позначте, якщо новина головна"
+        choose_photos: "Виберіть фотографії і поставте позначку біля тієї, яка має відображатися першою"
+        buttons:
+          submit: "Зберегти"
+          add_photo: "Додати фотографію"
+      image_fields:
+        buttons:
+          remove: "Видалити"
+      edit:
+        mark_if_right: "Позначте, якщо новина головна"
+        choose_photos: "Виберіть фотографії"
+        h_edit_new: "Редагування новини"
+        buttons:
+          back: "Назад"
+          submit: "Зберегти"
+          add_photo: "Додати фотографію"
+      tidings:
+        name: "Назва"
+        text: "Текст"
+        time: "Час створеня"
+        edit: "Редагувати"
+        destroy: "Видалити"
+        destroy_certain: "Ви впевнені, що хочете видалити дану новину?"
+        buttons:
+          edit: "Назад"
+          destroy: "Назад"
+      destroy:
+        controllers:
+          error: "Ви не можете видалити цю новину."
+
+
+
     students:
       index:
         h_students: "Учні"
@@ -348,7 +382,7 @@ ua:
         controllers:
           error: "Ви не можете видалити цього учня."
   welcome:
-    index:
+    right_panel:
       h_search: "Пошук"
       search: "Пошук"
       placeholder_search: "Пошук новин"

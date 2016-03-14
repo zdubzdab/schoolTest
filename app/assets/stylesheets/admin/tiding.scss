@@ -5,3 +5,50 @@
 #tiding-textarea {
   height: 90px;
 }
+
+#table-with-news {
+  position: relative;
+  left: 4.6%;
+
+  td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #col-1 {
+    width: 20%;
+  }
+
+  #col-2 {
+    width: 39%;
+  }
+
+  #col-3 {
+    width: 15%;
+  }
+
+  #col-4 {
+    width: 13%;
+  }
+
+  #col-5 {
+    width: 13%;
+  }
+}
+
+#admin-news-table-pagination {
+  position: relative;
+  left: 35%;
+}
+
+.tiding-photo-checkbox {
+  position: relative;
+  left: 10%;
+}
+
+#field-with-images {
+  position: relative;
+  left: 7%;
+}

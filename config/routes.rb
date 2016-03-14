@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :destroy]
       resources :students, only: [:index, :edit, :update, :destroy]
       resources :users, only: [:index, :edit, :update, :destroy]
-      resources :tidings, only: [:new, :create]
+      resources :tidings
      end
 
     resources :comments, only: [:index, :create, :new]

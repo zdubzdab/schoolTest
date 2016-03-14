@@ -35,3 +35,14 @@ $ ->
       success: (data) ->
         $('#partial_news').html data
     event.preventDefault()
+
+  $('#myCarousel').initializeCarusel()
+  setActiveSlide = ->
+    $('.carousel-indicators li').each ->
+      slideValue = $(this).attr('data-slide-to')
+      if currentSlide == slideValue
+        $(this).addClass 'active'
+        $item.eq(slideValue).addClass 'active'
+      else
+        $(this).removeClass 'active'
+        $item.eq(slideValue).removeClass 'active'

@@ -28,7 +28,7 @@ ul.nav.nav-tabs
               = '.min_password_length'
           = f.password_field :password, autocomplete: "off"
         .field
-          = f.label :password_confirmation, t('.password_confirmation')
+          = f.label :password_confirmation
           br
           = f.password_field :password_confirmation, autocomplete: "off"
         br
@@ -67,9 +67,10 @@ ul.nav.nav-tabs
         .field
           b
             = t('.choose_avatar')
-          = f.label :avatar do
-            = f.file_field :avatar, class: "carrier"
-            = f.hidden_field :avatar_cache
+          br
+          = f.fields_for :image, resource.build_image do |img|
+            = img.label :photo do
+              = img.file_field :photo
         br
         .actions
           = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
