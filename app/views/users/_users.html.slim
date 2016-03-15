@@ -9,7 +9,7 @@
         tr
           td = user.full_name
           td = user.email
-          td = image_tag(user.avatar.url(:thumb))
+          td = image_tag(user.avatar.url(:thumb)) if user.avatar.present?
 
 .col-md-6#teacher_table_pagination
   ul.ul_list_style

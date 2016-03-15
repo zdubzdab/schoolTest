@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :image
 
+  alias_method :avatar, :image
+
   validates :full_name, presence: true,
                     length: { minimum: 2 },
                     uniqueness: true
