@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20160311093642) do
     t.boolean  "main"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json     "photos"
   end
 
   create_table "users", force: :cascade do |t|

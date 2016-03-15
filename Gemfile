@@ -27,6 +27,8 @@ gem 'progress_bar'
 gem 'friendly_id', '>= 5.0'
 gem "rolify"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave-dropbox', github: 'begin29/carrierwave-dropbox'
+gem 'dropbox-sdk'
 gem 'rmagick'
 gem 'will_paginate'
 gem 'ransack'
