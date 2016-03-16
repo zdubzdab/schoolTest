@@ -1,8 +1,8 @@
-.panel.panel-info.col-md-12#tiding_list
+.panel.panel-info#tiding-list-field
   .panel-heading#panel-heading-news
     h4.header-in-panels
       = t('.h_news')
-  .panel-body
+  .panel-body#list-tiding-headers
     - @tidings.each do |tiding|
       ul.ul_list_style
         li

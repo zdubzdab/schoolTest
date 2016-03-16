@@ -4,9 +4,6 @@
 /*index*/
 #search_field {
   height: 190px;
-  position:relative;
-  top:-7px;
-  left: 1%;
   margin-bottom:0px;
 }
 
@@ -22,7 +19,7 @@
 
 #clean_search {
   position:relative;
-  left: 97%;
+  left: 85%;
   top: -10px;
   float: center;
   margin-right: 10px;
@@ -42,35 +39,14 @@
   }
 }
 
-#tiding_list {
-  position:relative;
-  top: 15px;
-  left: -4%;
-  width: 110.5%;
-  height: 309px;
-  margin-bottom: 72px;
-}
-
-#tiding_table_pagination {
-  width: 110%;
-  position:relative;
-  left: -5%;
-}
-
 #main_new_field {
   padding: 15px 15px 15px 15px;
-  position:relative;
-  top: -7px;
-  left: -1.0%;
   border-color: #5bc0de;
   background: #ccffff;
 }
 
 #panel_heading_main_new {
-  position:relative;
-  top: -15px;
-  left: -2.2%;
-  width: 104.5%;
+  margin: -15px -15px 15px -15px;
   background: #5bc0de;
   color: #ffffff;
   border-color: #ccffff;
@@ -88,21 +64,14 @@
 
 #panel-heading-search {
   height: 60px;
-  width: 110.8%;
-  position:relative;
-  left: -5.3%;
 }
 
 #panel-heading-news {
   height: 60px;
-  width: 110.8%;
-  position:relative;
-  left: -5.3%;
 }
 
 .header-in-panels {
-  position:relative;
-  top: -10px;
+  margin-top: 10px;
 }
 
 .main-new-hr {
@@ -111,9 +80,6 @@
 
 .main-new-photo {
   margin: 0px 10px 0px 10px;
-  position:relative;
-  left: -2.3%;
-  top: -6px;
 }
 
 #carusel-link-left {
@@ -140,40 +106,17 @@
   }
 }
 
-/*show*/
-#carusel-on-show-page {
-  position:relative;
-  left: 0.5%;
-  width: 66%;
-
-  .item > a > img {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    height: 480px;
-  }
+#tiding-list-field {
+  height: 309px;
+  margin-top: 15px;
+  margin-bottom: 72px;
 }
 
-#tiding-text-show-page {
-  position:relative;
-  left: 0%;
-  top: -50px;
+#tiding_table_pagination {
+  width: 120%;
+  margin-left: -10px;
 }
 
-#right-panel {
-  position:relative;
-  left: -0.6%;
-  top: 7px;
-  width: 34%;
-
-  #tiding_table_pagination {
-    position:relative;
-    left: -12%;
-    width: 125%;
-  }
-
-  #tiding_list {
-    position:relative;
-    left: -4%;
-    }
+#list-tiding-headers {
+  margin-left: -5px;
 }
