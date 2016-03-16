@@ -1,5 +1,5 @@
-.col-md-12
-  .panel.panel-default.col-md-8#main_new_field
+.col-md-8
+  .panel.panel-default#main_new_field
     .panel-heading#panel_heading_main_new
       h4.header-in-panel-main-new
         = @post.try(:title)
@@ -8,6 +8,5 @@
       hr.main-new-hr
       = @post.try(:text)
 
-  .col-md-4
-    = render partial: 'right_panel'
-
+.col-md-4
+  = render partial: 'right_panel'

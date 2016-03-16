@@ -1,14 +1,15 @@
-h3
-  = @tiding.title
+.col-md-8
+  .panel.panel-default#main_new_field
+    .panel-heading#panel_heading_main_new
+      h4.header-in-panel-main-new
+        = @post.try(:title)
+    .panel-body
+      = render partial: 'carousel'
+      hr.main-new-hr
+      = @post.try(:text)
 
-.col-md-8#carusel-on-show-page
-    = render partial: 'carousel'
-
-.col-md-3#right-panel
+.col-md-4
   = render partial: 'right_panel'
-
-.col-md-8#tiding-text-show-page
-  = @tiding.text
 
 .col-md-8
   br
