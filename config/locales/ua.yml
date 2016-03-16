@@ -1,6 +1,12 @@
 ua:
   errors:
     messages:
+      too_short: "занадто короткий (мінімум три символи)"
+      invalid: "неправильний"
+      confirmation: " не співпадає"
+      bad_email_format: "має бути такого формату: xxx@xxx.xxx"
+      taken: "вже існує"
+      blank: "не може бути пустим"
       blank_question: "не може бути пустим"
       blank_answer: "не може бути пустою"
       not_saved:
@@ -8,7 +14,7 @@ ua:
         other: "Через помилки неможливо зберегти %{resource}:"
   activerecord:
     models:
-      user: користувача
+      user: користувач
       users: користувачів
       test_setting: тест
       test_settings: тести
@@ -20,7 +26,7 @@ ua:
         full_name: "Прізвище Ім'я Побатькові"
         email: "Емейл"
         password: "Пароль"
-        password_confirmation: "Підтвердження паролю"
+        password_confirmation: "Пароль"
         current_password: "Поточний пароль"
         categgory_id: "Клас"
         subject_id: "Предмет"
@@ -42,44 +48,30 @@ ua:
         user:
           attributes:
             full_name:
-              blank: "не може бути пустим"
               too_short: "занадто коротке (мінімум три символи)"
-              taken: "вже занятий"
-            email:
-              blank: "не може бути пустим"
-              bad_email_format: "має бути такого формату: xxx@xxx.xxx"
-              taken: "вже занятий"
-            password:
-              blank: "не може бути пустим"
-              confirmation: "Паролі не співпадають"
-              too_short: "занадто короткий(мінімум %{count} символів)"
-            password_confirmation:
-              confirmation: "пароль не співпадає"
-            current_password:
-              blank: "не може бути пустим"
-              invalid: "неправильний"
-        test_setting:
-          attributes:
-            name:
-              blank: "не може бути пустою"
-            time_to_pass:
-              blank: "не може бути пустим"
-            text:
-              blank: "не може бути пустим"
-        tiding:
-          attributes:
-            title:
-              blank: "не може бути пустим"
-              too_short: "занадто короткий (мінімум три символи)"
-              taken: "вже існує"
-            text:
-              blank: "не може бути пустим"
-        comment:
-          attributes:
-            name:
-              blank: "не може бути пустим"
-            text:
-              blank: "не може бути пустим"
+
+  buttons:
+    back: "Назад"
+    remove: "Видалити"
+    edit: "Редагувати"
+    destroy: "Видалити"
+    show: "Переглянути"
+    submit: "Зберегти"
+    save: "Зберегти"
+    login: "Логін"
+    sign_up: "Реєстрація"
+
+  table:
+    attributes:
+      name: "Прізвище Ім'я Побатькові"
+      class: "Клас"
+      email: "Емейл"
+      photo: "Фото"
+      edit: "Редагувати"
+      destroy: "Видалити"
+      show: "Переглянути"
+      result: "Результат кращого тесту, %"
+      tries_number: "К-сть використаних спроб"
 
   views:
     pagination:
@@ -96,7 +88,8 @@ ua:
 #cancan
   unauthorized:
     default: "Ви не маєте доступу до цієї сторінки."
-  # views:
+
+# views:
   devise:
     registrations:
       new:
@@ -106,8 +99,6 @@ ua:
         buttons:
           student: "Учень"
           teacher: "Вчитель"
-          submit: "Реєстрація"
-          back: "Назад"
       edit:
         h_edit: "Редагування профілю"
         choose_avatar: "Вибрати фото"
@@ -120,15 +111,11 @@ ua:
         buttons:
           student: "Учень"
           teacher: "Вчитель"
-          submit: "Зберегти зміни"
-          back: "Назад"
           cancel_account: "Відмінити мій акаунт"
     sessions:
       new:
         h_log_in: "Авторизація"
         remember: "Запам'ятати мене"
-        buttons:
-          submit: "Авторизація"
     passwords:
       new:
         h_forgot_password: "Забули пароль?"
@@ -138,8 +125,6 @@ ua:
     shared:
       links:
         buttons:
-          login: "Логін"
-          sign_up: "Реєстрація"
           forgot_password: "Забули пароль?"
           dont_resive_instructions: "Не отримали інструкції для підтвердження акаунту?"
           dont_resive_instructions_to_unbloc: "Не отримали інструкції для розблокуванння акаунту?"
@@ -152,8 +137,6 @@ ua:
         testing: "Список тестів"
         edit_profile: "Редагувати профіль"
         sign_out: "Вийти"
-        log_in: "Логін"
-        register: "Зареєструватися"
         language: "Змінити мову"
         new_test: "Новий тест"
         comments: "Додати пропозицію"
@@ -169,20 +152,8 @@ ua:
   users:
     index:
       h_teachers: "Наші вчителі"
-      buttons:
-        back: "Назад"
-    users:
-      name: "Прізвище Ім'я Побатькові"
-      email: "Емейл"
-      photo: "Фото"
-  comments:
-    form:
-      buttons:
-        submit: "Додати пропозицію"
     new:
       h_add_suggestions: "Створення пропозицій"
-      buttons:
-        back: "Назад"
     create:
       controllers:
         sucessful: "Ваша пропозиція успішно створена і буде розглянута найближчим часом."
@@ -196,13 +167,8 @@ ua:
           error: "Ви не можете видалити цей тест"
       new:
         h_test_creation: "Створення тестів"
-        buttons:
-          back: "Назад"
       edit:
         h_test_editing: "Редагування тестів"
-        buttons:
-          back: "Назад"
-          show: "Подивитись на тест"
       form:
         class: "Клас"
         subject: "Предмет"
@@ -212,35 +178,22 @@ ua:
         choose_video: "Виберіть відео"
         choose_files: "Виберіть файли"
         buttons:
-          save: "Зберегти тест"
           add_question: "Додати запитання"
       question_fields:
         question: "Запитання"
         buttons:
-          remove: "Видалити"
           add_answer: "Додати відповідь"
       answer_setting_fields:
         answer: "Відповідь"
         mark_if_right: "Позначте, якщо відповідь правильна"
-        buttons:
-          remove: "Видалити"
       index:
         h_tests: "Список тестів"
-        buttons:
-          back: "Назад"
       test_setting:
         subject: "Предмет"
         theme: "Тема"
         name: "Назва"
         description: "Опис"
-        edit: "Редагувати"
-        destroy: "Видалити"
         confirm_destroy: "Ви дійсно хочете видалити даний тест?"
-        show: "Переглянути"
-        buttons:
-          edit: "Редагувати"
-          destroy: "Видалити"
-          show: "Переглянути"
       show:
         h_testing: "Результати тесту"
         testing_theme: "Тест на тему: "
@@ -248,136 +201,67 @@ ua:
         testing_time_to_pass: "Час проходження: "
         testing_max_tried_count: "Загальна кількість спроб: "
         seconds: "секунд"
-        buttons:
-          edit: "Редагувати тест"
-          back: "Назад"
-          show: "Деталі"
-      test_results:
-        user_name: "Прізвище Ім'я Побатькові учня"
-        result: "Результат кращого тесту, %"
-        time: "Час проходження тесту"
-        class: "Клас"
-        tries_number: "К-сть використаних спроб"
-        show: "Деталі"
-        buttons:
-          show: "Деталі"
     users:
       show:
         h_passed_tests: "Результати тесту"
         number_of_try: "Номер спроби"
-        user_name: "Результати тесту"
-        class: "Результати тесту"
         result: "Результат"
         time: "Час"
         testing_theme: "Тест на тему: "
         testing_max_tried_count: "Загальна кількість спроб: "
-        user_name: "Прізвище Ім'я Побатькові учня: "
+        name: "Прізвище Ім'я Побатькові учня: "
         class: "Клас: "
-        buttons:
-          back: "Назад"
   admin:
     users:
       index:
         h_teachers: "Наші вчителі"
-        name: "Прізвище Ім'я Побатькові"
-        email: "Емейл"
-        photo: "Фото"
         controllers:
           error: "Ви не можете видалити цього вчителя."
-        buttons:
-          back: "Назад"
       users:
-        name: "Прізвище Ім'я Побатькові"
-        email: "Емейл"
-        photo: "Фото"
-        edit: "Редагувати"
-        destroy: "Видалити"
         confirm_destroy: "Ви впевнені, що хочете видалити даного вчителя?"
-        buttons:
-          edit: "Редагувати"
-          destroy: "Видалити"
       edit:
         h_edit: "Редагування вчителя"
         delete_avatar: "Видалити фото"
         avatar: "Фото"
-        buttons:
-          submit: "Зберегти"
-          back: "Назад"
     comments:
       comments:
         guest: "Гість"
       index:
         h_suggestions_list: "Список пропозицій"
-        buttons:
-          back: "Назад"
       destroy:
         controllers:
           error: "Ви не можете видалити цю пропозицію."
     tidings:
       new:
         h_news_creation: "Створення новини"
-        buttons:
-          back: "Назад"
-      show:
-        buttons:
-          back: "Назад"
       index:
         h_news_list: "Список новин"
-        buttons:
-          back: "Назад"
       form:
         mark_if_right: "Позначте, якщо новина головна"
         choose_photos: "Виберіть фотографії і поставте позначку біля тієї, яка має відображатися першою"
         buttons:
-          submit: "Зберегти"
           add_photo: "Додати фотографію"
-      image_fields:
-        buttons:
-          remove: "Видалити"
       edit:
         mark_if_right: "Позначте, якщо новина головна"
         choose_photos: "Виберіть фотографії"
         h_edit_new: "Редагування новини"
         buttons:
-          back: "Назад"
-          submit: "Зберегти"
           add_photo: "Додати фотографію"
       tidings:
         name: "Назва"
         text: "Текст"
         time: "Час створеня"
-        edit: "Редагувати"
-        destroy: "Видалити"
         destroy_certain: "Ви впевнені, що хочете видалити дану новину?"
-        buttons:
-          edit: "Назад"
-          destroy: "Назад"
       destroy:
         controllers:
           error: "Ви не можете видалити цю новину."
-
-
-
     students:
       index:
         h_students: "Учні"
-        name: "Прізвище Ім'я Побатькові"
-        email: "Емейл"
-        photo: "Фото"
-        buttons:
-          back: "Назад"
       students:
-        name: "Прізвище Ім'я Побатькові"
-        email: "Емейл"
-        class: "Клас"
-        edit: "Редагувати"
-        destroy: "Видалити"
         destroy_certain: "Ви впевнені, що хочете видалити даного учня?"
       edit:
         h_edit: "Редагування учня"
-        buttons:
-          submit: "Зберегти"
-          back: "Назад"
       destroy:
         controllers:
           error: "Ви не можете видалити цього учня."
@@ -389,9 +273,6 @@ ua:
       search_clear: "Очистити пошук"
     tidings:
       h_news: "Новини"
-    show:
-      buttons:
-        back: "Назад"
   students:
     test_settings:
       index:
@@ -401,7 +282,6 @@ ua:
         choose_theme: "Виберіть тему"
         you_really_want: "Якщо ви закриєте або перезавантажите сторінку, то здача тесту завершиться і будуть враховані лише ті питання, на які ви дали відповідь."
         buttons:
-          back: "Назад"
           choose_subject: "Виберіть предмет"
           leave_page: "Перезавантажити сторінку"
           stay_here: "Не перезавантажувати"
@@ -420,14 +300,11 @@ ua:
         seconds: "секунд"
         the_end: "Ви не можете пройти даний тест тому, що використали усі спроби"
         buttons:
-          back: "Назад"
           pass_test: "Пройти тест"
       there_is_not_test:
         h_this_theme_doesnt_have_tests: "На цю тему, поки що, немає тестів"
       new:
         h_testing: "Тестування"
-        buttons:
-          back: "Назад"
     tests:
       new:
         h_testing: "Тестування"
@@ -435,11 +312,6 @@ ua:
         you_have_time: "Залишилось часу:"
         attention: "Увага! Ви можете дати лише одну відповідь на запитання. Якщо Ви дасте більше одної відповіді на одне запитання, то всі відповіді на дане запитання автоматично буть вважатися неправильними."
         h_testing: "Тестування"
-        buttons:
-          back: "Назад"
-      form:
-        buttons:
-          save: "Зберегти тест"
       show:
         h_test_results: "Результати тесту"
         you_pass_test_from_theme: "Тест на тему: "

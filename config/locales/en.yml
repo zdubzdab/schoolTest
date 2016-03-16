@@ -1,6 +1,12 @@
 en:
   errors:
     messages:
+      too_short: "is too short(minimum %{count} symbols)"
+      blank: "can't be blank"
+      taken: "has already been taken"
+      bad_email_format: "should have next format: xxx@xxx.xxx"
+      confirmation: "passwords doesn't match"
+      invalid: "wrong"
       blank_question: "can't be blank"
       blank_answer: "can't be blank"
       not_saved:
@@ -42,57 +48,48 @@ en:
         user:
           attributes:
             full_name:
-              blank: "can't be blank"
-              too_short: "is too short(minimum 3 symbols)"
-              taken: "is already taken"
-            email:
-              blank: "can't be blank"
-              bad_email_format: "should have next format: xxx@xxx.xxx"
-              taken: "is already taken"
-            password:
-              blank: "can't be blank"
-              confirmation: "passwords doesn't match"
               too_short: "is too short(minimum %{count} symbols)"
-            password_confirmation:
-              confirmation: "passwords doesn't match"
-            current_password:
-              blank: "can't be blank"
-        test_setting:
-          attributes:
-            name:
-              blank: "can't be blank"
-            time_to_pass:
-              blank: "can't be blank"
-            text:
-              blank: "can't be blank"
-        tiding:
-          attributes:
-            title:
-              blank: "can't be blank"
-              too_short: "is too short(minimum 3 symbols)"
-              taken: "is already taken"
-            text:
-              blank: "can't be blank"
-        comment:
-          attributes:
-            name:
-              blank: "can't be blank"
-            text:
-              blank: "can't be blank"
+
+  buttons:
+    back: "Back"
+    remove: "Remove"
+    edit: "Edit"
+    destroy: "Remove"
+    show: "Show"
+    submit: "Save"
+    save: "Save"
+    login: "Login"
+    sign_up: "Sign Up"
+
+  table:
+    attributes:
+      name: "Student Full Name"
+      class: "Class"
+      email: "Email"
+      photo: "Photo"
+      edit: "Edit"
+      destroy: "Remove"
+      show: "Show"
+      result: "The best test result, %"
+      tries_number: "Number of attempts"
 
   views:
     pagination:
-      first: "First"
-      last: "Last"
-      previous: "Previous"
-      next: "Next"
+      first: "<<"
+      last: ">>"
+      previous: "<"
+      next: ">"
 
   js:
     welcome:
       index:
-        you_really_want: "Are you sure?"
+        you_really_want: "If you close or reload page test passing will be finished and only questions with your answers will be included."
 
-  # views:
+#cancan
+  unauthorized:
+    default: "You don't have any permission to this page."
+
+# views:
   devise:
     registrations:
       new:
@@ -102,8 +99,6 @@ en:
         buttons:
           student: "student"
           teacher: "Teacher"
-          submit: "Registrations"
-          back: "Back"
       edit:
         h_edit: "Edit profile"
         choose_avatar: "Remove photo"
@@ -116,57 +111,65 @@ en:
         buttons:
           student: "Student"
           teacher: "Teacher"
-          submit: "Save changes"
-          back: "Back"
           cancel_account: "Cancel my account"
     sessions:
       new:
         h_log_in: "Authorization"
         remember: "Remember me"
+    passwords:
+      new:
+        h_forgot_password: "Do you forget your password?"
+        on_this_address: "We will send instructions for regain your password"
         buttons:
-          submit: "Authorizatio"
-  shared:
-    user_menu:
+          send_me: "Send"
+    shared:
+      links:
+        buttons:
+          forgot_password: "Do you forget your password?"
+          dont_resive_instructions: "Didn't resive instructions for confirmation account?"
+          dont_resive_instructions_to_unbloc: "Didn't resive instructions for unlock account?"
+          come_from: "Please come from #{provider.to_s.titleize}"
+  layouts:
+    header:
+      h_main_header: "school №"
       buttons:
         main: "Main"
         testing: "Tests"
         edit_profile: "Edit my profile"
         sign_out: "Exit"
-        log_in: "Login"
-        register: "Sign Up"
         language: "Change language"
         new_test: "New test"
-        wath_comments: "Watch comments"
         comments: "Comments"
-        add_news: "Add news"
         pass_test: "Pass test"
+        teachers: "Teachers"
+        admin_main_page: "Admin page"
+        test_results: "Test"
+        wath_comments: "Watch comments"
+        add_news: "Add news"
         manage_students: "Edit students"
-        index: "Teachers"
         edit: "Edit teachers"
+        news_list: "List of news "
   users:
     index:
       h_teachers: "Our teachers"
-      buttons:
-        back: "Back"
-    users:
-      name: "Full Name"
-      email: "Email"
-      photo: "Photo"
-  comments:
-    form:
-      buttons:
-        submit: "Add proposal"
     new:
-      h_add_suggestions: "Create proposal"
-      buttons:
-        back: "Back"
+      h_add_suggestions: "Sugesstion creation"
     create:
       controllers:
-        sucessful: "Your proposal added and sooner would be reviewed."
+        sucessful: "Your sugesstion was successfully created and will be reviewed as soon as possible."
   teachers:
     test_settings:
+      create:
+        controllers:
+          successfull: "Your test was successfully created."
+      destroy:
+        controllers:
+          error: "You can't remove this test."
+      new:
+        h_test_creation: "Test creation"
+      edit:
+        h_test_editing: "Test editing"
       form:
-        h_test_creation: "Create tests"
         class: "Class"
         subject: "Subject"
         theme: "Theme"
@@ -175,99 +178,101 @@ en:
         choose_video: "Choose video"
         choose_files: "Choose files"
         buttons:
-          back: "Back"
-          save: "Save test"
           add_question: "Add question"
       question_fields:
         question: "Question"
         buttons:
-          remove: "Remove"
           add_answer: "Add answer"
       answer_setting_fields:
         answer: "Answer"
         mark_if_right: "Pick if answer is right"
-        buttons:
-          remove: "Remove"
+      index:
+        h_tests: "List of tests"
+      test_setting:
+        subject: "Subject"
+        theme: "Theme"
+        name: "Name"
+        description: "Description"
+        confirm_destroy: "Are you sure than want to remove this test?"
+      show:
+        h_testing: "Test results"
+        testing_theme: "Test theme: "
+        testing_description: "Short description: "
+        testing_time_to_pass: "Time to pass: "
+        testing_max_tried_count: "Number of attempts: "
+        seconds: "seconds"
+    users:
+      show:
+        h_passed_tests: "Test results"
+        number_of_try: "Attempt number"
+        result: "Result"
+        time: "Time"
+        testing_theme: "Test theme: "
+        testing_max_tried_count: "Number of attempts: "
+        name: "Student Full Name: "
+        class: "Class: "
   admin:
     users:
       index:
         h_teachers: "Our teachers"
-        name: "Full Name"
-        email: "Email"
-        photo: "Photo"
-        buttons:
-          back: "Back"
-      users:
-        name: "Full name"
-        email: "Email"
-        photo: "Photo"
-        edit: "Edit"
-        destroy: "Remove"
-        confirm_destroy: "Are you sure than wanted remove this teacher?"
-        buttons:
-          edit: "Edit"
-          destroy: "Remove"
-      destroy:
         controllers:
-          error: "You can't remove this teacher."
+          error: "You couldn't remove this teacher."
+      users:
+        confirm_destroy: "Are you sure than wanted remove this teacher?"
       edit:
         h_edit: "Edit teacher"
         delete_avatar: "Remove photo"
         avatar: "Photo"
-        buttons:
-          submit: "Save"
-          back: "Back"
     comments:
       comments:
         guest: "Guest"
       index:
         h_suggestions_list: "List of proposals"
-        buttons:
-          back: "Back"
       destroy:
         controllers:
           error: "You can't remove this proposal."
     tidings:
       new:
         h_news_creation: "Create news"
-        title: "Title"
-        text: "Text"
+      index:
+        h_news_list: "List of news"
+      form:
         mark_if_right: "Please mark if news is main"
-        choose_avatar: "Pick photos"
+        choose_photos: "Choose photos and mark primary photo."
         buttons:
-          submit: "Save"
-          back: "Back"
-      show:
+          add_photo: "Add photo"
+      edit:
+        mark_if_right: "If news is main mark it"
+        choose_photos: "Choose photos"
+        h_edit_new: "Editing news"
         buttons:
-          back: "Back"
+          add_photo: "Add photo"
+      tidings:
+        name: "Name"
+        text: "Text"
+        time: "Post time"
+        destroy_certain: "Are you sure that want to remove this news?"
+      destroy:
+        controllers:
+          error: "You can't remove this new."
     students:
       index:
         h_students: "Students"
-        name: "Full name"
-        email: "Email"
-        photo: "Photo"
-        buttons:
-          back: "Back"
       students:
-        name: "Full name"
-        email: "Email"
-        class: "Class"
-        edit: "Edit"
-        destroy: "Remove"
         destroy_certain: "Are you sure that wanted remove this student?"
       edit:
         h_edit: "Edit student"
-        buttons:
-          submit: "Save"
-          back: "Back"
       destroy:
         controllers:
           error: "You can't remove this student."
   welcome:
-    index:
+    right_panel:
+      h_search: "Search"
       search: "Search"
-      placeholder_search: "Search news"
+      placeholder_search: "Search of news"
       search_clear: "Clear search"
+    tidings:
+      h_news: "News"
   students:
     test_settings:
       index:
@@ -275,11 +280,12 @@ en:
         h_tests: "Tests"
         choose_subject: "Subject"
         choose_theme: "Please choose theme"
+        you_really_want: "If you close or reload page test passing will be finished and only questions with your answers will be included."
         buttons:
-          back: "Back"
           choose_subject: "Please choose subject"
+          leave_page: "Reload page"
+          stay_here: "Don't reload"
       test_settings:
-
         buttons:
           show_test: " - pass test"
       show:
@@ -294,18 +300,27 @@ en:
         seconds: "seconds"
         the_end: "You can't pass test because already used all tries"
         buttons:
-          back: "Back"
           pass_test: "Pass test"
       there_is_not_test:
         h_this_theme_doesnt_have_tests: "You don't have tests for that theme"
       new:
         h_testing: "Testing"
-        buttons:
-          back: "Back"
     tests:
       new:
         h_testing: "Testing"
         test_name: "Test for theme: "
         you_have_time: "Leaved time:"
+        attention: "Attention! You could choose only one answer from one question. If you choose more than one answer then all answers from this question will be considered as wrong automatically."
+        h_testing: "Testing"
+      show:
+        h_test_results: "Test results"
+        you_pass_test_from_theme: "Test for theme: "
+        you_pass_test: "Test name: "
+        testing_max_tried_count: "Number of attempts: "
+        you_have_attempting: "You have attempts: "
+        result: "Result: "
         buttons:
-          back: "Back"
+          page_for_choose_tests: "All results"
+      create:
+        controllers:
+          successfull: "You passed test"

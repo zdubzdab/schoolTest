@@ -1,9 +1,9 @@
 .col-md-8
   table.table.table-bordered.table-condensed.table-striped#table_with_teachers
     tr
-      th = t '.name'
-      th = t '.email'
-      th = t '.photo'
+      th = t 'table.attributes.name'
+      th = t 'table.attributes.email'
+      th = t 'table.attributes.photo'
 
       - @teachers.each do |user|
         tr
