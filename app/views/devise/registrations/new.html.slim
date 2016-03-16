@@ -33,10 +33,10 @@ ul.nav.nav-tabs
           = f.password_field :password_confirmation, autocomplete: "off"
         br
         .actions
-          = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+          = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
         br
         = render "devise/shared/links"
-        = link_to t('.buttons.back'), :back
+        = link_to t('buttons.back'), :back
 
   .tab-pane#tab2
     h3
@@ -73,7 +73,7 @@ ul.nav.nav-tabs
               = img.file_field :photo
         br
         .actions
-          = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+          = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
         br
         = render "devise/shared/links"
-        = link_to t('.buttons.back'), :back
+        = link_to t('buttons.back'), :back

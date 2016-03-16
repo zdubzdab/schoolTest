@@ -1,11 +1,11 @@
 .col-md-10
   table.table.table-bordered.table-condensed.table-striped#table_with_test_results
     tr
-      th = t '.user_name'
-      th = t '.class'
-      th = t '.result'
-      th = t '.tries_number'
-      th = t '.show'
+      th = t 'table.attributes.name'
+      th = t 'table.attributes.class'
+      th = t 'table.attributes.result'
+      th = t 'table.attributes.tries_number'
+      th = t 'table.attributes.show'
 
       - @users.each do |user, number|
         tr
@@ -13,4 +13,4 @@
           td = user[1]
           td = user[2]
           td = number.count
-          td = link_to t('.buttons.show'), teachers_test_setting_user_path(@test_setting, user[3])
+          td = link_to t('buttons.show'), teachers_test_setting_user_path(@test_setting, user[3])

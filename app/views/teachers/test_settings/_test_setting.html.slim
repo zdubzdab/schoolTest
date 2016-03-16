@@ -5,9 +5,9 @@
       th = t '.theme'
       th = t '.name'
       th = t '.description'
-      th = t '.show'
-      th = t '.edit'
-      th = t '.destroy'
+      th = t 'table.attributes.show'
+      th = t 'table.attributes.edit'
+      th = t 'table.attributes.destroy'
 
       - @test_settings.each do |test|
         tr
@@ -15,9 +15,9 @@
           td = test.theme.name
           td = test.name
           td = test.description
-          td = link_to t('.buttons.show'), teachers_test_setting_path(test)
-          td = link_to t('.buttons.edit'), edit_teachers_test_setting_path(test)
-          td = link_to t('.buttons.destroy'), teachers_test_setting_path(test), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_test_setting"
+          td = link_to t('buttons.show'), teachers_test_setting_path(test)
+          td = link_to t('buttons.edit'), edit_teachers_test_setting_path(test)
+          td = link_to t('buttons.destroy'), teachers_test_setting_path(test), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_test_setting"
 
 .col-md-6#test_setting_table_pagination
   ul.ul_list_style

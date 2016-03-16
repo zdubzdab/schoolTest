@@ -10,6 +10,7 @@ class Admin::UsersController < AdminController
 
   def edit
     @user = User.find(params[:id])
+    @user.build_image
   end
 
   def update
@@ -37,6 +38,6 @@ class Admin::UsersController < AdminController
     private
 
     def user_params
-      params.require(:user).permit(:id, :full_name, :email, :avatar, :remove_avatar, :avatar_cache)
+      params.require(:user).permit(:id, :full_name, :email, image_attributes: [:id, :photo, :_destroy, :primary])
     end
 end
