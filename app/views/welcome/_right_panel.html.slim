@@ -4,8 +4,10 @@
       = t('.h_search')
   .panel-body
     = form_tag(search_welcome_index_path, method: "get", class: "search_form") do
-      = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
-      = submit_tag t('.search'), class: "btn btn-info"
+      .input-group
+        = text_field_tag :search, params[:search], placeholder: t('.placeholder_search')
+        span.input-group-btn
+          = submit_tag t('.search'), class: "btn btn-info"
 
     = link_to "#", id: "clean_search_field" do
       i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
