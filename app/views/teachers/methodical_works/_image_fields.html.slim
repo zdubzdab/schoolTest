@@ -1,0 +1,7 @@
+.fields
+  .form-group
+    li
+      = f.label :photo do
+        = f.file_field :photo, class: "tiding-photo-checkbox"
+      = f.hidden_field :_destroy
+      = link_to_remove_fields t('buttons.remove'), f

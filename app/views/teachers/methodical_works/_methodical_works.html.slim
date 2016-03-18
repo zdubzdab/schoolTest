@@ -1,0 +1,23 @@
+.col-md-11
+  table.table.table-bordered.table-condensed.table-striped#table-with-methodical-works
+    tr
+      th#col-1 = t '.title'
+      th#col-2 = t '.text'
+      th#col-3 = t '.time'
+      th#col-4 = t 'table.attributes.edit'
+      th#col-5 = t 'table.attributes.destroy'
+
+      - @methodical_works.each do |methodical_work|
+        tr
+          td = methodical_work.title
+          td = methodical_work.text
+          td = date_format(methodical_work.created_at)
+          td = link_to edit_teachers_methodical_work_path(methodical_work) do
+            i.fa.fa-pencil-square-o.fa-2x
+          td = link_to teachers_methodical_work_path(methodical_work), method: :delete, data: { confirm: t('.destroy_certain') }, class: "b-delete-tiding" do
+            i.fa.fa-remove.fa-2x
+
+.col-md-6#methodical-work-table-pagination
+  ul.ul_list_style
+    li.active
+      span= paginate @methodical_works, remote: true

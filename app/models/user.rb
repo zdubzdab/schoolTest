@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   ADMIN_STUDENTS_INDEX_PAGES = 20
   ADMIN_USERS_INDEX_PAGES = 5
   USERS_INDEX_PAGES = 5
-  ADMIN_TIDINGS_INDEX_PAGES = 20
 
   has_many :tests
   has_many :test_settings
@@ -21,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :categgories_with_subjects
   has_many :comments
   has_one :image, as: :imageable, dependent: :destroy
+  has_many :methodical_works
 
   accepts_nested_attributes_for :image
 

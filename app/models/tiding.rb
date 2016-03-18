@@ -6,6 +6,7 @@ class Tiding < ActiveRecord::Base
   resourcify#rolify
 
   WELCOME_INDEX_PAGES = 5
+  ADMIN_TIDINGS_INDEX_PAGES = 20
 
   def self.search(query)
     where("lower(title) like ?", "%#{query.downcase}%")

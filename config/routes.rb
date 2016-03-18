@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     namespace :teachers do
+      resources :methodical_works
       resources :questions
       resources :test_settings do
         resources :users, only: [:show]

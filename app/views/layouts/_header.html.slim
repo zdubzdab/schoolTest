@@ -9,8 +9,9 @@ header
           - if current_user.has_role? :student
             li.pull-right= link_to t('.buttons.pass_test'), students_test_settings_path
           - elsif current_user.has_role? :teacher
-            / li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
-            / li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
+            li.pull-right= link_to t('.buttons.new_methodical_work'), new_teachers_methodical_work_path
+            li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
+            li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
           - elsif current_user.has_role? :admin
             li.pull-right= link_to t('.buttons.new_test'), new_teachers_test_setting_path
             li.pull-right= link_to t('.buttons.testing'), teachers_test_settings_path
@@ -35,6 +36,7 @@ header
         - else
           li.pull-right= link_to t('buttons.sign_up'), new_user_registration_path
           li.pull-right= link_to t('buttons.login'), new_user_session_path
+        li.pull-right= link_to t('.buttons.methodical_works'), teachers_methodical_works_path
         li= link_to t('.buttons.main'), root_path
         li.pull-right= link_to t('.buttons.comments'), new_comment_path
         li.pull-right= link_to t('.buttons.teachers'), users_path

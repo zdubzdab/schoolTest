@@ -43,6 +43,9 @@ ua:
       comment:
         name: "Заголовок"
         text: "Текст"
+      methodical_work:
+        title: "Заголовок"
+        text: "Текст"
     errors:
       models:
         user:
@@ -51,15 +54,15 @@ ua:
               too_short: "занадто коротке (мінімум три символи)"
 
   buttons:
-    back: "Назад"
     remove: "Видалити"
+    back: "Назад"
     edit: "Редагувати"
-    destroy: "Видалити"
     show: "Переглянути"
     submit: "Зберегти"
     save: "Зберегти"
     login: "Логін"
     sign_up: "Реєстрація"
+    add_photo: "Додати фотографію"
 
   table:
     attributes:
@@ -149,6 +152,8 @@ ua:
         manage_students: "Редагувати учнів"
         edit: "Редагувати вчителів"
         news_list: "Список новин "
+        new_methodical_work: "Нова метод. робота"
+        methodical_works: "Метод. роботи"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -177,6 +182,8 @@ ua:
         max_tried_count: "Кількість спроб"
         choose_video: "Виберіть відео"
         choose_files: "Виберіть файли"
+        h_files: "Файли"
+        h_videos: "Відео"
         buttons:
           add_question: "Додати запитання"
       question_fields:
@@ -211,6 +218,28 @@ ua:
         testing_max_tried_count: "Загальна кількість спроб: "
         name: "Прізвище Ім'я Побатькові учня: "
         class: "Клас: "
+    methodical_works:
+      new:
+        h_methodical_creation: "Методична робота"
+      form:
+        choose_photos: "Виберіть фотографії"
+      index:
+        h_methodical_work_list: "Методичні роботи"
+      methodical_works:
+        destroy_certain: "Ви впевнені, що хочете видалити дану роботу?"
+        title: "Назва"
+        text: "Текст"
+        time: "Час створення"
+      destroy:
+        controllers:
+          sucessful: "Ваша методична робота успішно видалина."
+      create:
+        controllers:
+          sucessful: "Ваша методична робота успішно створена."
+      edit:
+        h_edit_methodical_work: "Редагування методичної роботи"
+        controllers:
+          sucessful: "Ваша методична робота успішно збережена."
   admin:
     users:
       index:
@@ -239,8 +268,6 @@ ua:
       form:
         mark_if_right: "Позначте, якщо новина головна"
         choose_photos: "Виберіть фотографії і поставте позначку біля тієї, яка має відображатися першою"
-        buttons:
-          add_photo: "Додати фотографію"
       edit:
         mark_if_right: "Позначте, якщо новина головна"
         choose_photos: "Виберіть фотографії"
