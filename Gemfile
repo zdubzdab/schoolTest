@@ -38,6 +38,7 @@ gem 'sprockets-rails', '~> 2'
 gem "i18n-js", ">= 3.0.0.rc11"
 gem 'rmega'
 gem "carrierwave-mega", :git => "git://github.com/zdubzdab/carrierwave-mega.git"
+gem "gretel"
 
 group :assets do
   gem "coffee-rails"

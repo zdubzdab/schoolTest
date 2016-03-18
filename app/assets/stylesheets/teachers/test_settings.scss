@@ -46,12 +46,76 @@
 /*teachers*/
 /*test_setting*/
 /*index*/
-#table_with_test_settings {
-  position:relative;
-  left:10.5%;
+#table-with-test-settings {
+  td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #col-1 {
+    width: 10%;
+  }
+
+  #col-2 {
+    width: 14%;
+  }
+
+  #col-3 {
+    width: 27%;
+  }
+
+  #col-4 {
+    width: 27%;
+  }
+
+  #col-5 {
+    width: 8%;
+  }
+
+  #col-6 {
+    width: 8%;
+  }
+
+  #col-7 {
+    width: 6%;
+  }
 }
 
 #test_setting_table_pagination {
   position:relative;
   left:36%;
+}
+
+#table-with-news {
+  position: relative;
+  left: 4.6%;
+
+  td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #col-1 {
+    width: 20%;
+  }
+
+  #col-2 {
+    width: 39%;
+  }
+
+  #col-3 {
+    width: 15%;
+  }
+
+  #col-4 {
+    width: 13%;
+  }
+
+  #col-5 {
+    width: 13%;
+  }
 }

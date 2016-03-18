@@ -15,5 +15,6 @@ html
             p.notice= notice
             p.alert= alert
           .col-md-12
+            = breadcrumbs style: :bootstrap, display_single_fragment: true, pretext: t("gretel.you_are_here"), separator: " &rsaquo; "
             = yield
       = render 'layouts/footer'

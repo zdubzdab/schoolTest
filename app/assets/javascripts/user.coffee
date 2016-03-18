@@ -1,5 +1,5 @@
 $ ->
-  $('body').on 'click', '#teacher_table_pagination  a', (event, data, status, xhr) ->
+  $('body').on 'click', '#teacher-table-pagination  a', (event, data, status, xhr) ->
     url = $(this).attr("href")
     $.ajax
       url: url

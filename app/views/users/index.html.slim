@@ -1,9 +1,10 @@
-.col-md-12
-  h3
-    = t('.h_teachers')
+- breadcrumb :watch_teachers
+
+h3
+  = t('.h_teachers')
 
 #partial_teachers
   = render partial: 'users'
 
-.col-md-12#b
+.col-md-12
   = link_to t('buttons.back'), root_path

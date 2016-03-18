@@ -2,7 +2,10 @@ class Admin::UsersController < AdminController
   load_and_authorize_resource
 
   def index
-    @teachers = User.teachers.order("created_at DESC").page(params[:page]).per(User::ADMIN_USERS_INDEX_PAGES)
+    @teachers = User.teachers
+                    .order("created_at DESC")
+                    .page(params[:page])
+                    .per(User::ADMIN_USERS_INDEX_PAGES)
     respond_to do |format|
       format.html { render partial: "users" if request.xhr? }
     end

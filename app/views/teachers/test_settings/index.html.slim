@@ -1,9 +1,10 @@
-.col-md-12
-  h3
-    = t('.h_tests')
+- breadcrumb :teachers_test_settings
 
-  #test_settings_partial
-    = render 'test_setting'
+h3
+  = t('.h_tests')
 
-  .col-md-8#b_back_test_setting_new
-    = link_to t('buttons.back'), root_path
+#test_settings_partial
+  = render 'test_setting'
+
+.col-md-8#b_back_test_setting_new
+  = link_to t('buttons.back'), root_path

@@ -1,10 +1,11 @@
-.col-md-12
-  h3
-    = t('.h_suggestions_list')
+- breadcrumb :admin_comments
 
-  #comments_partial
-    = render partial: 'comments'
+h3
+  = t('.h_suggestions_list')
 
-  .col-md-10
-    br
-      = link_to t('buttons.back'), root_path
+#comments_partial
+  = render partial: 'comments'
+
+.col-md-10
+  br
+    = link_to t('buttons.back'), root_path

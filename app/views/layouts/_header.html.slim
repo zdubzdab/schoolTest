@@ -4,7 +4,6 @@ header
   naw.navbar.navbar-info
     .navbar-inner
       ul.nav.navbar-nav
-
         - if user_signed_in?
           - if current_user.has_role? :student
             li.pull-right= link_to t('.buttons.pass_test'), students_test_settings_path

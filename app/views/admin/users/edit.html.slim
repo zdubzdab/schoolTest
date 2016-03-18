@@ -1,7 +1,6 @@
-.col-md-12
-  h3
-    = t('.h_edit')
-
+- breadcrumb :admin_teachers_edit
+h3
+  = t('.h_edit')
 
 = form_for [:admin, @user], html: {id: "admin-edit-teacher", multipart: true } do |f|
   - if @user.errors.any?
