@@ -8,7 +8,9 @@
       = submit_tag t('.search'), class: "btn btn-info"
 
     = link_to "#", id: "clean_search_field" do
-      i#clean_search.fa.fa-remove.fa-3x data-title=t('.search_clear')
+      i#clean_search.fa.fa-remove.fa-3x
+        span
+          = t('.search_clear')
 
 #partial_news
   = render partial: 'tidings'
