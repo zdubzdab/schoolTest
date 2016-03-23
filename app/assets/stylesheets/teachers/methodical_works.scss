@@ -1,0 +1,43 @@
+// Place all the styles related to the MethodicalWorks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#methodical-work-textarea {
+  height: 120px;
+}
+
+#table-with-methodical-works {
+  position: relative;
+  left: 5%;
+
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #col-1 {
+    width: 20%;
+  }
+
+  #col-2 {
+    width: 39%;
+  }
+
+  #col-3 {
+    width: 15%;
+  }
+
+  #col-4 {
+    width: 13%;
+  }
+
+  #col-5 {
+    width: 13%;
+  }
+}
+
+#methodical-work-table-pagination {
+  position:relative;
+  left: 38%;
+}

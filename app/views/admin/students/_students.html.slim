@@ -12,8 +12,10 @@
           td = user.full_name
           td = user.email
           td = user.categgory.try(&:id)
-          td = link_to t('buttons.edit'), edit_admin_student_path(user)
-          td = link_to t('buttons.destroy'), admin_student_path(user), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b_delete_student"
+          td = link_to edit_admin_student_path(user) do
+            i.fa.fa-pencil-square-o.fa-2x
+          td = link_to admin_student_path(user), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b_delete_student" do
+            i.fa.fa-remove.fa-2x
 
 .col-md-6#admin-student-table-pagination
   ul.ul_list_style

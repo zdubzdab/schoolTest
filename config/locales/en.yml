@@ -43,6 +43,9 @@ en:
       comment:
         name: "Title"
         text: "Text"
+      methodical_work:
+        title: "Title"
+        text: "Text"
     errors:
       models:
         user:
@@ -51,15 +54,15 @@ en:
               too_short: "is too short(minimum %{count} symbols)"
 
   buttons:
-    back: "Back"
     remove: "Remove"
+    back: "Back"
     edit: "Edit"
-    destroy: "Remove"
     show: "Show"
     submit: "Save"
     save: "Save"
     login: "Login"
     sign_up: "Sign Up"
+    add_photo: "Add photo"
 
   table:
     attributes:
@@ -149,6 +152,8 @@ en:
         manage_students: "Edit students"
         edit: "Edit teachers"
         news_list: "List of news "
+        new_methodical_work: "New methodical work"
+        methodical_works: "Methodical works"
   users:
     index:
       h_teachers: "Our teachers"
@@ -177,6 +182,8 @@ en:
         max_tried_count: "Tried counts"
         choose_video: "Choose video"
         choose_files: "Choose files"
+        h_files: "Files"
+        h_videos: "Videos"
         buttons:
           add_question: "Add question"
       question_fields:
@@ -211,6 +218,28 @@ en:
         testing_max_tried_count: "Number of attempts: "
         name: "Student Full Name: "
         class: "Class: "
+    methodical_works:
+      new:
+        h_methodical_creation: "Methodical work"
+      form:
+        choose_photos: "Choose photos"
+      index:
+        h_methodical_work_list: "Methodical works"
+      methodical_works:
+        destroy_certain: "Are you sure that want to remove this methodical work?"
+        title: "Title"
+        text: "Text"
+        time: "Creation time"
+      destroy:
+        controllers:
+          sucessful: "Your methodical work was successfully removed."
+      create:
+        controllers:
+          sucessful: "Your methodical work was successfully created."
+      edit:
+        h_edit_methodical_work: "Methodical work editing"
+        controllers:
+          sucessful: "Your methodical work was successfully saved."
   admin:
     users:
       index:
@@ -245,8 +274,6 @@ en:
         mark_if_right: "If news is main mark it"
         choose_photos: "Choose photos"
         h_edit_new: "Editing news"
-        buttons:
-          add_photo: "Add photo"
       tidings:
         name: "Name"
         text: "Text"

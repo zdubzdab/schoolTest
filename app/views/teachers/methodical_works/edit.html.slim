@@ -1,0 +1,13 @@
+h3
+  = t('.h_edit_methodical_work')
+
+= render "form"
+
+.col-md-6#field-with-images
+  ol
+    - @methodical_work.images.each do |imag|
+      li
+        = image_tag(imag.photo.url(:small))
+
+.col-md-12
+  = link_to t('buttons.back'), teachers_methodical_works_path

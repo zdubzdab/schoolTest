@@ -1,10 +1,10 @@
-= form_for [:admin, @tiding], html: { class: 'tidings-form',  multipart: true } do |f|
-  - if @tiding.errors.any?
+= form_for [:teachers, @methodical_work], html: { class: 'methodical-work-form',  multipart: true } do |f|
+  - if @methodical_work.errors.any?
       #error_explanation
         h4
-          = t('errors.messages.not_saved', count: @tiding.errors.count, resource: Tiding.model_name.human)
+          = t('errors.messages.not_saved', count: @methodical_work.errors.count, resource: MethodicalWork.model_name.human)
         ul
-          - @tiding.errors.full_messages.each do |msg|
+          - @methodical_work.errors.full_messages.each do |msg|
             li= msg
   .col-md-6
     .form-group
@@ -12,10 +12,8 @@
       = f.text_field :title, class: 'form-control'
     .form-group
       = f.label :text
-      = f.text_area :text, class: 'form-control', id: "tiding-textarea"
-    .form-group
-      = f.label :main, t('.mark_if_right')
-      = f.check_box :main
+      = f.text_area :text, class: 'form-control', id: "methodical-work-textarea"
+      = f.hidden_field :user_id, value: current_user.id
     .form-group
       b
         = t('.choose_photos')

@@ -12,8 +12,10 @@
           td = tiding.title
           td = tiding.text
           td = date_format(tiding.created_at)
-          td = link_to t('buttons.edit'),  edit_admin_tiding_path(tiding)
-          td = link_to t('buttons.destroy'), admin_tiding_path(tiding), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b-delete-tiding"
+          td = link_to edit_admin_tiding_path(tiding) do
+            i.fa.fa-pencil-square-o.fa-2x
+          td = link_to admin_tiding_path(tiding), remote: true, method: :delete, data: { confirm: t('.destroy_certain') }, class: "b-delete-tiding" do
+            i.fa.fa-remove.fa-2x
 
 .col-md-6#admin-news-table-pagination
   ul.ul_list_style

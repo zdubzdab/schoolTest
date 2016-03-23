@@ -7,6 +7,7 @@
   position:relative;
   left:200%;
   top:-640px;
+  padding: 15px;
 }
 
 .test-settings-form {
@@ -18,8 +19,14 @@
   top:40px;
 }
 
+#b-back-test-setting-new{
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
 #test_setting_categgory_id, #test_setting_subject_id, #test_setting_theme_id,
-#b_save_test, #subject_id, #test_theme_id, #test_theme_select_box,
+#b-save-test, #b-update-test, #subject_id, #test_theme_id, #test_theme_select_box,
 #button_pass_test {
   font-family: Arial;
   font-weight: bold;
@@ -31,7 +38,7 @@
   width: 175px;
 }
 
-#b_save_test {
+#b-save-test {
   position:relative;
   top:55px;
 }

@@ -15,9 +15,12 @@
           td = test.theme.name
           td = test.name
           td = test.description
-          td = link_to t('buttons.show'), teachers_test_setting_path(test)
-          td = link_to t('buttons.edit'), edit_teachers_test_setting_path(test)
-          td = link_to t('buttons.destroy'), teachers_test_setting_path(test), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_test_setting"
+          td = link_to teachers_test_setting_path(test) do
+            i.fa.fa-eye.fa-2x
+          td = link_to edit_teachers_test_setting_path(test) do
+            i.fa.fa-pencil-square-o.fa-2x
+          td = link_to teachers_test_setting_path(test), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_test_setting" do
+            i.fa.fa-remove.fa-2x
 
 .col-md-6#test_setting_table_pagination
   ul.ul_list_style

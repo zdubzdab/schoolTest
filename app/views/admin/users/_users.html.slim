@@ -12,8 +12,10 @@
           td = user.full_name
           td = user.email
           td = image_tag(user.image.photo.url(:small)) if user.image
-          td = link_to t('buttons.edit'), edit_admin_user_path(user)
-          td = link_to t('buttons.destroy'), admin_user_path(user), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_teacher"
+          td = link_to edit_admin_user_path(user) do
+            i.fa.fa-pencil-square-o.fa-2x
+          td = link_to admin_user_path(user), remote: true, method: :delete, data: { confirm: t('.confirm_destroy') }, class: "b_delete_teacher" do
+            i.fa.fa-remove.fa-2x
 
 .col-md-6#admin_teacher_table_pagination
   ul.ul_list_style

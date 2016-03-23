@@ -13,4 +13,5 @@
           td = user[1]
           td = user[2]
           td = number.count
-          td = link_to t('buttons.show'), teachers_test_setting_user_path(@test_setting, user[3])
+          td = link_to teachers_test_setting_user_path(@test_setting, user[3]) do
+            i.fa.fa-eye.fa-2x

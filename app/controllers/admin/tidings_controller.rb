@@ -17,7 +17,10 @@ class Admin::TidingsController < AdminController
   end
 
   def index
-    @tidings = Tiding.all.order("created_at DESC").page(params[:page]).per(User::ADMIN_TIDINGS_INDEX_PAGES)
+    @tidings = Tiding.all
+                      .order("created_at DESC")
+                      .page(params[:page])
+                      .per(Tiding::ADMIN_TIDINGS_INDEX_PAGES)
       respond_to do |format|
         format.html { render partial: "tidings" if request.xhr? }
       end

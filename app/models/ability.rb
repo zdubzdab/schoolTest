@@ -10,19 +10,14 @@ class Ability
       can :manage, :all
     elsif user.has_role? :teacher
       can :create, Comment
-      can :read, Tiding
-      can :read, User
-      can :read, Test
-      can :read, TestSetting
+      can :read, [Tiding, User, Test, TestSetting]
+      can :manage, [TestSetting, MethodicalWork], user_id: user.id
     elsif user.has_role? :student
       can :create, Comment
-      can :read, Tiding
-      can :read, User
+      can :read, [Tiding, User, MethodicalWork]
     else
       can :create, Comment
-      can :read, Tiding
-      can :read, User
+      can :read, [Tiding, User, MethodicalWork]
     end
-
   end
 end

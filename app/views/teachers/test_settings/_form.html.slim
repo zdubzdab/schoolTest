@@ -33,6 +33,23 @@
     .form-group
       = f.label :max_tried_count, t('.max_tried_count')
       = f.number_field :max_tried_count, in: 1...10, class: 'form-control'
+    - if @test_setting.files.present?
+      .form-group
+        h4
+          = t '.h_files'
+        - @test_setting.files.each do |doc|
+          br
+          i.fa.fa-file-pdf-o.fa-3x
+          = link_to chop(doc.current_path), students_test_setting_download_path(@test_setting, path_to_file: doc.current_path)
+    - if @test_setting.videos.present?
+      .form-group
+        h4
+          = t '.h_videos'
+        - @test_setting.videos.each do |video|
+          br
+          i.fa.fa-file-video-o.fa-3x
+          = link_to chop(video.current_path), students_test_setting_download_path(@test_setting, path_to_file: video.current_path)
+      hr
     .form-group
       b
         = t('.choose_video')
@@ -45,11 +62,21 @@
       br
       = f.label :files do
         = f.file_field :files, multiple: true
-    .col-md-16#question_answer
-      = f.fields_for :questions do |builder|
-        = render 'question_fields', f: builder
-        hr
-        .l_add_question#links_q_a
-          = link_to_add_fields t('.buttons.add_question'), f, :questions
 
-      = f.submit t('buttons.save'), class: "btn btn-info", id: "b_save_test"
+    - if controller.action_name == "edit"
+      = f.submit t('buttons.save'), class: "btn btn-info", id: "b-update-test"
+      .col-md-16#question_answer
+        = f.fields_for :questions do |builder|
+          = render 'question_fields', f: builder
+          hr
+          .l_add_question#links_q_a
+            = link_to_add_fields t('.buttons.add_question'), f, :questions
+    - else
+      .col-md-16#question_answer
+        = f.fields_for :questions do |builder|
+          = render 'question_fields', f: builder
+          hr
+          .l_add_question#links_q_a
+            = link_to_add_fields t('.buttons.add_question'), f, :questions
+
+        = f.submit t('buttons.save'), class: "btn btn-info", id: "b-save-test"

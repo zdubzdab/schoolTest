@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311093642) do
+ActiveRecord::Schema.define(version: 20160318110524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 20160311093642) do
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+
+  create_table "methodical_works", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "methodical_works", ["user_id"], name: "index_methodical_works_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.text    "text"
@@ -166,6 +176,7 @@ ActiveRecord::Schema.define(version: 20160311093642) do
 
   add_foreign_key "answers", "tests"
   add_foreign_key "comments", "users"
+  add_foreign_key "methodical_works", "users"
   add_foreign_key "test_settings", "users"
   add_foreign_key "users", "subjects"
 end

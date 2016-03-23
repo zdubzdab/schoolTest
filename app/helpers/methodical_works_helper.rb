@@ -1,0 +1,2 @@
+module MethodicalWorksHelper
+end
