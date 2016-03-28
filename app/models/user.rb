@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :categgories_with_subjects
   has_many :categgories, through: :categgories_with_subjects
   has_many :subjects, through: :categgories_with_subjects
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one :image, as: :imageable, dependent: :destroy
   has_many :methodical_works
 
