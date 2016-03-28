@@ -6,7 +6,7 @@
   .carousel-inner role="listbox"
     - @images.each do |img|
       .item
-        = link_to image_tag(img.photo.url(:big)), {class: "img-responsive"}
+        = link_to display_image(img.photo.url(:big)), {class: "img-responsive"}
 
   - if check_if_number_of_imag_more_than_one(@images.count)
     a.left.carousel-control data-slide="prev" href="#myCarousel" role="button"

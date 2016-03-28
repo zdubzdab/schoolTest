@@ -7,7 +7,7 @@ h3
   ol
     - @tiding.images.each do |imag|
       li
-        = image_tag(imag.photo.url(:small))
+        = display_image(imag.photo.url(:small))
 
 .col-md-12
   = link_to t('buttons.back'), admin_tidings_path

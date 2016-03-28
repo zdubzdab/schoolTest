@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def display_image(url)
+    if File.file?(url)
+      binding.pry
+      image_tag(url)
+    else
+      image_tag('/default.png')
+    end
+  end
 
   def categgory_options
     categgories = Categgory.all

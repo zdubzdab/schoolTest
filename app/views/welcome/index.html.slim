@@ -2,11 +2,11 @@
   .panel.panel-default#main_new_field
     .panel-heading#panel_heading_main_new
       h4.header-in-panel-main-new
-        = @post.try(:title)
+        = @tiding.try(:title)
     .panel-body
       = render partial: 'carousel'
       hr.main-new-hr
-      = @post.try(:text)
+      = @tiding.try(:text)
 
 .col-md-4
   = render partial: 'right_panel'
