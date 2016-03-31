@@ -44,7 +44,7 @@ class Teachers::TestSettingsController < ApplicationController
   end
 
   def update
-    if @test_settings.update(test_settings_params)
+    if @test_setting.update(test_settings_params)
       redirect_to teachers_test_settings_path
     else
       render 'edit'

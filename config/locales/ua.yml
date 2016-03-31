@@ -76,6 +76,27 @@ ua:
       result: "Результат кращого тесту, %"
       tries_number: "К-сть використаних спроб"
 
+  gretel:
+    you_are_here: "Ви тут: "
+    home: "Головна"
+    edit: "Редагування профілю"
+    add_suggestion: "Додати пропозицію"
+    teachers: "Вчителі"
+    watch_new: "Перегляд новини"
+    watch_tests: "Список тестів"
+    test_result: "Результати учнів за тест"
+    user_test_result: "Результати учня за тест"
+    test_edit: "Редагування тесту"
+    test_creation: "Створення тесту"
+    suggestions_list: "Список пропозицій"
+    students_list: "Список учнів"
+    teachers_list: "Список вчителів"
+    edit_student: "Редагування учня"
+    edit_teacher: "Редагування вчителя"
+    tiding_new: "Створення новини"
+    tidings_list: "Список новин"
+    edit_tiding: "Редагування новини"
+
   views:
     pagination:
       first: "<<"
@@ -154,6 +175,9 @@ ua:
         news_list: "Список новин "
         new_methodical_work: "Нова метод. робота"
         methodical_works: "Метод. роботи"
+  comments:
+    new:
+      h_add_suggestions: "Додати пропозицію"
   users:
     index:
       h_teachers: "Наші вчителі"
@@ -171,9 +195,9 @@ ua:
         controllers:
           error: "Ви не можете видалити цей тест"
       new:
-        h_test_creation: "Створення тестів"
+        h_test_creation: "Створення тесту"
       edit:
-        h_test_editing: "Редагування тестів"
+        h_test_editing: "Редагування тесту"
       form:
         class: "Клас"
         subject: "Предмет"

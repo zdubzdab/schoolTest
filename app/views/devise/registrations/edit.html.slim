@@ -1,3 +1,5 @@
+- breadcrumb :edit_profile
+
 h3
   = t '.h_edit'
 
@@ -26,6 +28,7 @@ h3
       = f.password_field :password, autocomplete: "off"
     .field
       = f.label :password_confirmation
+      br
       = f.password_field :password_confirmation, autocomplete: "off"
     .field
       = f.label :current_password
@@ -35,7 +38,7 @@ h3
       = f.password_field :current_password, autocomplete: "off"
     br
     .actions
-      = f.submit t('.buttons.submit'), class: "btn btn-info", id: "b_registration"
+      = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
 
 .col-md-12
   p

@@ -11,7 +11,7 @@
           td = user.email
           td = image_tag(user.avatar.url(:thumb)) if user.avatar.present?
 
-.col-md-6#teacher_table_pagination
+.col-md-6#teacher-table-pagination
   ul.ul_list_style
     li.active
       span= paginate @teachers
