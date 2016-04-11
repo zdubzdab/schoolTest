@@ -62,9 +62,23 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+  gem "rspec-rails"
+  gem 'spork-rails'
+  gem "factory_girl_rails"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :production do
   gem 'puma'
   gem "rack-timeout"
 end
+
