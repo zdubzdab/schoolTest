@@ -6,14 +6,14 @@ end
   Subject.find_or_create_by(name: s)
 end
 
-%w[Хімія_тема1 Хімія_тема2 Хімія_тема3].each do |x|
+%w[Хімія_тема1 Хімія_тема2].each do |x|
   Theme.create_with(subject_id: Subject.first.id).find_or_create_by(name: x)
 end
-%w[Біологія_тема1 Біологія_тема2 Біологія_тема3].each do |t|
+%w[Біологія_тема1 Біологія_тема2].each do |t|
   Theme.create_with(subject_id: Subject.last.id).find_or_create_by(name: t)
 end
 
-Theme.last(6).each do |t|
+Theme.last(4).each do |t|
   User.first(10).each do |u|
     name = "#{t.name}_тест_вчителя#{u.full_name}"
     description = Faker::Lorem.paragraph(5)
@@ -32,14 +32,14 @@ Theme.last(6).each do |t|
 end
 
 Question.delete_all
-TestSetting.last(12).each do |ts|
-  5.times do
+TestSetting.last(40).each do |ts|
+  3.times do
     Question.create_with(test_setting_id: ts.id).find_or_create_by(text: Faker::Lorem.sentence)
   end
 end
 
 AnswerSetting.delete_all
-Question.last(60).each do |q|
+Question.last(120).each do |q|
   3.times do
     rigth = [true, false].sample
     few_answers = [true, false].sample
