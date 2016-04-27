@@ -36,7 +36,6 @@ class Teachers::TestSettingsController < ApplicationController
   def show
     @test_setting = TestSetting.find(params[:id])
     @users = @test_setting.users.group_by{ |u| [u.full_name, u.categgory.try(:name), result(u.tests), u.id] }
-    @questions = @test_setting.questions
   end
 
   def edit
@@ -44,6 +43,8 @@ class Teachers::TestSettingsController < ApplicationController
   end
 
   def update
+    @test_setting = TestSetting.find(params[:id])
+
     if @test_setting.update(test_settings_params)
       redirect_to teachers_test_settings_path
     else

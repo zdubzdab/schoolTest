@@ -39,6 +39,7 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem 'rmega'
 gem "carrierwave-mega", :git => "git://github.com/zdubzdab/carrierwave-mega.git"
 gem "gretel"
+gem 'pry-rails'
 
 group :assets do
   gem "coffee-rails"
@@ -75,6 +76,8 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-collection_matchers'
 end
 
 group :production do

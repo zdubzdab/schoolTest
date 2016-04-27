@@ -225,6 +225,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (2.16.0)
     rack (1.6.4)
     rack-accept (0.4.5)
@@ -275,6 +277,12 @@ GEM
     routing-filter (0.5.1)
       actionpack (~> 4.2)
       activesupport (~> 4.2)
+    rspec-activemodel-mocks (1.0.3)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
+    rspec-collection_matchers (1.1.2)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -406,6 +414,7 @@ DEPENDENCIES
   poltergeist
   progress_bar
   pry
+  pry-rails
   puma
   rack-timeout
   rails
@@ -414,6 +423,8 @@ DEPENDENCIES
   rmega
   rolify
   routing-filter
+  rspec-activemodel-mocks
+  rspec-collection_matchers
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

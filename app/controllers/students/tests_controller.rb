@@ -1,4 +1,5 @@
 class Students::TestsController < ApplicationController
+  load_and_authorize_resource
 
   def new
     @test = Test.new(user_id: current_user.id)

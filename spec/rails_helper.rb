@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'devise'
 require "capybara/rspec"
 
 #set the default driver 
@@ -35,9 +36,9 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-    #it saves us time when using FactoryGirl methods. 
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
+  config.include Devise::TestHelpers, :type => :controller
 end
 
 Shoulda::Matchers.configure do |config|
