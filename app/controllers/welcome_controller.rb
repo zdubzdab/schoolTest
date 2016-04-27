@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
     @tidings = Tiding.order("created_at DESC")
                       .page(params[:page])
                       .per(Tiding::WELCOME_INDEX_PAGES)
-    @images = @tiding.images.order("images.primary ASC")
+    @images = @tiding.blank? ? [] : @tiding.images.order("images.primary ASC")
     respond_to do |format|
       format.html { render partial: "tidings" if request.xhr? }
     end

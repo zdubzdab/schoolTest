@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :tiding do
-    title    Faker::Commerce.department
+    sequence(:title) { |n| "Title№#{n}" }
     text     Faker::Lorem.paragraph
     main     true
   end
