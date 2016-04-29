@@ -1,13 +1,12 @@
-.col-md-4
-  = form_for [:teachers, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
-    - if @test_setting.errors.any?
-        #error_explanation
-          h4
-            = t('errors.messages.not_saved', count: @test_setting.errors.count, resource: TestSetting.model_name.human)
-          ul
-            - @test_setting.errors.full_messages.each do |msg|
-              li= msg
-
+= form_for [:teachers, @test_setting], html: { class: 'test-settings-form',  multipart: true } do |f|
+  - if @test_setting.errors.any?
+      #error_explanation
+        h4
+          = t('errors.messages.not_saved', count: @test_setting.errors.count, resource: TestSetting.model_name.human)
+        ul
+          - @test_setting.errors.full_messages.each do |msg|
+            li= msg
+  .col-md-4
     .form-group
       = f.label :categgory_id, t('.class')
       br
@@ -63,20 +62,15 @@
       = f.label :files do
         = f.file_field :files, multiple: true
 
+  .col-md-4
+    #question_answer
+      = f.fields_for :questions do |builder|
+        = render 'question_fields', f: builder
+        hr
+        .l_add_question#links_q_a
+          = link_to_add_fields t('.buttons.add_question'), f, :questions
+
     - if controller.action_name == "edit"
       = f.submit t('buttons.save'), class: "btn btn-info", id: "b-update-test"
-      .col-md-16#question_answer
-        = f.fields_for :questions do |builder|
-          = render 'question_fields', f: builder
-          hr
-          .l_add_question#links_q_a
-            = link_to_add_fields t('.buttons.add_question'), f, :questions
     - else
-      .col-md-16#question_answer
-        = f.fields_for :questions do |builder|
-          = render 'question_fields', f: builder
-          hr
-          .l_add_question#links_q_a
-            = link_to_add_fields t('.buttons.add_question'), f, :questions
-
-        = f.submit t('buttons.save'), class: "btn btn-info", id: "b-save-test"
+      = f.submit t('buttons.save'), class: "btn btn-info", id: "b-save-test"
