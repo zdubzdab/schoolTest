@@ -14,4 +14,5 @@ class Test < ActiveRecord::Base
     def count_test_result
       TestResultCalculation::CountResult.new(self).count_and_paste_test_result
     end
+
 end
