@@ -26,7 +26,7 @@ ua:
         full_name: "Прізвище Ім'я Побатькові"
         email: "Емейл"
         password: "Пароль"
-        password_confirmation: "Пароль"
+        password_confirmation: "Підтвердження паролю"
         current_password: "Поточний пароль"
         categgory_id: "Клас"
         subject_id: "Предмет"

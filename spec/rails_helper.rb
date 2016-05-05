@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'devise'
 require "capybara/rspec"
+require "support/i18n_helper"
 
 #set the default driver 
 Capybara.javascript_driver = :webkit
@@ -38,7 +39,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
+  config.include I18nHelper
 end
 
 Shoulda::Matchers.configure do |config|
