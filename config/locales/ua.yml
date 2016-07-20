@@ -14,7 +14,7 @@ ua:
         other: "Через помилки неможливо зберегти %{resource}:"
   activerecord:
     models:
-      user: користувач
+      user: користувача
       users: користувачів
       test_setting: тест
       test_settings: тести

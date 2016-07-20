@@ -1,22 +1,22 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    create_tests
+    # create_tests
     create_test_setting_for_check_test_passing_procedure
   end
 end
 
-def create_tests
-  TestSetting.last(40).each do |ts|
-    User.last(5).each do |u|
-      user_id = u.id
-      complete_pers = Faker::Number.between(1, 100)
-      Test.create!(user_id: user_id,
-                   test_setting_id: ts.id,
-                   complete_pers: complete_pers)
-    end
-  end
-end
+# def create_tests
+#   TestSetting.last(40).each do |ts|
+#     User.last(5).each do |u|
+#       user_id = u.id
+#       complete_pers = Faker::Number.between(1, 100)
+#       Test.create!(user_id: user_id,
+#                    test_setting_id: ts.id,
+#                    complete_pers: complete_pers)
+#     end
+#   end
+# end
 
 def create_test_setting_for_check_test_passing_procedure
   TestSetting.create!(theme_id: Theme.last.id,

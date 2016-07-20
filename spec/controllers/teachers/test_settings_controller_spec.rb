@@ -41,14 +41,14 @@ describe Teachers::TestSettingsController do
 
   describe "POST create" do
     context "with valid attributes" do
+
+      before { post :create, test_setting: FactoryGirl.attributes_for(:test_setting) }
+
       it "creates a new test_setting" do
-        expect{
-          post :create, test_setting: FactoryGirl.attributes_for(:test_setting)
-        }.to change(TestSetting,:count).by(1)
+        expect { change(TestSetting).by(1) }
       end
 
       it "redirects to the page with list of current teacher tests" do
-        post :create, test_setting: FactoryGirl.attributes_for(:test_setting)
         expect(response).to redirect_to teachers_test_settings_path
       end
     end
